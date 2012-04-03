@@ -1,5 +1,5 @@
 <% provide(:title, 'Account Settings') %>
-<h1>Edit <%= resource_name.to_s.humanize %></h1>
+<h1>Account Settings</h1>
 <div class="row">
   <div class="span8 offset2">
     <%= simple_form_for(resource,
@@ -25,7 +25,7 @@
         <%= f.button :submit,
                      'Update account',
                      :class => 'btn btn-large btn-primary' %>
-        <%= submit_tag 'Clear form',
+        <%= submit_tag 'Reset form',
                   :type => :reset,
                   :class => 'btn btn-danger' %>
       </div>
