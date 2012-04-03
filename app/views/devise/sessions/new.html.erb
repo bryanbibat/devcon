@@ -1,0 +1,20 @@
+<% provide(:title, 'Sign in') %>
+<h1>Sign in</h1>
+<%= semantic_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <%= f.semantic_errors %>
+  <%= f.inputs do %>
+    <%= f.input :email, :hint => 'Enter your email address' %>
+    <%= f.input :password, :hint => 'Enter password' %>
+  <% end %>
+  <% if devise_mapping.rememberable? %>
+    <div class="clearfix">
+      <%= f.label :remember_me %>
+      <div class="input">
+        <%= f.check_box :remember_me %>
+      </div>
+    </div>
+  <% end %>
+  <%= f.actions do %>
+    <%= f.action(:submit, :label => 'Sign in') %>
+  <% end %>
+<% end %>

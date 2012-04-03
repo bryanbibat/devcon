@@ -4,9 +4,15 @@
       <%= link_to 'DevCon', root_path, :id => 'logo' %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to 'Home',     root_path %></li>
-          <li><%= link_to 'About',    about_path %></li>
-          <li><%= link_to 'Contact',  contact_path %></li>
+          <li><%= link_to 'Home', root_path %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to current_user.email, '#' %></li>
+            <li><%= link_to 'Settings', edit_user_registration_path %></li>
+            <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+          <% else %>
+            <li><%= link_to 'Sign up now', new_user_registration_path %></li>
+            <li><%= link_to 'Sign in', new_user_session_path %></li>
+          <% end %>
         </ul>
       </nav>
     </div>
