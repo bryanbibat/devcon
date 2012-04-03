@@ -64,5 +64,10 @@ module Devcon
 
     # Prevents access to DB when precompiling
     config.assets.initialize_on_precompile = false
+
+    config.generators do |g|
+      g.test_framework :rspec, :fixture => true
+      g.fixture_replacement :fabrication
+    end
   end
 end
