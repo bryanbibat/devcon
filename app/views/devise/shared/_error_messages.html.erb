@@ -1,0 +1,6 @@
+<% if form.error_notification %>
+  <div class="alert alert-error fade in">
+    <a class="close" data-dismiss="alert" href="#">&times;</a>
+    <%= devise_error_messages! %>
+  </div>
+<% end %>

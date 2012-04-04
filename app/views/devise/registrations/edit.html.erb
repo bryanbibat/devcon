@@ -1,37 +1,32 @@
 <% provide(:title, 'Account Settings') %>
 <h1>Account Settings</h1>
-<div class="row">
-  <div class="span8 offset2">
-    <%= simple_form_for(resource,
-        :as => resource_name,
-        :url => registration_path(resource_name),
-        :html => { :method => :put, :class => 'form-horizontal' }) do |f| %>
-      <% if f.error_notification %>
-        <div class="alert alert-error fade in">
-          <a class="close" data-dismiss="alert" href="#">&times;</a>
-          <%= devise_error_messages! %>
-        </div>
-      <% end %>
-      <%= f.input :email,
-                  :hint => 'Enter your email address',
-                  :input_html => { :class => 'input-xlarge' } %>
-      <%= f.input :password,
-                  :hint => "Enter new password (leave blank if you don't want to change it)" %>
-      <%= f.input :password_confirmation,
-                  :hint => 'Confirm new password' %>
-      <%= f.input :current_password,
-                  :hint => 'Enter current password' %>
-      <div class="form-actions">
-        <%= f.button :submit,
-                     'Update account',
-                     :class => 'btn btn-large btn-primary' %>
-        <%= submit_tag 'Reset form',
-                  :type => :reset,
-                  :class => 'btn btn-danger' %>
-      </div>
-    <% end %>
-    <h2>Cancel my account</h2>
-    <p>Unhappy? <%= link_to 'Cancel my account', registration_path(resource_name), :confirm => 'Are you sure?', :method => :delete %>.</p>
-    <%= link_to 'Back', :back %>
+<%= simple_form_for(resource,
+    :as => resource_name,
+    :url => registration_path(resource_name),
+    :html => { :method => :put, :class => 'form-horizontal' }) do |f| %>
+
+  <%= render :partial => 'devise/shared/error_messages',
+             :locals => { :form => f } %>
+
+  <%= f.input :email,
+              :hint => 'Enter your email address',
+              :input_html => { :class => 'input-xlarge' } %>
+  <%= f.input :password,
+              :hint => "Enter new password (leave blank if you don't want to change it)" %>
+  <%= f.input :password_confirmation,
+              :hint => 'Confirm new password' %>
+  <%= f.input :current_password,
+              :hint => 'Enter current password' %>
+              
+  <div class="form-actions">
+    <%= f.button :submit,
+                 'Update account',
+                 :class => 'btn btn-large btn-primary' %>
+    <%= submit_tag 'Reset form',
+                 :type => :reset,
+                 :class => 'btn btn-danger' %>
   </div>
-</div>
+<% end %>
+<h2>Cancel my account</h2>
+<p>Unhappy? <%= link_to 'Cancel my account', registration_path(resource_name), :confirm => 'Are you sure?', :method => :delete %>.</p>
+<%= link_to 'Back', :back %>

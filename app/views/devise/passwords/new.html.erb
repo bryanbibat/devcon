@@ -1,15 +1,19 @@
-<h2>Forgot your password?</h2>
+<% provide(:title, 'Forgot password') %>
+<h1>Forgot your password?</h1>
+<%= simple_form_for(resource,
+    :as => resource_name,
+    :url => password_path(resource_name),
+    :html => { :method => :post }) do |f| %>
 
-<%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= f.error_notification %>
+  <%= render :partial => 'devise/shared/error_messages',
+             :locals => { :form => f } %>
 
-  <div class="inputs">
-    <%= f.input :email, :required => true %>
-  </div>
+  <%= f.input :email,
+              :required => true %>
 
-  <div class="actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
+  <div class="form-actions">
+    <%= f.button :submit, 'Send me reset password instructions' %>
   </div>
 <% end %>
 
-<%= render :partial => "devise/shared/links" %>
+<%= render :partial => 'devise/shared/links' %>

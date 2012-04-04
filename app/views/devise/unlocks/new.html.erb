@@ -1,15 +1,18 @@
-<h2>Resend unlock instructions</h2>
+<% provide(:title, 'Resend unlock instructions') %>
+<h1>Resend unlock instructions</h1>
+<%= simple_form_for(resource,
+    :as => resource_name,
+    :url => unlock_path(resource_name),
+    :html => { :method => :post }) do |f| %>
+  
+  <%= render :partial => 'devise/shared/error_messages',
+             :locals => { :form => f } %>
 
-<%= simple_form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= f.error_notification %>
+  <%= f.input :email, :required => true %>
 
-  <div class="inputs">
-    <%= f.input :email, :required => true %>
-  </div>
-
-  <div class="actions">
-    <%= f.button :submit, "Resend unlock instructions" %>
+  <div class="form-actions">
+    <%= f.button :submit, 'Resend unlock instructions' %>
   </div>
 <% end %>
 
-<%= render :partial => "devise/shared/links" %>
+<%= render :partial => 'devise/shared/links' %>

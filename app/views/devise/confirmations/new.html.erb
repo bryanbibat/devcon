@@ -1,15 +1,18 @@
-<h2>Resend confirmation instructions</h2>
+<% provide(:title, 'Resend confirmation') %>
+<h1>Resend confirmation instructions</h1>
+<%= simple_form_for(resource,
+    :as => resource_name,
+    :url => confirmation_path(resource_name),
+    :html => { :method => :post }) do |f| %>
 
-<%= simple_form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= f.error_notification %>
+  <%= render :partial => 'devise/shared/error_messages',
+             :locals => { :form => f } %>
 
-  <div class="inputs">
-    <%= f.input :email, :required => true %>
-  </div>
-
-  <div class="actions">
-    <%= f.button :submit, "Resend confirmation instructions" %>
+  <%= f.input :email, :required => true %>
+  
+  <div class="form-actions">
+    <%= f.button :submit, 'Resend confirmation instructions' %>
   </div>
 <% end %>
 
-<%= render :partial => "devise/shared/links" %>
+<%= render :partial => 'devise/shared/links' %>
