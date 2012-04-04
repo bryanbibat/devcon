@@ -122,3 +122,8 @@ footer {
   margin-top: 45px;
   @include box-sizing;
 }
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}

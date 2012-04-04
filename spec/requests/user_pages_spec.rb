@@ -4,6 +4,13 @@ describe 'User pages' do
 
   subject { page }
 
+  describe 'profile page' do
+    let(:user) { Fabricate(:user) }
+    before { visit user_path(user) }
+
+    it { should have_selector('h1', :text => user.email) }
+  end
+
   describe 'signup page' do
     before { visit new_user_registration_path }
 
@@ -37,7 +44,7 @@ describe 'User pages' do
         let(:user) { User.find_by_email('user@example.com') }
 
         it { should have_selector('div.alert.alert-info', :text => 'Welcome!') }
-        it { should have_link(user.email) }
+        it { should have_link('Profile') }
         it { should have_link('Settings') }
         it { should have_link('Sign out') }
         it { should_not have_link('Sign up')}
