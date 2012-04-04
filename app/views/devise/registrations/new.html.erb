@@ -9,7 +9,7 @@
       <% if f.error_notification %>
         <div class="alert alert-error fade in">
           <a class="close" data-dismiss="alert" href="#">&times;</a>
-          <%= f.error_notification %>
+          <%= devise_error_messages! %>
         </div>
       <% end %>
       <%= f.input :email,
@@ -30,5 +30,7 @@
                   :class => 'btn btn-danger' %>
       </div>
     <% end %>
+
+    <%= render :partial => 'devise/shared/links' %>
   </div>
 </div>
