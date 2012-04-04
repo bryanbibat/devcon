@@ -7,4 +7,12 @@
     <%= @user.name %>
   <% end %>
 </h1>
-<p>This is the user page</p>
+<div>
+  <% if @user.articles.any? %>
+    <h2>Articles (<%= @user.articles.count %>)</h2>
+    <ol class="articles-list">
+      <%= render @articles %>
+    </ol>
+    <%= will_paginate @articles %>
+  <% end %>
+</div>

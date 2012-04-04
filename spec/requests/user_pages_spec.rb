@@ -5,11 +5,17 @@ describe 'User' do
   subject { page }
 
   describe 'profile page' do
+    let(:user) { Fabricate(:user) }
+    let!(:article1) do
+      Fabricate(:article, :author => user, :title => 'Hello', :content => 'World')
+    end
+    let!(:article2) do
+      Fabricate(:article, :author => user, :title => 'Foo', :content => 'Bar')
+    end
+
+    before { visit user_path(user) }
 
     describe 'when a user has a name' do
-      let(:user) { Fabricate(:user) }
-      before { visit user_path(user) }
-
       it { should have_selector('h1', :text => user.name) }
       it { should_not have_selector('h1', :text => user.email) }
     end
@@ -21,6 +27,12 @@ describe 'User' do
       end
 
       it { should have_selector('h1', :text => user.email) }
+    end
+
+    describe 'articles' do
+      it { should have_link(article1.title) }
+      it { should have_link(article2.title) }
+      it { should have_content(user.articles.count) }
     end
   end
 

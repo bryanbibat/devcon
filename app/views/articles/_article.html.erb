@@ -1,0 +1,6 @@
+<li>
+  <span class="article-list-title"><%= link_to article.title, '#' %></span>
+  <span class="timestamp">
+    Posted on <%= l(article.created_at, :format => :friendly_date) %>.
+  </span>
+</li>
