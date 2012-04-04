@@ -45,4 +45,21 @@ describe 'Authentication' do
       end
     end
   end
+
+  describe 'authorization' do
+
+    describe 'as wrong user' do
+      let(:user) { Fabricate(:user) }
+      let(:wrong_user) { Fabricate(:user, :email => 'wrong@example.com') }
+      before do
+        visit new_user_session_path
+        capybara_signin user
+      end
+
+      describe 'when visiting Settings page' do
+        before { visit edit_user_registration_path(wrong_user) }
+        it { should_not have_selector('title', :text => full_title('Account settings')) }
+      end
+    end
+  end
 end
