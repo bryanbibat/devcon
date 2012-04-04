@@ -40,6 +40,8 @@ describe User do
   it { should respond_to(:current_sign_in_ip) }
   it { should respond_to(:last_sign_in_ip) }
 
+  it { should respond_to(:name) }
+
   it { should be_valid }
 
   describe 'when email is not present' do

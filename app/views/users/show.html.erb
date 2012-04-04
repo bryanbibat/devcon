@@ -1,6 +1,10 @@
 <% provide(:title, 'Profile') %>
 <h1>
   <%= gravatar_for @user %>
-  <%= @user.email %>
+  <% if @user.name.blank? %>
+    <%= @user.email %>
+  <% else %>
+    <%= @user.name %>
+  <% end %>
 </h1>
 <p>This is the user page</p>

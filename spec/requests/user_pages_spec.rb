@@ -1,14 +1,27 @@
 require 'spec_helper'
 
-describe 'User pages' do
+describe 'User' do
 
   subject { page }
 
   describe 'profile page' do
-    let(:user) { Fabricate(:user) }
-    before { visit user_path(user) }
 
-    it { should have_selector('h1', :text => user.email) }
+    describe 'when a user has a name' do
+      let(:user) { Fabricate(:user) }
+      before { visit user_path(user) }
+
+      it { should have_selector('h1', :text => user.name) }
+      it { should_not have_selector('h1', :text => user.email) }
+    end
+
+    describe 'when a user does not have a name' do
+      let(:user) { Fabricate(:user, :name => ' ') }
+      before do
+        visit user_path(user)
+      end
+
+      it { should have_selector('h1', :text => user.email) }
+    end
   end
 
   describe 'signup page' do
@@ -18,7 +31,7 @@ describe 'User pages' do
     it { should have_selector('title', :text => full_title('Sign up')) }
   end
 
-  describe 'signup' do
+  describe 'signing up' do
 
     before { visit new_user_registration_path }
 
