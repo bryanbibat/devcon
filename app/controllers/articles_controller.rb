@@ -1,5 +1,9 @@
 class ArticlesController < ApplicationController
-  before_filter :authenticate_user!, :except => [:show]
+  before_filter :authenticate_user!, :except => [:index, :show]
+
+  def index
+    @articles = Article.paginate(:page => params[:page])
+  end
 
   def show
     @article = Article.find(params[:id])

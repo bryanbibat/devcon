@@ -46,5 +46,7 @@ describe 'Static pages' do
     page.should have_selector('title', :text => full_title('Sign up'))
     click_link 'Sign in'
     page.should have_selector('title', :text => full_title('Sign in'))
+    click_link 'Articles'
+    page.should have_selector('title', :text => full_title('Articles'))
   end
 end

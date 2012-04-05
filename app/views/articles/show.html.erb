@@ -1,5 +1,5 @@
 <% provide(:title, @article.title) %>
-<h1>
+<h1 class="article-info">
   <%= @article.title %><br />
   <small>
     Written by
@@ -11,4 +11,6 @@
     on <%= l(@article.created_at, :format => :friendly_date) %>
   </small>
 </h1>
-<%= raw @article.content %>
+<section class="article-content">
+  <%= raw @article.content %>
+</section>

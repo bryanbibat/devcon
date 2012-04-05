@@ -115,22 +115,16 @@ footer {
 
 /* articles */
 
-.articles-list {
-  list-style: none;
-  margin: 10px 0 0 0;
-
-  li {
-    padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
-  }
+.article-info {
+  border-bottom: 1px solid $grayMediumLight;
 }
 
-.articles-list-title {
-  display: block;
+.article-title {
+
 }
 
-.timestamp {
-  color: $grayLight;
+.article-content {
+  padding-bottom: 30px;
 }
 
 /* miscellaneous */
