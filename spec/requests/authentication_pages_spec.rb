@@ -61,5 +61,25 @@ describe 'Authentication' do
         it { should_not have_selector('title', :text => full_title('Account settings')) }
       end
     end
+
+    describe 'for non-signed in users' do
+      let(:user) { Fabricate(:user) }
+
+      describe 'in the Articles controller' do
+
+        describe 'when submitting to the create action' do
+          before { post articles_path }
+          specify { response.should redirect_to(new_user_session_path) }
+        end
+
+        describe 'when submitting to the destroy action' do
+          before do
+            article = Fabricate(:article, :author_id => user.id)
+            delete article_path(article)
+          end
+          specify { response.should redirect_to(new_user_session_path) }
+        end
+      end
+    end
   end
 end

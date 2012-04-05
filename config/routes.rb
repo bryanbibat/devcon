@@ -9,6 +9,8 @@ Devcon::Application.routes.draw do
     get 'settings', :to => 'devise/registrations#edit', :as => :edit_user_registration
   end
 
+  resources :articles
+
   match '/contact', :to => 'static_pages#contact'
   match '/about',   :to => 'static_pages#about'
 
