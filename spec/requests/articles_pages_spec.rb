@@ -10,6 +10,7 @@ describe 'Articles pages' do
       before { visit articles_path }
 
       it { should have_selector('title', :text => full_title('Articles')) }
+      it { should_not have_link('Post article') }
     end
   end
 
@@ -19,6 +20,12 @@ describe 'Articles pages' do
     before do
       visit new_user_session_path
       capybara_signin(user)
+    end
+
+    describe 'in the index page' do
+      before { visit articles_path }
+
+      it { should have_link('Post article') }
     end
 
     describe 'on article creation' do
