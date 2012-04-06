@@ -30,12 +30,11 @@ describe 'Articles pages' do
       it { should have_link('Post article') }
 
       describe 'when user has a self-authored article' do
-        article = nil
         before do
-          article = Fabricate(:article, :author_id => user.id)
+          @article = Fabricate(:article, :author_id => user.id)
           visit articles_path
         end
-        it { should have_link('Edit article', :href => edit_article_path(article)) }
+        it { should have_link('Edit article', :href => edit_article_path(@article)) }
       end
     end
 
