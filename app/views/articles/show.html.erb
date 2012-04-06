@@ -9,6 +9,11 @@
       <%= link_to @article.author.name, @article.author %>
     <% end %>
     on <%= l(@article.created_at, :format => :friendly_date) %>
+    <% if user_signed_in? %>
+      <% if current_user.id == @article.author.id %>
+        <%= link_to 'Edit article', edit_article_path(@article) %>
+      <% end %>
+    <% end %>
   </small>
 </h1>
 <section class="article-content">

@@ -13,6 +13,10 @@ class ArticlesController < ApplicationController
     @article = current_user.articles.build if user_signed_in?
   end
 
+  def edit
+    @article = Article.find(params[:id])
+  end
+
   def create
     @article = current_user.articles.build(params[:article])
     if @article.save
@@ -20,6 +24,17 @@ class ArticlesController < ApplicationController
       redirect_to @article
     else
       render 'new'
+    end
+  end
+
+  def update
+    @article = Article.find(params[:id])
+
+    if @article.update_attributes(params[:article])
+      flash[:success] = 'Article has been updated!'
+      redirect_to @article
+    else
+      render :action => 'edit'
     end
   end
 

@@ -72,6 +72,14 @@ describe 'Authentication' do
           specify { response.should redirect_to(new_user_session_path) }
         end
 
+        describe 'when submitting to the update action' do
+          before do
+            article = Fabricate(:article, :author_id => user.id)
+            put article_path(article)
+          end
+          specify { response.should redirect_to(new_user_session_path) }
+        end
+
         describe 'when submitting to the destroy action' do
           before do
             article = Fabricate(:article, :author_id => user.id)
