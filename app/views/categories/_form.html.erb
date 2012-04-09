@@ -1,0 +1,11 @@
+<%= simple_form_for(@category) do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+
+  <%= f.input :name %>
+  <%= f.input :description %>
+
+  <div class="form-actions">
+    <%= f.button :submit,
+                 :class => 'btn btn-large btn-primary' %>
+  </div>
+<% end %>

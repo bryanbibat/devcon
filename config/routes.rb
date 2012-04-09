@@ -10,6 +10,7 @@ Devcon::Application.routes.draw do
   end
 
   resources :articles
+  resources :categories
 
   match '/contact', :to => 'static_pages#contact'
   match '/about',   :to => 'static_pages#about'
