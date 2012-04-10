@@ -39,4 +39,8 @@ class User < ActiveRecord::Base
   def roles
     ROLES.reject { |r| ((roles_mask || 0) & 2**ROLES.index(r)).zero? }
   end
+
+  def is?(role)
+    roles.include?(role.to_s)
+  end
 end

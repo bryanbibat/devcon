@@ -17,6 +17,7 @@
               :hint => 'Enter password' %>
   <%= f.input :password_confirmation,
               :hint => 'Confirm password' %>
+  <%= f.input :roles, :as => :check_boxes, :collection => User::ROLES %>
               
   <div class="form-actions">
     <%= f.button :submit,

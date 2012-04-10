@@ -17,9 +17,10 @@
               :hint => "Enter new password (leave blank if you don't want to change it)" %>
   <%= f.input :password_confirmation,
               :hint => 'Confirm new password' %>
+  <%= f.input :roles, :as => :check_boxes, :collection => User::ROLES %>
   <%= f.input :current_password,
               :hint => 'Enter current password' %>
-              
+
   <div class="form-actions">
     <%= f.button :submit,
                  'Update account',
