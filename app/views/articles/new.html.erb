@@ -6,6 +6,7 @@
   <%= f.input :title %>
   <%= f.input :content,
               :as => :ckeditor %>
+  <%= f.association :categories, :as => :check_boxes %>
 
   <div class="form-actions">
     <%= f.button :submit,

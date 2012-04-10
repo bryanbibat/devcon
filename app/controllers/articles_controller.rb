@@ -28,6 +28,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
+    params[:article][:category_ids] ||= []
     @article = Article.find(params[:id])
 
     if @article.update_attributes(params[:article])

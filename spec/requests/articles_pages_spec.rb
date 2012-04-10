@@ -60,7 +60,10 @@ describe 'Articles pages' do
     end
 
     describe 'on article creation' do
-      before { visit new_article_path }
+      before do
+        @category = Fabricate(:category)
+        visit new_article_path
+      end
 
       it { should have_selector('title', :text => full_title('Create an article')) }
       it { should have_selector('h1', :text => 'Create an article') }
@@ -82,6 +85,7 @@ describe 'Articles pages' do
         before do
           fill_in 'Title', :with => 'Hello World'
           fill_in 'Content', :with => 'Lorem ipsum'
+          check @category.name
         end
 
         it 'should create an article' do
@@ -91,8 +95,11 @@ describe 'Articles pages' do
     end
 
     describe 'on editing articles' do
-      let(:article) { Fabricate(:article, :author_id => user.id) }
-      before { visit edit_article_path(article) }
+      before do
+        @category = Fabricate(:category)
+        @article = Fabricate(:article, :author_id => user.id)
+        visit edit_article_path(@article)
+      end
 
       it { should have_selector('title', :text => full_title('Edit article')) }
       it { should have_selector('h1', :text => 'Edit article') }
@@ -112,6 +119,7 @@ describe 'Articles pages' do
 
         before do
           fill_in 'Content', :with => 'foobar'
+          uncheck @category.name
           click_button 'Update'
         end
 
