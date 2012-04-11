@@ -16,6 +16,7 @@
 #  created_at             :datetime        not null
 #  updated_at             :datetime        not null
 #  name                   :string(255)
+#  roles_mask             :integer
 #
 
 class User < ActiveRecord::Base
