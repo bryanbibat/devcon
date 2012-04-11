@@ -1,16 +1,5 @@
-<% provide(:title, 'Create an article') %>
-<h1>Create an article</h1>
-<%= simple_form_for(@article) do |f| %>
-  <%= render 'shared/error_messages', :object => f.object %>
+<% provide(:title, 'New article') %>
+<h1>New article</h1>
 
-  <%= f.input :title %>
-  <%= f.input :content,
-              :as => :ckeditor %>
-  <%= f.association :categories, :as => :check_boxes %>
-
-  <div class="form-actions">
-    <%= f.button :submit,
-                 'Post',
-                 :class => 'btn btn-large btn-primary' %>
-  </div>
-<% end %>
+<%= render 'form' %>
+<%= link_to 'Back to articles', articles_path %>
