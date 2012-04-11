@@ -3,3 +3,11 @@ Fabricator(:user) do
   name { sequence(:name) { |i| "Example User-#{i}" } }
   password 'foobar'
 end
+
+Fabricator(:admin, :from => :user) do
+  roles ['admin']
+end
+
+Fabricator(:author, :from => :user) do
+  roles ['author']
+end

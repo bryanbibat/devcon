@@ -9,13 +9,15 @@
       <%= link_to @article.author.name, @article.author %>
     <% end %>
     on <%= l(@article.created_at, :format => :friendly_date) %>
-    <% if user_signed_in? %>
-      <% if current_user.id == @article.author.id %>
-        <%= link_to 'Edit article', edit_article_path(@article) %>
-      <% end %>
-    <% end %>
   </small>
 </h1>
 <section class="article-content">
   <%= raw @article.content %>
 </section>
+<%= link_to 'Back to articles', articles_path %>
+<% if can? :update, @article %>
+  <%= link_to 'Edit', edit_article_path(@article) %>
+<% end %>
+<% if can? :destroy, @article %>
+  <%= link_to 'Destroy', article_path(@article), :confirm => 'Are you sure?', :method => :delete %>
+<% end %>

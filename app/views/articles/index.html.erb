@@ -1,9 +1,10 @@
 <% provide(:title, 'Articles') %>
 <h1>Articles</h1>
-<% if user_signed_in? %>
-  <%= link_to 'Post article', new_article_path %>
+<% if can? :create, Article %>
+  <%= link_to 'New article', new_article_path %>
 <% end %>
 
 <%= render @articles %>
 
+<%= link_to 'Back to articles', articles_path %>
 <%= will_paginate %>

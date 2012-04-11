@@ -1,26 +1,23 @@
 class ArticlesController < ApplicationController
-  before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :paginate_articles, :only => :index
+  load_and_authorize_resource
 
   def index
-    @articles = Article.paginate(:page => params[:page])
   end
 
   def show
-    @article = Article.find(params[:id])
   end
 
   def new
-    @article = current_user.articles.build if user_signed_in?
   end
 
   def edit
-    @article = Article.find(params[:id])
   end
 
   def create
-    @article = current_user.articles.build(params[:article])
+    @article.author = current_user
     if @article.save
-      flash[:success] = 'Article has been posted!'
+      flash[:success] = 'Successfully published an article.'
       redirect_to @article
     else
       render 'new'
@@ -29,7 +26,6 @@ class ArticlesController < ApplicationController
 
   def update
     params[:article][:category_ids] ||= []
-    @article = Article.find(params[:id])
 
     if @article.update_attributes(params[:article])
       flash[:success] = 'Article has been updated!'
@@ -40,5 +36,13 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
+    @article.destroy
+    flash[:notice] = 'Successfully destroyed article'
   end
+
+  private
+
+    def paginate_articles
+      @articles = Article.paginate(:page => params[:page])
+    end
 end
