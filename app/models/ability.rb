@@ -18,7 +18,8 @@ class Ability
           article.try(:author) == user
         end
 
-        can :manage, Category
+        can :create, Category
+        can :update, Category
       end
     end
   end
