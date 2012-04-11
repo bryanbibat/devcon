@@ -15,6 +15,7 @@ group :development, :test do
   gem 'rspec-rails', '2.9.0'
   gem 'database_cleaner', '0.7.2'
   gem 'annotate', '~> 2.4.1.beta'
+  gem 'pry'
 end
 
 # Gems used only for assets and not required
@@ -29,6 +30,7 @@ gem 'jquery-rails', '2.0.0'
 
 group :test do
   gem 'capybara', '1.1.2'
+  gem 'launchy'
   gem 'fabrication', '1.3.2'
 end
 

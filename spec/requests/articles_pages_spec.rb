@@ -102,8 +102,10 @@ describe 'Articles pages' do
       describe 'in the show page' do
 
         before do
-          @article = Fabricate(:article, :author_id => @author.id)
+          @article = Fabricate(:article, :author => @author)
+          # binding.pry
           visit article_path(@article)
+          # save_and_open_page
         end
 
         it { should have_page_title @article.title }
@@ -126,8 +128,8 @@ describe 'Articles pages' do
             visit article_path(@article)
           end
 
-          it { should have_link 'Edit', :href => edit_article_path(@article) }
-          it { should have_link 'Destroy', :method => :delete, :href => article_path(@article) }
+          it { should_not have_link 'Edit', :href => edit_article_path(@article) }
+          it { should_not have_link 'Destroy', :method => :delete, :href => article_path(@article) }
         end
       end
 
