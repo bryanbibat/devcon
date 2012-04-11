@@ -17,6 +17,8 @@ class Ability
         can :destroy, Article do |article|
           article.try(:author) == user
         end
+
+        can :manage, Category
       end
     end
   end
