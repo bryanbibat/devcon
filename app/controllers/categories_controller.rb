@@ -1,27 +1,22 @@
 class CategoriesController < ApplicationController
-  before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :paginate_categories, :only => :index
+  load_and_authorize_resource
 
   def index
-    @categories = Category.paginate(:page => params[:page])
   end
 
   def show
-    @category = Category.find(params[:id])
   end
 
   def new
-    @category = Category.new
   end
 
   def edit
-    @category = Category.find(params[:id])
   end
 
   def create
-    @category = Category.new(params[:category])
-
     if @category.save
-      flash[:success] = 'Category has been created!'
+      flash[:success] = 'Successfully created a category!'
       redirect_to @category
     else
       render 'new'
@@ -29,10 +24,8 @@ class CategoriesController < ApplicationController
   end
 
   def update
-    @category = Category.find(params[:id])
-
     if @category.update_attributes(params[:category])
-      flash[:success] = 'Category was successfully updated!'
+      flash[:success] = 'Successfully updated category!'
       redirect_to @category
     else
       render :action => 'edit'
@@ -40,9 +33,14 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @category = Category.find(params[:id])
     @category.destroy
-
+    flash[:notice] = 'Successfully destroyed category!'
     redirect_to categories_path
   end
+
+  private
+
+    def paginate_categories
+      @categories = Category.paginate(:page => params[:page])
+    end
 end
