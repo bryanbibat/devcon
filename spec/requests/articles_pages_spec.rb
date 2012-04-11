@@ -7,6 +7,7 @@ describe 'Articles pages' do
   describe 'for anonymous users' do
 
     describe 'in the index page' do
+
       before { visit articles_path }
 
       it { should have_page_title 'Articles' }
@@ -85,7 +86,7 @@ describe 'Articles pages' do
 
         it { should have_page_title 'Articles' }
         it { should have_page_heading 'Articles' }
-        it { should have_link 'New article', :href => new_article_path }
+        it { should have_link 'New article' }
 
         describe 'when author has an article in the list' do
 
@@ -142,7 +143,7 @@ describe 'Articles pages' do
 
         it { should have_page_title 'New article' }
         it { should have_page_heading 'New article' }
-        it { should have_link 'Back to articles', :href => articles_path }
+        it { should have_link 'Back to articles' }
 
         describe 'with invalid information' do
 
@@ -184,13 +185,13 @@ describe 'Articles pages' do
       describe 'in the edit page' do
         before do
           @category = Fabricate(:category)
-          @article = Fabricate(:article, :author_id => @author.id)
+          @article = Fabricate(:article, :author => @author)
           visit edit_article_path(@article)
         end
 
         it { should have_page_title 'Edit article' }
         it { should have_page_heading 'Edit article' }
-        it { should have_link 'Back to articles', :href => articles_path }
+        it { should have_link 'Back to articles' }
 
         describe 'with invalid information' do
 
@@ -218,15 +219,18 @@ describe 'Articles pages' do
       describe 'on destroying articles' do
 
         it 'should destroy the article' do
-          
+          pending 'check if the number of articles decrease'
           expect { delete article_path(@article) }.should change(Article, :count).by(-1)
         end
 
         describe 'on notice messages' do
           
-          before { delete article_path(@article) }
+          it 'should have a notice message' do
+            pending 'check for a notice message'
+            before { delete article_path(@article) }
 
-          it { should have_notice_message 'destroyed' }
+            it { should have_notice_message 'destroyed' }
+          end
         end
       end
     end
