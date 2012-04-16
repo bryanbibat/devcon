@@ -21,3 +21,24 @@
 <% if can? :destroy, @article %>
   <%= link_to 'Destroy', article_path(@article), :confirm => 'Are you sure?', :method => :delete %>
 <% end %>
+<h2>Comments</h2>
+<div>
+  <% if @article.comments.any? %>
+    <ul class="comments">
+      <%= render @comments %>
+    </ul>
+    <%= will_paginate @comments %>
+  <% end %>
+  <% if can? :create, @comment %>
+    <%= simple_form_for([@article, @comment]) do |f| %>
+      <%= render 'shared/error_messages', :object => f.object %>
+      <%= f.input :content, :label => 'Comment' %>
+
+      <div class="form-actions">
+        <%= f.button :submit,
+                     'Submit comment',
+                     :class => 'btn btn-large btn-primary' %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

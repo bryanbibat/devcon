@@ -11,7 +11,50 @@ describe 'Articles pages' do
       before { visit articles_path }
 
       it { should have_page_title 'Articles' }
-      it { should_not have_page_heading 'Post article' }
+      it { should have_page_heading 'Articles' }
+      it { should_not have_link 'New article' }
+      it { should_not have_link 'Edit' }
+      it { should_not have_link 'Destroy' }
+    end
+
+    describe 'in the show page' do
+
+      before do
+        @article = Fabricate(:article)
+        visit article_path(@article)
+      end
+
+      it { should have_page_title @article.title }
+      it { should have_page_heading @article.title }
+      it { should have_link 'Back to articles' }
+      it { should_not have_link 'Edit' }
+      it { should_not have_link 'Destroy' }
+
+      describe 'comments section' do
+        it { should have_content 'Comments' }
+        it { should_not have_button 'Submit comment' }
+      end
+    end
+
+    describe 'in the new page' do
+
+      before { visit new_article_path }
+
+      it { should have_error_message 'Access denied' }
+      it { should have_page_title '' }
+      it { should have_page_heading 'Developers Connect' }
+    end
+
+    describe 'in the edit page' do
+
+      before do
+        @article = Fabricate(:article)
+        visit edit_article_path(@article)
+      end
+
+      it { should have_error_message 'Access denied' }
+      it { should have_page_title '' }
+      it { should have_page_heading 'Developers Connect' }
     end
   end
 
@@ -48,6 +91,20 @@ describe 'Articles pages' do
         it { should have_link 'Back to articles' }
         it { should_not have_link 'Edit' }
         it { should_not have_link 'Destroy' }
+
+        describe 'comments section' do
+          it { should have_content 'Comments' }
+
+          describe 'on posting comments' do
+            before do
+              fill_in 'Comment', :with => 'Foobar'
+              click_button 'Submit comment'
+            end
+
+            it { should have_content 'Foobar' }
+            it { should have_content @user.name }
+          end
+        end
       end
 
       describe 'in the new page' do

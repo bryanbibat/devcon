@@ -1,6 +1,6 @@
 Fabricator(:comment) do
   content "This is a comment"
-  user
+  user!
 end
 
 Fabricator(:article_comment, :from => :comment) do
