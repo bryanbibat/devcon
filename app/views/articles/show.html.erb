@@ -29,7 +29,7 @@
     </ul>
     <%= will_paginate @comments %>
   <% end %>
-  <% if can? :create, @comment %>
+  <% if user_signed_in? %>
     <%= simple_form_for([@article, @comment]) do |f| %>
       <%= render 'shared/error_messages', :object => f.object %>
       <%= f.input :content, :label => 'Comment' %>
@@ -40,5 +40,7 @@
                      :class => 'btn btn-large btn-primary' %>
       </div>
     <% end %>
+  <% else %>
+    <p>You must be <%= link_to 'logged in', new_user_session_path %> to comment</p>
   <% end %>
 </div>

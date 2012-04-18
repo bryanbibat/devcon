@@ -1,8 +1,20 @@
 class CommentsController < ApplicationController
-  before_filter :build_comment
-  load_and_authorize_resource
+  before_filter :authenticate_user!, :only => [:create]
+
+  def index
+    @commentable = find_commentable
+    @comments = @commentable.comments
+
+    if @commentable.respond_to? :title
+      @title = @commentable.title
+    end
+  end
 
   def create
+    @commentable = find_commentable
+    @comment = @commentable.comments.build(params[:comment])
+    unauthorized! if cannot? :create, @comment
+
     @comment.user = current_user
     if @comment.save
       flash[:success] = "Successfully submitted comment!"
@@ -14,11 +26,6 @@ class CommentsController < ApplicationController
   end
 
   private
-
-    def build_comment
-      @commentable = find_commentable
-      @comment = @commentable.comments.build(params[:comment])
-    end
 
     def find_commentable
       params.each do |name, value|

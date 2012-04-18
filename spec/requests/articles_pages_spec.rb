@@ -32,6 +32,7 @@ describe 'Articles pages' do
 
       describe 'comments section' do
         it { should have_content 'Comments' }
+        it { should have_content 'You must be logged in to comment' }
         it { should_not have_button 'Submit comment' }
       end
     end
@@ -94,6 +95,7 @@ describe 'Articles pages' do
 
         describe 'comments section' do
           it { should have_content 'Comments' }
+          it { should_not have_content 'You must be logged in to comment' }
 
           describe 'on posting comments' do
             before do
