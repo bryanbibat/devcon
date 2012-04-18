@@ -30,6 +30,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :roles
 
   has_many :articles, :foreign_key => 'author_id', :dependent => :destroy
+  has_many :comments, :as => :commentable, :foreign_key => 'user_id', :dependent => :destroy
 
   ROLES = %w[admin moderator author]
 

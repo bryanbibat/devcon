@@ -21,3 +21,26 @@
 <% if can? :destroy, @article %>
   <%= link_to 'Destroy', article_path(@article), :confirm => 'Are you sure?', :method => :delete %>
 <% end %>
+<h2>Comments</h2>
+<div>
+  <% if @article.comments.any? %>
+    <ul class="comments">
+      <%= render @comments %>
+    </ul>
+    <%= will_paginate @comments %>
+  <% end %>
+  <% if user_signed_in? %>
+    <%= simple_form_for([@article, @comment]) do |f| %>
+      <%= render 'shared/error_messages', :object => f.object %>
+      <%= f.input :content, :label => 'Comment' %>
+
+      <div class="form-actions">
+        <%= f.button :submit,
+                     'Submit comment',
+                     :class => 'btn btn-large btn-primary' %>
+      </div>
+    <% end %>
+  <% else %>
+    <p>You must be <%= link_to 'logged in', new_user_session_path %> to comment</p>
+  <% end %>
+</div>

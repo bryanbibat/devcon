@@ -9,6 +9,14 @@ class Ability
     else
       can :read, :all
 
+      can :create, Comment
+      can :update, Comment do |comment|
+        comment.try(:user) == user
+      end
+      can :destroy, Comment do |comment|
+        comment.try(:user) == user
+      end
+
       if user.role?(:author)
         can :create, Article
         can :update, Article do |article|

@@ -134,12 +134,24 @@ describe 'Authentication' do
         describe 'when submitting to the destroy action' do
 
           before do
-
             @category = Fabricate(:category)
             delete category_path(@category)
           end
 
           specify { response.should redirect_to(root_path) }
+        end
+      end
+
+      describe 'in the Comments controller' do
+
+        describe 'when submitting to the create action' do
+
+          before do
+            @article = Fabricate(:article)
+            post article_comments_path @article
+          end
+
+          specify { response.should redirect_to(new_user_session_path) }
         end
       end
     end

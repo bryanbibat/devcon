@@ -9,7 +9,9 @@ Devcon::Application.routes.draw do
     get 'settings', :to => 'devise/registrations#edit', :as => :edit_user_registration
   end
 
-  resources :articles
+  resources :articles do
+    resources :comments, :except => [:new]
+  end
   resources :categories
 
   match '/contact', :to => 'static_pages#contact'
