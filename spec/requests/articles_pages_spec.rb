@@ -26,6 +26,8 @@ describe 'Articles pages' do
 
       it { should have_page_title @article.title }
       it { should have_page_heading @article.title }
+      it 'should have the link of the categories'
+      # it { should have_link @article.categories.first.name }
       it { should have_link 'Back to articles' }
       it { should_not have_link 'Edit' }
       it { should_not have_link 'Destroy' }

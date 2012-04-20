@@ -9,6 +9,13 @@
       <%= link_to @article.author.name, @article.author %>
     <% end %>
     on <%= l(@article.created_at, :format => :friendly_date) %>
+    <br />
+    <% if @article.categories.any? %>
+      <%= @article.categories.count == 1 ? 'Category' : 'Category'.pluralize %>: 
+      <% @article.categories.each do |category| %>
+        <%= link_to category.name, category %> 
+      <% end %>
+    <% end %>
   </small>
 </h1>
 <section class="article-content">
