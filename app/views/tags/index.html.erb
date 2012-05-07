@@ -1,2 +1,23 @@
-<h1>Tags#index</h1>
-<p>Find me in app/views/tags/index.html.erb</p>
+<% provide(:title, 'Tags') %>
+<h1>Tags</h1>
+<% if can? :create, Tag %>
+  <%= link_to 'New Tag', new_tag_path %>
+<% end %>
+
+<% if @tags.any? %>
+  <ul>
+    <% @tags.each do |tag| %>
+      <li>
+        <%= link_to tag.name, tag_path(tag) %>
+        <% if can? :update, tag %>
+          <%= link_to 'Edit', edit_tag_path(tag) %>
+        <% end %>
+        <% if can? :destroy, tag %>
+          <%= link_to 'Destroy', tag_path(tag), :confirm => 'Are you sure?', :method => :delete %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= will_paginate %>

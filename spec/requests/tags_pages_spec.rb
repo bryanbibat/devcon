@@ -86,7 +86,7 @@ describe "Tags pages" do
 
           it { should have_link @tag.name }
           it { should have_link 'Edit' }
-          it { should have_link 'Destroy' }
+          it { should_not have_link 'Destroy' }
         end
       end
 

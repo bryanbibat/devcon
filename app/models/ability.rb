@@ -28,6 +28,9 @@ class Ability
 
         can :create, Category
         can :update, Category
+
+        can :create, Tag
+        can :update, Tag
       end
     end
   end
