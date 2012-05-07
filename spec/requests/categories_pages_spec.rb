@@ -200,7 +200,7 @@ describe "Categories pages" do
 
       describe 'on destroying categories' do
 
-        it 'should destroy the article' do
+        it 'should destroy the category' do
           pending 'check that the number of categories has decreased'
           expect { delete category_path(@category) }.should change(Category, :count).by(-1)
         end

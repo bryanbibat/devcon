@@ -14,6 +14,7 @@ class Article < ActiveRecord::Base
   attr_accessible :title, :content, :category_ids
   belongs_to :author, :class_name => 'User', :foreign_key => 'author_id'
   has_and_belongs_to_many :categories
+  has_and_belongs_to_many :tags
   has_many :comments, :as => :commentable
 
   validates :title, :presence => true
