@@ -21,7 +21,7 @@ Spork.prefork do
     # config.mock_with :rr
 
     config.before(:suite) do
-      DatabaseCleaner.strategy = :truncation
+      DatabaseCleaner.strategy = :deletion
     end
 
     config.before(:each) do

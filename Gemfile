@@ -14,7 +14,7 @@ gem 'pg', '0.14.1'
 
 group :development, :test do
   gem 'rspec-rails', '2.9.0'
-  gem 'database_cleaner', '0.7.2'
+  gem 'database_cleaner', '0.8.0'
   gem 'annotate', '~> 2.4.1.beta'
   gem 'pry'
 end
@@ -32,10 +32,15 @@ gem 'jquery-rails'
 group :test do
   gem 'capybara', '1.1.2'
   gem 'launchy'
-  gem 'fabrication', '1.3.2'
+  gem 'fabrication', '2.2.3'
   gem 'spork'
   gem 'guard'
   gem 'guard-bundler'
   gem 'guard-rspec'
   gem 'guard-spork'
+
+  gem 'growl'
+  gem 'libnotify'
+  gem 'rb-inotify' if RUBY_PLATFORM.downcase.include?("linux")
+  gem 'rb-fsevent' if RUBY_PLATFORM.downcase.include?("darwin")
 end

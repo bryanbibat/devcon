@@ -39,7 +39,7 @@ describe "Categories pages" do
       describe 'in the show page' do
 
         before do
-          @category = Fabricate(:category)
+          @category = Fabricate(:category, articles: [ Fabricate(:article), Fabricate(:article) ])
           visit category_path(@category)
         end
 
@@ -50,11 +50,11 @@ describe "Categories pages" do
         it { should_not have_link 'Destroy' }
 
         it { should have_selector('h2', :text => "Articles under #{@category.name}") }
-        it 'should have a list of articles under it'
-        # it { should have_link(@category.articles.find(1).title :href => article_path(@category.articles.find(1))) }
-        # @category.articles.each do |article|
-        #   it { should have_link(article.title, :href => article_path(article)) }
-        # end
+        it "should have links for all articles" do
+          @category.articles.each do |article|
+            page.should have_link(article.title, :href => article_path(article))
+          end
+        end
       end
 
       describe 'in the new page' do
@@ -197,21 +197,32 @@ describe "Categories pages" do
           it { should have_success_message 'updated' }
         end
       end
+    end
+
+    describe 'as an admin' do
+
+      before do
+        @author = Fabricate(:admin)
+        visit new_user_session_path
+        capybara_signin(@author)
+      end
 
       describe 'on destroying categories' do
 
+        before do
+          @category = Fabricate(:category)
+          visit category_path(@category)
+        end
+
         it 'should destroy the category' do
-          pending 'check that the number of categories has decreased'
-          expect { delete category_path(@category) }.should change(Category, :count).by(-1)
+          expect { click_link "Destroy" }.should change(Category, :count).by(-1)
         end
 
         describe 'on notice messages' do
 
           it 'should have an error message' do
-            pending 'check for an error message when destroying'
-            before { delete category_path(@category) }
-
-            it { should have_notice_message 'destroyed' }
+            click_link "Destroy"
+            page.should have_notice_message 'destroyed'
           end
         end
       end

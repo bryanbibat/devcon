@@ -21,13 +21,14 @@ describe 'Articles pages' do
 
       before do
         @article = Fabricate(:article)
+        @article.categories << Fabricate(:category)
+        @article.save
         visit article_path(@article)
       end
 
       it { should have_page_title @article.title }
       it { should have_page_heading @article.title }
-      it 'should have the link of the categories'
-      # it { should have_link @article.categories.first.name }
+      it { should have_link @article.categories.first.name }
       it { should have_link 'Back to articles' }
       it { should_not have_link 'Edit' }
       it { should_not have_link 'Destroy' }
@@ -278,20 +279,18 @@ describe 'Articles pages' do
       end
 
       describe 'on destroying articles' do
-
-        it 'should destroy the article' do
-          pending 'check if the number of articles decrease'
-          expect { delete article_path(@article) }.should change(Article, :count).by(-1)
+        before do
+          @article = Fabricate(:article, :author => @author)
+          visit article_path(@article)
         end
 
-        describe 'on notice messages' do
-          
-          it 'should have a notice message' do
-            pending 'check for a notice message'
-            before { delete article_path(@article) }
+        it 'should destroy the article' do
+          expect { click_link "Destroy" }.should change(Article, :count).by(-1)
+        end
 
-            it { should have_notice_message 'destroyed' }
-          end
+        it 'should have a notice message' do
+          click_link "Destroy"
+          page.should have_notice_message 'destroyed'
         end
       end
     end
