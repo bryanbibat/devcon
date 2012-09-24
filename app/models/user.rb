@@ -16,6 +16,7 @@
 #  created_at             :datetime        not null
 #  updated_at             :datetime        not null
 #  name                   :string(255)
+#  roles_mask             :integer
 #
 
 class User < ActiveRecord::Base
@@ -26,7 +27,22 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :name
+  attr_accessible :name, :roles
 
   has_many :articles, :foreign_key => 'author_id', :dependent => :destroy
+  has_many :comments, :as => :commentable, :foreign_key => 'user_id', :dependent => :destroy
+
+  ROLES = %w[admin moderator author]
+
+  def roles=(roles)
+    self.roles_mask = (roles & ROLES).map { |r| 2**ROLES.index(r) }.sum
+  end
+
+  def roles
+    ROLES.reject { |r| ((roles_mask || 0) & 2**ROLES.index(r)).zero? }
+  end
+
+  def role?(role)
+    roles.include?(role.to_s)
+  end
 end

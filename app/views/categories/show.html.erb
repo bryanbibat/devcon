@@ -6,9 +6,11 @@
 <% else %>
   <p><%= @category.description %></p>
 <% end %>
-<% if user_signed_in? %>
-  <%= link_to 'Edit category', edit_category_path(@category) %>
-  <%= link_to 'Delete category', category_path(@category), :confirm => 'Are you sure?', :method => :delete %>
+<% if can? :update, @category %>
+  <%= link_to 'Edit', edit_category_path(@category) %>
+<% end %>
+<% if can? :destroy, @category %>
+  <%= link_to 'Destroy', category_path(@category), :confirm => 'Are you sure?', :method => :delete %>
 <% end %>
 <h2>Articles under <%= @category.name %></h2>
 <ul>
@@ -16,3 +18,4 @@
     <li><%= link_to article.title, article_path(article) %></li>
   <% end %>
 </ul>
+<%= link_to 'Back to categories', categories_path %>

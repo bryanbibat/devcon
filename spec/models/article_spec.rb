@@ -13,10 +13,9 @@
 require 'spec_helper'
 
 describe Article do
-
-  let(:user) { Fabricate(:user) }
   before do
-    @article = user.articles.build(:title => 'Hello World', :content => 'Lorem Ipsum')
+    @author = Fabricate(:author)
+    @article = @author.articles.build(:title => 'Hello World', :content => 'Lorem Ipsum')
   end
 
   subject { @article }
@@ -24,7 +23,10 @@ describe Article do
   it { should respond_to(:title) }
   it { should respond_to(:content) }
   it { should respond_to(:author_id) }
-  its(:author) { should == user }
+  its(:author) { should == @author }
+  it { should respond_to(:comments) }
+  it { should respond_to(:categories) }
+  it { should respond_to(:tags) }
 
   it { should be_valid }
 
@@ -46,7 +48,7 @@ describe Article do
   describe 'accessible attributes' do
     it 'should not allow access to author_id' do
       expect do
-        Article.new(:author_id => user.id)
+        Article.new(:author_id => @author.id)
       end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
   end

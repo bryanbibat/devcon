@@ -1,0 +1,21 @@
+<% provide(:title, @tag.name) %>
+<h1><%= @tag.name %></h1>
+<b>Description:</b>
+<% if @tag.description.blank? %>
+  <p>There is no description provided.</p>
+<% else %>
+  <p><%= @tag.description %></p>
+<% end %>
+<% if can? :update, @tag %>
+  <%= link_to 'Edit', edit_tag_path(@tag) %>
+<% end %>
+<% if can? :destroy, @tag %>
+  <%= link_to 'Destroy', tag_path(@tag), :confirm => 'Are you sure?', :method => :delete %>
+<% end %>
+<h2>Articles under <%= @tag.name %></h2>
+<ul>
+  <% @tag.articles.each do |article| %>
+    <li><%= link_to article.title, article_path(article) %></li>
+  <% end %>
+</ul>
+<%= link_to 'Back to tags', tags_path %>

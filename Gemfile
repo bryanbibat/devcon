@@ -8,13 +8,15 @@ gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.5'
 gem 'ckeditor', '3.7.0.rc3'
+gem 'cancan', '1.6.7'
 
-gem 'pg', '0.12.2'
+gem 'pg', '0.14.1'
 
 group :development, :test do
   gem 'rspec-rails', '2.9.0'
   gem 'database_cleaner', '0.7.2'
   gem 'annotate', '~> 2.4.1.beta'
+  gem 'pry'
 end
 
 # Gems used only for assets and not required
@@ -25,10 +27,11 @@ group :assets do
   gem 'uglifier', '1.2.3'
 end
 
-gem 'jquery-rails', '2.0.0'
+gem 'jquery-rails'
 
 group :test do
   gem 'capybara', '1.1.2'
+  gem 'launchy'
   gem 'fabrication', '1.3.2'
   gem 'spork'
   gem 'guard'
@@ -36,4 +39,3 @@ group :test do
   gem 'guard-rspec'
   gem 'guard-spork'
 end
-

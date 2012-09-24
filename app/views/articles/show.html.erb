@@ -9,9 +9,11 @@
       <%= link_to @article.author.name, @article.author %>
     <% end %>
     on <%= l(@article.created_at, :format => :friendly_date) %>
-    <% if user_signed_in? %>
-      <% if current_user.id == @article.author.id %>
-        <%= link_to 'Edit article', edit_article_path(@article) %>
+    <br />
+    <% if @article.categories.any? %>
+      <%= @article.categories.count == 1 ? 'Category' : 'Category'.pluralize %>: 
+      <% @article.categories.each do |category| %>
+        <%= link_to category.name, category %> 
       <% end %>
     <% end %>
   </small>
@@ -19,3 +21,33 @@
 <section class="article-content">
   <%= raw @article.content %>
 </section>
+<%= link_to 'Back to articles', articles_path %>
+<% if can? :update, @article %>
+  <%= link_to 'Edit', edit_article_path(@article) %>
+<% end %>
+<% if can? :destroy, @article %>
+  <%= link_to 'Destroy', article_path(@article), :confirm => 'Are you sure?', :method => :delete %>
+<% end %>
+<h2>Comments</h2>
+<div>
+  <% if @article.comments.any? %>
+    <ul class="comments">
+      <%= render @comments %>
+    </ul>
+    <%= will_paginate @comments %>
+  <% end %>
+  <% if user_signed_in? %>
+    <%= simple_form_for([@article, @comment]) do |f| %>
+      <%= render 'shared/error_messages', :object => f.object %>
+      <%= f.input :content, :label => 'Comment' %>
+
+      <div class="form-actions">
+        <%= f.button :submit,
+                     'Submit comment',
+                     :class => 'btn btn-large btn-primary' %>
+      </div>
+    <% end %>
+  <% else %>
+    <p>You must be <%= link_to 'logged in', new_user_session_path %> to comment</p>
+  <% end %>
+</div>

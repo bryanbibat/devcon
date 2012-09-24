@@ -16,6 +16,7 @@
 #  created_at             :datetime        not null
 #  updated_at             :datetime        not null
 #  name                   :string(255)
+#  roles_mask             :integer
 #
 
 require 'spec_helper'
@@ -43,6 +44,8 @@ describe User do
 
   it { should respond_to(:name) }
   it { should respond_to(:articles) }
+  it { should respond_to(:roles) }
+  it { should respond_to(:comments) }
 
   it { should be_valid }
 
