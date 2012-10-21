@@ -9,6 +9,7 @@ gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.5'
 gem 'ckeditor', '3.7.3'
 gem 'cancan', '1.6.7'
+gem 'babosa'
 
 gem 'pg', '0.14.1'
 
