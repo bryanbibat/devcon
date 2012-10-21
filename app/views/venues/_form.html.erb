@@ -1,0 +1,16 @@
+<%= simple_form_for(@venue) do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+
+  <%= f.input :name %>
+  <% unless @venue.new_record? %>
+    <%= f.input :slug %>
+  <% end %>
+  <%= f.input :address %>
+  <%= f.input :latitude %>
+  <%= f.input :longitude %>
+  <%= f.input :description %>
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn btn-large btn-primary' %>
+  </div>
+<% end %>

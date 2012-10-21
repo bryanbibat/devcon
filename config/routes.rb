@@ -13,6 +13,8 @@ Devcon::Application.routes.draw do
     resources :comments, :except => [:new]
   end
 
+  resources :venues
+
   resources :categories
   resources :tags
 
