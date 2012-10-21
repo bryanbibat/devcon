@@ -11,6 +11,6 @@ class CreateVenues < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :venues, :slug
+    add_index :venues, :slug, :unique => true
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121021120056) do
+ActiveRecord::Schema.define(:version => 20121021163441) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -52,6 +52,16 @@ ActiveRecord::Schema.define(:version => 20121021120056) do
   add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
   add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
+  create_table "speakers", :force => true do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "speakers", ["slug"], :name => "index_speakers_on_slug", :unique => true
 
   create_table "tags", :force => true do |t|
     t.string   "name"
