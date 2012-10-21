@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121021164051) do
+ActiveRecord::Schema.define(:version => 20121021164629) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -53,6 +53,22 @@ ActiveRecord::Schema.define(:version => 20121021164051) do
   add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
+  create_table "entities", :force => true do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.text     "description"
+    t.text     "blurb"
+    t.string   "logo"
+    t.string   "type"
+    t.string   "level"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "entities", ["level"], :name => "index_entities_on_level"
+  add_index "entities", ["slug"], :name => "index_entities_on_slug", :unique => true
+  add_index "entities", ["type"], :name => "index_entities_on_type"
+
   create_table "events", :force => true do |t|
     t.string   "name"
     t.string   "slug"
@@ -70,6 +86,22 @@ ActiveRecord::Schema.define(:version => 20121021164051) do
   add_index "events", ["parent_id"], :name => "index_events_on_parent_id"
   add_index "events", ["slug"], :name => "index_events_on_slug", :unique => true
   add_index "events", ["venue_id"], :name => "index_events_on_venue_id"
+
+  create_table "presentations", :force => true do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.integer  "event_id"
+    t.integer  "speaker_id"
+    t.string   "slide_link"
+    t.string   "video_link"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "presentations", ["event_id"], :name => "index_presentations_on_event_id"
+  add_index "presentations", ["slug"], :name => "index_presentations_on_slug", :unique => true
+  add_index "presentations", ["speaker_id"], :name => "index_presentations_on_speaker_id"
 
   create_table "speakers", :force => true do |t|
     t.string   "name"
