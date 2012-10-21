@@ -12,6 +12,8 @@ gem 'cancan', '1.6.7'
 
 gem 'pg', '0.14.1'
 
+gem 'thin'
+
 group :development, :test do
   gem 'rspec-rails', '2.9.0'
   gem 'database_cleaner', '0.8.0'
