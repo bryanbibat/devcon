@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121021163441) do
+ActiveRecord::Schema.define(:version => 20121021164051) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -52,6 +52,24 @@ ActiveRecord::Schema.define(:version => 20121021163441) do
   add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
   add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
+  create_table "events", :force => true do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.text     "description"
+    t.integer  "venue_id"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.integer  "parent_id"
+    t.string   "logo"
+    t.string   "devcon_role"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "events", ["parent_id"], :name => "index_events_on_parent_id"
+  add_index "events", ["slug"], :name => "index_events_on_slug", :unique => true
+  add_index "events", ["venue_id"], :name => "index_events_on_venue_id"
 
   create_table "speakers", :force => true do |t|
     t.string   "name"
