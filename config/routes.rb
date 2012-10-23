@@ -13,6 +13,7 @@ Devcon::Application.routes.draw do
     resources :comments, :except => [:new]
   end
 
+  resources :events
   resources :entities
   resources :venues
 
