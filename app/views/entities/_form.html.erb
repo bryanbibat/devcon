@@ -1,0 +1,16 @@
+<%= simple_form_for(@entity) do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+
+  <%= f.input :name %>
+  <% unless @entity.new_record? %>
+    <%= f.input :slug %>
+  <% end %>
+  <%= f.input :description %>
+  <%= f.input :blurb %>
+  <%= f.input :type %>
+  <%= f.input :level %>
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn btn-large btn-primary' %>
+  </div>
+<% end %>

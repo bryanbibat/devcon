@@ -1,0 +1,7 @@
+<% provide(:title, 'Entities') %>
+<h1>Entities</h1>
+<% if can? :create, Entity %>
+  <%= link_to 'New entity', new_entity_path %>
+<% end %>
+
+<%= render @entities %>
