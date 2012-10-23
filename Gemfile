@@ -10,16 +10,17 @@ gem 'bootstrap-will_paginate', '0.0.5'
 gem 'ckeditor', '3.7.3'
 gem 'cancan', '1.6.7'
 gem 'babosa'
+gem 'carrierwave'
 
 gem 'pg', '0.14.1'
 
-gem 'thin'
 
 group :development, :test do
   gem 'rspec-rails', '2.9.0'
   gem 'database_cleaner', '0.8.0'
   gem 'annotate', '~> 2.4.1.beta'
   gem 'pry'
+  gem 'capistrano'
 end
 
 # Gems used only for assets and not required
