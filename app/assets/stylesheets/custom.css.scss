@@ -49,15 +49,6 @@ h1 {
   margin-bottom: 30px;
 }
 
-h2 {
-  font-size: 1.7em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: $grayLight;
-}
-
 p {
   font-size: 1.1em;
   line-height: 1.7em;
@@ -114,6 +105,63 @@ footer {
       float: left;
       margin-left: 10px;
     }
+  }
+}
+
+/* main page */
+
+.hero-unit {
+  padding: 30px;
+  margin-bottom: 0;
+  background:#fff !important;
+  h1 {
+    margin: 20px 0 30px;
+  }
+  p {
+    font-family:Georgia, serif !important;
+  }
+  p.blurb {
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 27px;
+  }
+  h2 {
+    margin-top:20px !important;
+    font-family:Georgia, serif !important;
+  }
+}
+
+.event-types {
+  h3 {
+    font-size: 18px;
+    line-height: 27px;
+  }
+  p {
+    font-family: Arial,sans-serif !important;
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+.partner-area {
+  border-top:2px #ccc solid;
+  border-bottom: 2px #ccc solid;
+  margin:50px 0;
+  padding:20px 0;
+  margin-left:0 !important;
+  ul {
+    margin:0px !important;
+  }
+  ul li {
+    display:inline;
+    margin:0 5px;
+  }
+  .partner-list li {
+    float: left;
+    text-align: center;
+    width: 180px;
+    height: 150px;
+    display:block;
   }
 }
 

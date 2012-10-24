@@ -5,12 +5,17 @@
         <img src="/logo.png" class="retina" />
       <% end %>
       <nav>
-        <ul class="nav pull-right">
-          <li><%= link_to 'Home', root_path %></li>
+        <ul class="nav">
+          <li class="<%= (action_name == "home" ? "active" : "") %>"><%= link_to 'Home', root_path  %></li>
           <li><%= link_to 'Articles', articles_path %></li>
           <li><%= link_to 'Events', events_path %></li>
-          <li><%= link_to 'Entities', entities_path %></li>
-          <li><%= link_to 'Venues', venues_path %></li>
+          <li><%= link_to 'Partners', entities_path %></li>
+          <li><%= link_to 'Speakers', speakers_path %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to 'Venues', venues_path %></li>
+          <% end %>
+        </ul>
+        <ul class="nav pull-right">
           <% if user_signed_in? %>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">

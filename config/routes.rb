@@ -15,6 +15,7 @@ Devcon::Application.routes.draw do
 
   resources :events
   resources :entities
+  resources :speakers
   resources :venues
 
   resources :categories
