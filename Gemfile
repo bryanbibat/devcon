@@ -11,6 +11,7 @@ gem 'ckeditor', '3.7.3'
 gem 'cancan', '1.6.7'
 gem 'babosa'
 gem 'carrierwave'
+gem 'mini_magick'
 
 gem 'pg', '0.14.1'
 

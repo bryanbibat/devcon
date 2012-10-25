@@ -1,4 +1,5 @@
 <% provide(:title, @speaker.name)%>
 <h2><%= @speaker.name %></h2>
 
+<%= raw @speaker.description %>
 <%= link_to 'Back to speaker list', speaker_path %>
