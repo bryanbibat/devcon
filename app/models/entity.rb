@@ -19,11 +19,16 @@ class Entity < ActiveRecord::Base
 
   include SluggedResource
 
-  TYPES = %w{ school company user-group }
+  TYPES = %w{ school company community }
   LEVELS = %w{ cool awesome }
 
   validates_presence_of :type
+  def self.inheritance_column
+    "disabled"
+  end
 
   validates_inclusion_of :type, :in => TYPES
-  validates_inclusion_of :levels, :in => LEVELS, :allow_blank => true
+  validates_inclusion_of :level, :in => LEVELS, :allow_blank => true
+
+  mount_uploader :logo, LogoUploader
 end
