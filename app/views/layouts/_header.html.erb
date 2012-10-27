@@ -9,7 +9,7 @@
           <li class="<%= (action_name == "home" ? "active" : "") %>"><%= link_to 'Home', root_path  %></li>
           <li><%= link_to 'Articles', articles_path %></li>
           <li><%= link_to 'Events', events_path %></li>
-          <li><%= link_to 'Partners', entities_path %></li>
+          <li><%= link_to 'Partners', partners_path %></li>
           <li><%= link_to 'Speakers', speakers_path %></li>
           <% if user_signed_in? %>
             <li><%= link_to 'Venues', venues_path %></li>
@@ -17,6 +17,16 @@
         </ul>
         <ul class="nav pull-right">
           <% if user_signed_in? %>
+            <% if current_user.role? "admin" %>
+              <li id="fat-menu" class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  Admin Pages <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to 'Entities', entities_path %></li>
+                </ul>
+              </li>
+            <% end %>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Account <b class="caret"></b>

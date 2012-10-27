@@ -18,4 +18,12 @@ class Entity < ActiveRecord::Base
   attr_accessible :blurb, :description, :level, :logo, :name, :slug, :type
 
   include SluggedResource
+
+  TYPES = %w{ school company user-group }
+  LEVELS = %w{ cool awesome }
+
+  validates_presence_of :type
+
+  validates_inclusion_of :type, :in => TYPES
+  validates_inclusion_of :levels, :in => LEVELS, :allow_blank => true
 end

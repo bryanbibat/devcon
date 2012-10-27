@@ -1,4 +1,5 @@
 Devcon::Application.routes.draw do
+
   mount Ckeditor::Engine => '/ckeditor'
 
   devise_for :users
@@ -16,10 +17,11 @@ Devcon::Application.routes.draw do
   end
 
   resources :events
-  resources :entities
+  resources :partners, :only => [:index, :show]
   resources :speakers
   resources :venues
 
+  resources :entities
   resources :categories
   resources :tags
 

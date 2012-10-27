@@ -7,8 +7,8 @@
   <% end %>
   <%= f.input :description %>
   <%= f.input :blurb %>
-  <%= f.input :type %>
-  <%= f.input :level %>
+  <%= f.input :type, :collection => Entity::TYPES, :include_blank => false %>
+  <%= f.input :level, :collection => Entity::LEVELS %>
 
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn btn-large btn-primary' %>
