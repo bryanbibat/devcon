@@ -11,10 +11,11 @@
 #  description :text
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
+#  directions  :text
 #
 
 class Venue < ActiveRecord::Base
-  attr_accessible :address, :description, :latitude, :longitude, :name, :slug
+  attr_accessible :address, :description, :latitude, :longitude, :name, :slug, :directions
 
   include SluggedResource
 end
