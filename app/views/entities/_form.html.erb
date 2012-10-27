@@ -5,8 +5,17 @@
   <% unless @entity.new_record? %>
     <%= f.input :slug %>
   <% end %>
-  <%= f.input :description %>
-  <%= f.input :blurb %>
+  <%= f.input :description, :as => :ckeditor %>
+  <%= f.input :blurb, :input_html => { class: 'input-xxlarge editor-html', size: "500x6" }, :hint => "A shorter description for use in places where the full description would be overkill." %>
+  <% unless @entity.logo.blank? %>
+    <div class="control-group">
+      <div class="controls">
+        <%= image_tag @entity.logo_url, :class => "img-polaroid" %>
+        <%= image_tag @entity.logo.large.url, :class => "img-polaroid" %>
+        <%= image_tag @entity.logo.medium.url, :class => "img-polaroid" %>
+      </div>
+    </div>
+  <% end %>
   <%= f.input :logo, :as => :file %>
   <%= f.input :type, :collection => Entity::TYPES, :include_blank => false %>
   <%= f.input :level, :collection => Entity::LEVELS %>
