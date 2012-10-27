@@ -5,6 +5,8 @@
   <% unless @entity.new_record? %>
     <%= f.input :slug %>
   <% end %>
+  <%= f.input :formal_name, :hint => "A more formal name of the entity" %>
+  <%= f.input :short_name, :hint => "An abbreviated or colloquial name of the entity" %>
   <%= f.input :description, :as => :ckeditor %>
   <%= f.input :blurb, :input_html => { class: 'input-xxlarge editor-html', size: "500x6" }, :hint => "A shorter description for use in places where the full description would be overkill." %>
   <% unless @entity.logo.blank? %>

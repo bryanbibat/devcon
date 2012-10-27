@@ -12,6 +12,8 @@
 #  level       :string(255)
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
+#  formal_name :string(255)
+#  short_name  :string(255)
 #
 
 require 'spec_helper'

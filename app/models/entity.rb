@@ -12,10 +12,12 @@
 #  level       :string(255)
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
+#  formal_name :string(255)
+#  short_name  :string(255)
 #
 
 class Entity < ActiveRecord::Base
-  attr_accessible :blurb, :description, :level, :logo, :name, :slug, :type
+  attr_accessible :blurb, :description, :level, :logo, :name, :slug, :type, :formal_name, :short_name
 
   include SluggedResource
 

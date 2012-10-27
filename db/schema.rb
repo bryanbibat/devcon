@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121026005930) do
+ActiveRecord::Schema.define(:version => 20121027181059) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -79,6 +79,8 @@ ActiveRecord::Schema.define(:version => 20121026005930) do
     t.string   "level"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "formal_name"
+    t.string   "short_name"
   end
 
   add_index "entities", ["level"], :name => "index_entities_on_level"
