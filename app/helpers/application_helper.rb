@@ -13,7 +13,7 @@ module ApplicationHelper
   end
 
   def full_title(page_title)
-    base_title = 'Developers Connect'
+    base_title = ENV['title']
     if page_title.empty?
       base_title
     else

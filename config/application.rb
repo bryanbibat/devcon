@@ -71,3 +71,5 @@ module Devcon
     end
   end
 end
+
+require 'env_yaml'
