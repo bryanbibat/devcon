@@ -1,21 +1,22 @@
 <% provide(:title, 'Categories') %>
 <h1>Categories</h1>
-<% if can? :create, Category %>
-  <%= link_to 'New category', new_category_path %>
-<% end %>
 
 <ul>
   <% @categories.each do |category| %>
     <li>
       <%= link_to category.name, category_path(category) %>
       <% if can? :update, category %>
-        <%= link_to 'Edit', edit_category_path(category) %>
+        <%= link_to 'Edit', edit_category_path(category), :class => "btn btn-mini" %>
       <% end %>
       <% if can? :destroy, category %>
-        <%= link_to 'Destroy', category_path(category), :confirm => 'Are you sure?', :method => :delete %>
+        <%= link_to 'Destroy', category_path(category), :class => "btn btn-mini", :confirm => 'Are you sure?', :method => :delete %>
       <% end %>
     </li>
   <% end %>
 </ul>
 
 <%= will_paginate %>
+
+<% if can? :create, Category %>
+  <p><%= link_to 'New category', new_category_path, :class => "btn" %></p>
+<% end %>

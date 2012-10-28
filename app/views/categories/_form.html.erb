@@ -1,11 +1,15 @@
 <%= simple_form_for(@category) do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
 
-  <%= f.input :name %>
-  <%= f.input :description %>
+  <%= f.input :name, :input_html => { class: 'input-xlarge' } %>
+  <% unless @category.slug.blank? %>
+    <%= f.input :slug, :input_html => { class: 'input-xlarge' } %>
+  <% end %>
+  <%= f.input :description, :input_html => { class: 'input-xxlarge editor-html', size: "500x6" }%>
 
   <div class="form-actions">
     <%= f.button :submit,
                  :class => 'btn btn-large btn-primary' %>
+    <%= link_to "Cancel", (@category.new_record? ? categories_path : category_path(@category)), :class => "btn btn-large" %>
   </div>
 <% end %>

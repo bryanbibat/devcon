@@ -7,10 +7,10 @@
   <p><%= @category.description %></p>
 <% end %>
 <% if can? :update, @category %>
-  <%= link_to 'Edit', edit_category_path(@category) %>
+  <%= link_to 'Edit', edit_category_path(@category), :class => "btn" %>
 <% end %>
 <% if can? :destroy, @category %>
-  <%= link_to 'Destroy', category_path(@category), :confirm => 'Are you sure?', :method => :delete %>
+  <%= link_to 'Destroy', category_path(@category), :confirm => 'Are you sure?', :method => :delete, :class => "btn" %>
 <% end %>
 <h2>Articles under <%= @category.name %></h2>
 <ul>
