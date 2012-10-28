@@ -220,7 +220,7 @@ PLATFORMS
 DEPENDENCIES
   annotate (~> 2.4.1.beta)
   babosa
-  bootstrap-sass (~> 2.1.0.0)
+  bootstrap-sass (~> 2.1.0.1)
   bootstrap-will_paginate (= 0.0.5)
   cancan (= 1.6.7)
   capistrano
