@@ -7,10 +7,10 @@
       <nav>
         <ul class="nav">
           <li class="<%= (action_name == "home" ? "active" : "") %>"><%= link_to 'Home', root_path  %></li>
-          <li><%= link_to 'Articles', articles_path %></li>
-          <li><%= link_to 'Events', events_path %></li>
-          <li><%= link_to 'Partners', partners_path %></li>
-          <li><%= link_to 'Speakers', speakers_path %></li>
+          <li class="<%= (controller_name == "articles" ? "active" : "") %>"><%= link_to 'Articles', articles_path %></li>
+          <li class="<%= (controller_name == "events" ? "active" : "") %>"><%= link_to 'Events', events_path %></li>
+          <li class="<%= (controller_name == "partners" ? "active" : "") %>"><%= link_to 'Partners', partners_path %></li>
+          <li class="<%= (controller_name == "speakers" ? "active" : "") %>"><%= link_to 'Speakers', speakers_path %></li>
           <% if user_signed_in? %>
             <li><%= link_to 'Venues', venues_path %></li>
           <% end %>

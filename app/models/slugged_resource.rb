@@ -5,10 +5,6 @@ module SluggedResource
       validates_uniqueness_of :slug
 
       before_validation :generate_slug
-
-      def self.find(id)
-        where(:slug => id).first!
-      end
     end
   end
 

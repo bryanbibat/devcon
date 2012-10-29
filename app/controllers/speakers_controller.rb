@@ -1,4 +1,5 @@
 class SpeakersController < ApplicationController
+  load_resource :find_by => :slug
   load_and_authorize_resource :except => [:show]
 
   def index
@@ -18,6 +19,5 @@ class SpeakersController < ApplicationController
   end
 
   def show
-    @speaker = Speaker.find_by_slug!(params[:id])
   end
 end

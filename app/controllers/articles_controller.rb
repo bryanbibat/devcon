@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_filter :paginate_articles, :only => :index
+  load_resource :find_by => :slug
   load_and_authorize_resource
 
   def index

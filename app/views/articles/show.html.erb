@@ -1,53 +1,52 @@
 <% provide(:title, @article.title) %>
-<h1 class="article-info">
-  <%= @article.title %><br />
-  <small>
-    Written by
-    <% if @article.author.name.blank? %>
-      <%= link_to @article.author.email, @article.author %>
-    <% else %>
-      <%= link_to @article.author.name, @article.author %>
-    <% end %>
-    on <%= l(@article.created_at, :format => :friendly_date) %>
-    <br />
-    <% if @article.categories.any? %>
-      <%= @article.categories.count == 1 ? 'Category' : 'Category'.pluralize %>: 
-      <% @article.categories.each do |category| %>
-        <%= link_to category.name, category %> 
+<div class="row-fluid article">
+  <div class="span2">
+    <%= image_tag @article.thumbnail %>
+  </div>
+  <div class="span10">
+    <h1><%= link_to @article.title, @article, :class => 'article-title' %></h1>
+    <p><small>
+      <%= l(@article.created_at, :format => :friendly_date) %> 
+      | Written by
+      <% if @article.author.name.blank? %>
+        <%= link_to @article.author.email, @article.author %>
+      <% else %>
+        <%= link_to @article.author.name, @article.author %>
       <% end %>
-    <% end %>
-  </small>
-</h1>
-<section class="article-content">
-  <%= raw @article.content %>
-</section>
-<%= link_to 'Back to articles', articles_path %>
-<% if can? :update, @article %>
-  <%= link_to 'Edit', edit_article_path(@article) %>
-<% end %>
-<% if can? :destroy, @article %>
-  <%= link_to 'Destroy', article_path(@article), :confirm => 'Are you sure?', :method => :delete %>
-<% end %>
-<h2>Comments</h2>
-<div>
-  <% if @article.comments.any? %>
-    <ul class="comments">
-      <%= render @comments %>
-    </ul>
-    <%= will_paginate @comments %>
-  <% end %>
-  <% if user_signed_in? %>
-    <%= simple_form_for([@article, @comment]) do |f| %>
-      <%= render 'shared/error_messages', :object => f.object %>
-      <%= f.input :content, :label => 'Comment' %>
-
-      <div class="form-actions">
-        <%= f.button :submit,
-                     'Submit comment',
-                     :class => 'btn btn-large btn-primary' %>
-      </div>
-    <% end %>
-  <% else %>
-    <p>You must be <%= link_to 'logged in', new_user_session_path %> to comment</p>
-  <% end %>
+      |
+      <% if @article.categories.any? %>
+        <%= @article.categories.count == 1 ? 'Category' : 'Category'.pluralize %>: 
+        <% @article.categories.each do |category| %>
+          <%= link_to category.name, category %> 
+        <% end %>
+      <% end %>
+    </small></p>
+    <div class="article-content">
+      <%= raw @article.content %>
+      <p>
+        <%= link_to 'Back to articles', articles_path %>
+        <% if can? :update, @article %>
+          <%= link_to 'Edit', edit_article_path(@article) %>
+        <% end %>
+        <% if can? :destroy, @article %>
+          <%= link_to 'Destroy', article_path(@article), :confirm => 'Are you sure?', :method => :delete %>
+        <% end %>
+      </p>
+    </div>
+    <div id="disqus_thread"></div>
+  </div>
 </div>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'devconphbeta'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>

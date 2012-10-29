@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
-  load_and_authorize_resource :except => [:show]
+  load_resource :find_by => :slug
+  load_and_authorize_resource 
 
   def index
     @events = Event.where(:parent_id => nil).includes(:subevents)
@@ -18,6 +19,5 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find_by_slug!(params[:id])
   end
 end

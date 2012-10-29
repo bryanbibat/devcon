@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   before_filter :paginate_categories, :only => :index
+  load_resource :find_by => :slug
   load_and_authorize_resource
 
   def index

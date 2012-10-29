@@ -1,6 +1,6 @@
 class VenuesController < ApplicationController
+  load_resource :find_by => :slug
   load_and_authorize_resource :except => [:show, :edit, :update]
-  before_filter :load_and_authorize_venue, :only => [:edit, :update]
 
   def index
     @venues = Venue.all
@@ -30,13 +30,6 @@ class VenuesController < ApplicationController
   end
 
   def show
-    @venue = Venue.find_by_slug!(params[:id])
   end
 
-  private
-
-  def load_and_authorize_venue
-    @venue = Venue.find_by_slug!(params[:id])
-    authorize! :update, @venue 
-  end
 end

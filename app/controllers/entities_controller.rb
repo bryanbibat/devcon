@@ -1,6 +1,6 @@
 class EntitiesController < ApplicationController
-  load_and_authorize_resource :except => [:show, :edit, :update]
-  before_filter :load_and_authorize_entity, :only => [:edit, :update]
+  load_resource :find_by => :slug
+  load_and_authorize_resource 
 
   def index
     @entities = Entity.all
@@ -31,13 +31,6 @@ class EntitiesController < ApplicationController
 
   def show
     @entity = Entity.find_by_slug!(params[:id])
-  end
-
-  private
-
-  def load_and_authorize_entity
-    @entity = Entity.find_by_slug!(params[:id])
-    authorize! :update, @entity 
   end
 
 end

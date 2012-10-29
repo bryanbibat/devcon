@@ -2,8 +2,22 @@
   <%= render 'shared/error_messages', :object => f.object %>
 
   <%= f.input :title %>
+  <% unless @article.slug.blank? %>
+    <%= f.input :slug, :hint => "For permalink" %>
+  <% end %>
+
+  <% unless @article.thumbnail.blank? %>
+    <div class="control-group">
+      <div class="controls">
+        <%= image_tag @article.thumbnail_url, :class => "img-polaroid" %>
+        <%= image_tag @article.thumbnail.small.url, :class => "img-polaroid" %>
+      </div>
+    </div>
+  <% end %>
+  <%= f.input :thumbnail, :as => :file %>
   <%= f.input :content,
               :as => :ckeditor %>
+  <%= f.input :summary, :input_html => { class: 'input-xxlarge editor-html', size: "500x6" }, :hint => "A shorter description for use in places where the full description would be overkill." %>
   <%= f.association :categories, :as => :check_boxes %>
 
   <div class="form-actions">
