@@ -4,7 +4,7 @@
   :title => @article.title,
   :type  => :article,
   :url   => article_url(@article),
-  :image => (@article.thumbnail.blank? ? asset_path("logo.png") : @article.thumbnail.url)
+  :image => request.protocol + request.host_with_port + (@article.thumbnail.blank? ? asset_path("logo.png") : @article.thumbnail.url)
 } %>
 
 <div class="row-fluid article">
