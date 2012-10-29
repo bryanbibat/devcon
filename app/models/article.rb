@@ -8,7 +8,11 @@
 #  author_id  :integer
 #  created_at :datetime        not null
 #  updated_at :datetime        not null
+#  slug       :string(255)
+#  summary    :text
+#  thumbnail  :string(255)
 #
+
 include ActionView::Helpers::SanitizeHelper
 
 class Article < ActiveRecord::Base
