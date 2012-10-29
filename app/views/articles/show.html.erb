@@ -1,7 +1,8 @@
 <% title @article.title %>
 <% description @article.summary %>
 <% set_meta_tags :open_graph => {
-  :title => @article.title,
+  :title => "#{@article.title} | #{ENV['title']}",
+  :description => @article.summary.tr("\n"," ").gsub(/\s+/, " "),
   :type  => :article,
   :url   => article_url(@article),
   :image => request.protocol + request.host_with_port + (@article.thumbnail.blank? ? asset_path("logo.png") : @article.thumbnail.url)

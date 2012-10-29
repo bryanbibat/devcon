@@ -39,7 +39,9 @@ class Article < ActiveRecord::Base
   end
 
   def generate_summary
-    self.summary ||= strip_tags(content)
+    if self.summary.blank?
+      self.summary = strip_tags(content)
+    end
   end
 
   def to_param
