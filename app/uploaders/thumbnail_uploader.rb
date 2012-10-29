@@ -29,6 +29,11 @@ class ThumbnailUploader < CarrierWave::Uploader::Base
   process :resize_and_pad => [150, 150]
 
   # Create different versions of your uploaded files:
+  version :opengraph do
+    process :resize_and_pad => [200, 200]
+  end
+
+  # Create different versions of your uploaded files:
   version :small do
     process :resize_and_pad => [75, 75]
   end

@@ -5,7 +5,7 @@
   :description => @article.summary.tr("\n"," ").gsub(/\s+/, " "),
   :type  => :article,
   :url   => article_url(@article),
-  :image => request.protocol + request.host_with_port + (@article.thumbnail.blank? ? asset_path("logo.png") : @article.thumbnail.url)
+  :image => request.protocol + request.host_with_port + (@article.thumbnail.opengraph.blank? ? asset_path("devcon_logo_opengraph.png") : @article.thumbnail.url)
 } %>
 
 <div class="row-fluid article">
