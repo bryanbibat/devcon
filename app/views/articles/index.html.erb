@@ -1,7 +1,9 @@
 <% provide(:title, 'Articles') %>
 <h1>Articles</h1>
 <% if can? :create, Article %>
-  <%= link_to 'New article', new_article_path %>
+  <p>
+  <%= link_to 'New article', new_article_path, :class => "btn" %>
+  </p>
 <% end %>
 
 <%= render @articles %>

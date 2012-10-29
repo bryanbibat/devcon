@@ -167,17 +167,25 @@ footer {
 
 /* articles */
 
-.article-info {
+.article {
   border-bottom: 1px solid $grayMediumLight;
+  .article-title {
+    font-family:Georgia, serif !important;
+    font-weight: normal;
+  }
+  h1 {
+    margin-bottom: 0px;
+  }
+
+  small {
+    font-family:Georgia, serif !important;
+    color: gray;
+  }
+  .article-content {
+    padding-bottom: 30px;
+  }
 }
 
-.article-title {
-
-}
-
-.article-content {
-  padding-bottom: 30px;
-}
 
 /* miscellaneous */
 
