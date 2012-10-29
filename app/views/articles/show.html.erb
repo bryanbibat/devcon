@@ -1,4 +1,12 @@
-<% provide(:title, @article.title) %>
+<% title @article.title %>
+<% description @article.summary %>
+<% set_meta_tags :open_graph => {
+  :title => @article.title,
+  :type  => :article,
+  :url   => article_url(@article),
+  :image => (@article.thumbnail.blank? ? asset_path("logo.png") : @article.thumbnail.url)
+} %>
+
 <div class="row-fluid article">
   <div class="span2">
     <%= image_tag @article.thumbnail %>
