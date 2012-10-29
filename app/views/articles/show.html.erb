@@ -10,7 +10,7 @@
 
 <div class="row-fluid article">
   <div class="span2">
-    <%= image_tag @article.thumbnail %>
+    <%= image_tag @article.thumbnail.thumb %>
   </div>
   <div class="span10">
     <h1><%= link_to @article.title, @article, :class => 'article-title' %></h1>

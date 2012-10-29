@@ -26,7 +26,9 @@ class ThumbnailUploader < CarrierWave::Uploader::Base
     asset_path([version_name, "default_thumbnail.png"].compact.join('_'))
   end
 
-  process :resize_and_pad => [150, 150]
+  version :thumb do
+    process :resize_and_pad => [150, 150]
+  end
 
   # Create different versions of your uploaded files:
   version :opengraph do
