@@ -30,7 +30,10 @@ class LogoUploader < CarrierWave::Uploader::Base
     process :resize_and_pad => [250, 250]
   end
 
-  # Create different versions of your uploaded files:
+  version :opengraph do
+    process :resize_and_pad => [250, 250]
+  end
+
   version :medium do
     process :resize_and_pad => [150, 150]
   end
