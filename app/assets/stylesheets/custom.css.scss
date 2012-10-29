@@ -169,8 +169,7 @@ footer {
 
 .article {
   border-bottom: 1px solid $grayMediumLight;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
+  padding: 20px 0 30px;
   .article-title {
     font-family:Georgia, serif !important;
     font-weight: normal;
@@ -188,6 +187,17 @@ footer {
   }
 }
 
+.twitter-share {
+  width: 80px !important;
+}
+
+.fb-share {
+  width: 75px !important;
+}
+
+.gplus-share {
+  width: 60px !important;
+}
 
 /* miscellaneous */
 

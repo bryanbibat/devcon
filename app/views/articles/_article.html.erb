@@ -6,7 +6,7 @@
     <h2><%= link_to article.title, article, :class => 'article-title' %></h2>
     <p><small>
       <%= l(article.created_at, :format => :friendly_date) %> 
-      | Written by
+      | by
       <% if article.author.name.blank? %>
         <%= link_to article.author.email, article.author %>
       <% else %>
