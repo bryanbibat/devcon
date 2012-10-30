@@ -16,6 +16,7 @@ gem 'mini_magick'
 
 gem 'pg', '0.14.1'
 
+gem 'turbo-sprockets-rails3'
 
 group :development, :test do
   gem 'rspec-rails', '2.9.0'
