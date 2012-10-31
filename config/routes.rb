@@ -18,7 +18,7 @@ Devcon::Application.routes.draw do
 
   resources :events
   resources :partners, :only => [:index, :show]
-  resources :speakers
+  resources :resource_people
   resources :venues
 
   resources :entities

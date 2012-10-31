@@ -6,14 +6,7 @@
     <%= f.input :slug, :hint => "For permalink" %>
   <% end %>
 
-  <% unless @article.thumbnail.blank? %>
-    <div class="control-group">
-      <div class="controls">
-        <%= image_tag @article.thumbnail_url, :class => "img-polaroid" %>
-        <%= image_tag @article.thumbnail.small.url, :class => "img-polaroid" %>
-      </div>
-    </div>
-  <% end %>
+  <%= render :partial => "shared/view_thumbnail", :locals => { :obj => @article } %>
   <%= f.input :thumbnail, :as => :file %>
   <%= f.input :content,
               :as => :ckeditor %>

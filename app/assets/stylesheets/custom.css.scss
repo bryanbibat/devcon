@@ -165,12 +165,12 @@ footer {
   }
 }
 
-/* articles */
+/* articles, resource-speaker */
 
-.article {
+.article, .resource-person {
   border-bottom: 1px solid $grayMediumLight;
   padding: 20px 0 30px;
-  .article-title {
+  .title, .subtitle {
     font-family:Georgia, serif !important;
     font-weight: normal;
   }

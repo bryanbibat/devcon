@@ -20,4 +20,12 @@ module ApplicationHelper
       "#{page_title} - #{base_title}"
     end
   end
+
+  def generate_description(text) 
+    text.tr("\n"," ").gsub(/\s+/, " ").strip
+  end
+
+  def thumbnail_url(obj)
+    request.protocol + request.host_with_port + (obj.thumbnail.opengraph.blank? ? asset_path("devcon_logo_opengraph.png") : obj.thumbnail.opengraph.url)
+  end
 end

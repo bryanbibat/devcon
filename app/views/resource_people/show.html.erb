@@ -1,0 +1,27 @@
+<% title @resource_person.name %>
+<% description generate_description("#{@resource_person.main_title} | #{strip_tags @resource_person.description}") %>
+<% set_meta_tags :open_graph => {
+  :user_name => @resource_person.name,
+  :title => @resource_person.main_title,
+  :description => generate_description(strip_tags @resource_person.description),
+  :type  => :profile,
+  :url   => resource_person_url(@resource_person),
+  :image => thumbnail_url(@resource_person)
+} %>
+
+<p><%= image_tag @resource_person.thumbnail.url %>
+
+<h2><%= @resource_person.name %></h2>
+<h3><%= @resource_person.main_title %></h3>
+
+<%= raw @resource_person.description %>
+
+<p>
+  <%= link_to 'Back to Resource People', resource_people_path %>
+  <% if can? :update, @resource_person %>
+    <%= link_to 'Edit', edit_resource_person_path(@resource_person) %>
+  <% end %>
+  <% if can? :destroy, @resource_person %>
+    <%= link_to 'Destroy', resource_person_path(@resource_person), :confirm => 'Are you sure?', :method => :delete %>
+  <% end %>
+</p>

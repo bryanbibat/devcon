@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121029071131) do
+ActiveRecord::Schema.define(:version => 20121031172706) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -138,6 +138,18 @@ ActiveRecord::Schema.define(:version => 20121029071131) do
   add_index "presentations", ["event_id"], :name => "index_presentations_on_event_id"
   add_index "presentations", ["slug"], :name => "index_presentations_on_slug", :unique => true
   add_index "presentations", ["speaker_id"], :name => "index_presentations_on_speaker_id"
+
+  create_table "resource_people", :force => true do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.text     "description"
+    t.string   "main_title"
+    t.string   "thumbnail"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "resource_people", ["slug"], :name => "index_resource_people_on_slug"
 
   create_table "speakers", :force => true do |t|
     t.string   "name"

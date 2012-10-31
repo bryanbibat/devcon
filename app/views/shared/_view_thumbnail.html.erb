@@ -1,0 +1,10 @@
+  <% unless obj.thumbnail.blank? %>
+    <div class="control-group">
+      <div class="controls">
+        <%= image_tag obj.thumbnail_url, :class => "img-polaroid" %>
+        <%= image_tag obj.thumbnail.opengraph.url, :class => "img-polaroid" %>
+        <%= image_tag obj.thumbnail.thumb.url, :class => "img-polaroid" %>
+        <%= image_tag obj.thumbnail.small.url, :class => "img-polaroid" %>
+      </div>
+    </div>
+  <% end %>
