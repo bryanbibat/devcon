@@ -81,6 +81,7 @@ GEM
     faker (1.0.1)
       i18n (~> 0.4)
     ffi (1.1.5)
+    gmaps4rails (1.5.6)
     growl (1.0.3)
     guard (1.5.0)
       listen (>= 0.4.2)
@@ -237,6 +238,7 @@ DEPENDENCIES
   devise (= 2.1.2)
   fabrication (= 2.2.3)
   faker (= 1.0.1)
+  gmaps4rails
   growl
   guard
   guard-bundler

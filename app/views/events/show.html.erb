@@ -21,7 +21,7 @@
       </div>
     </div>
     <div class="row-fluid">
-      <div class="span8">
+      <div class="span6">
         <h3><%= @event.venue.name %></h3>
         <p><%= simple_format @event.venue.address %></p>
         <p>
@@ -30,8 +30,8 @@
           <%= l(@event.end_at, :format => :long) %> 
         </p>
       </div>
-      <div class="span4">
-        Map goes here
+      <div class="span6">
+        <%= gmaps("markers" => {"data" => @gmap_json}, "map_options" => {"processing" => "json", "auto_zoom" => false, "zoom" => 14}) %>
       </div>
     </div>
     <div class="row-fluid">

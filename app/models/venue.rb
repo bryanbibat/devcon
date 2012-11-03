@@ -18,4 +18,7 @@ class Venue < ActiveRecord::Base
   attr_accessible :address, :description, :latitude, :longitude, :name, :slug, :directions
 
   include SluggedResource
+
+  acts_as_gmappable
+
 end
