@@ -20,4 +20,15 @@ class EventsController < ApplicationController
 
   def show
   end
+
+  def edit
+  end
+
+  def update
+    if @event.update_attributes(params[:event])
+      redirect_to event_path(@event), :notice => "Event successfully updated"
+    else
+      render :edit
+    end
+  end
 end

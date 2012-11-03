@@ -1,7 +1,7 @@
 <% provide(:title, 'Events') %>
 <h1>Events</h1>
 <% if can? :create, Event %>
-  <%= link_to 'New event', new_event_path %>
+  <%= link_to 'New event', new_event_path, :class => "btn" %>
 <% end %>
 
 <%= render @events %>

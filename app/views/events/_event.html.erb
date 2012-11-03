@@ -1,4 +1,25 @@
-<h2><%= event.name %></h2>
-<% event.subevents.each do |subevent| %>
-  <h3><%= subevent.name %></h3>
-<% end %>
+<div class="row-fluid event">
+  <div class="span2">
+    <%= image_tag event.logo.thumb %>
+  </div>
+  <div class="span10">
+    <h2><%= link_to event.name, event, :class => 'title' %></h2>
+    <p><small>
+      <%= l(event.start_at, :format => :long) %> 
+      to
+      <%= l(event.end_at, :format => :long) %> 
+      |
+      <%= link_to "", event_url(event) + "#disqus_thread" %>
+    </small></p>
+    <p class="summary">
+      <%= event.summary %>
+      <% if can? :manage, Event %>
+        <%= link_to "Edit", edit_event_path(event) %>
+        <%= link_to "Destroy", event, :confirm => 'Are you sure?', :method => :delete %>
+      <% end %>
+    </p>
+    <% event.subevents.each do |subevent| %>
+      <h3><%= subevent.name %></h3>
+    <% end %>
+  </div>
+</div>

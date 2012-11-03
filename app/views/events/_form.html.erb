@@ -6,10 +6,14 @@
     <%= f.input :slug %>
   <% end %>
   <%= f.association :parent %>
-  <%= f.input :description %>
+  <%= f.input :summary, :input_html => { class: 'input-xxlarge editor-html', size: "500x6" } %>
   <%= f.association :venue %>
   <%= f.input :start_at %>
   <%= f.input :end_at %>
+  <%= f.input :description, :as => :ckeditor %>
+  <%= f.input :schedule, :as => :ckeditor %>
+  <%= f.input :rules, :as => :ckeditor %>
+  <%= f.input :registration, :as => :ckeditor %>
   <%= f.input :devcon_role %>
 
   <div class="form-actions">
