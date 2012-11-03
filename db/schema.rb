@@ -11,20 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121101155154) do
+ActiveRecord::Schema.define(:version => 20121103214439) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
     t.text     "content"
     t.integer  "author_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.string   "slug"
     t.text     "summary"
     t.string   "thumbnail"
+    t.boolean  "published",    :default => false
+    t.datetime "published_at"
   end
 
   add_index "articles", ["author_id", "created_at"], :name => "index_articles_on_author_id_and_created_at"
+  add_index "articles", ["published"], :name => "index_articles_on_published"
   add_index "articles", ["slug"], :name => "index_articles_on_slug", :unique => true
 
   create_table "articles_categories", :id => false, :force => true do |t|
@@ -84,12 +87,14 @@ ActiveRecord::Schema.define(:version => 20121101155154) do
     t.string   "logo"
     t.string   "type"
     t.string   "level"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.string   "formal_name"
     t.string   "short_name"
+    t.boolean  "display",     :default => false
   end
 
+  add_index "entities", ["display"], :name => "index_entities_on_display"
   add_index "entities", ["level"], :name => "index_entities_on_level"
   add_index "entities", ["slug"], :name => "index_entities_on_slug", :unique => true
   add_index "entities", ["type"], :name => "index_entities_on_type"
@@ -104,15 +109,17 @@ ActiveRecord::Schema.define(:version => 20121101155154) do
     t.integer  "parent_id"
     t.string   "logo"
     t.string   "devcon_role"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.text     "summary"
     t.text     "schedule"
     t.text     "rules"
     t.text     "registration"
+    t.boolean  "published",    :default => false
   end
 
   add_index "events", ["parent_id"], :name => "index_events_on_parent_id"
+  add_index "events", ["published"], :name => "index_events_on_published"
   add_index "events", ["slug"], :name => "index_events_on_slug", :unique => true
   add_index "events", ["venue_id"], :name => "index_events_on_venue_id"
 
@@ -135,10 +142,12 @@ ActiveRecord::Schema.define(:version => 20121101155154) do
     t.string   "slide_link"
     t.string   "video_link"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.boolean  "display",     :default => false
   end
 
+  add_index "presentations", ["display"], :name => "index_presentations_on_display"
   add_index "presentations", ["event_id"], :name => "index_presentations_on_event_id"
   add_index "presentations", ["slug"], :name => "index_presentations_on_slug", :unique => true
   add_index "presentations", ["speaker_id"], :name => "index_presentations_on_speaker_id"
@@ -149,10 +158,12 @@ ActiveRecord::Schema.define(:version => 20121101155154) do
     t.text     "description"
     t.string   "main_title"
     t.string   "thumbnail"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.boolean  "display",     :default => false
   end
 
+  add_index "resource_people", ["display"], :name => "index_resource_people_on_display"
   add_index "resource_people", ["slug"], :name => "index_resource_people_on_slug"
 
   create_table "speakers", :force => true do |t|
@@ -199,11 +210,13 @@ ActiveRecord::Schema.define(:version => 20121101155154) do
     t.decimal  "latitude",    :precision => 15, :scale => 12
     t.decimal  "longitude",   :precision => 15, :scale => 12
     t.text     "description"
-    t.datetime "created_at",                                  :null => false
-    t.datetime "updated_at",                                  :null => false
+    t.datetime "created_at",                                                     :null => false
+    t.datetime "updated_at",                                                     :null => false
     t.text     "directions"
+    t.boolean  "display",                                     :default => false
   end
 
+  add_index "venues", ["display"], :name => "index_venues_on_display"
   add_index "venues", ["slug"], :name => "index_venues_on_slug"
 
 end

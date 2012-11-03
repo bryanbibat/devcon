@@ -12,6 +12,7 @@
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
 #  directions  :text
+#  display     :boolean         default(FALSE)
 #
 
 class Venue < ActiveRecord::Base

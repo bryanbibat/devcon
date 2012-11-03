@@ -10,6 +10,7 @@
 #  thumbnail   :string(255)
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
+#  display     :boolean         default(FALSE)
 #
 
 class ResourcePerson < ActiveRecord::Base

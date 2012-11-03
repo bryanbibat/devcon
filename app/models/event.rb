@@ -18,6 +18,7 @@
 #  schedule     :text
 #  rules        :text
 #  registration :text
+#  published    :boolean         default(FALSE)
 #
 
 class Event < ActiveRecord::Base

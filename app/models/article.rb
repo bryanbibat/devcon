@@ -2,15 +2,17 @@
 #
 # Table name: articles
 #
-#  id         :integer         not null, primary key
-#  title      :string(255)
-#  content    :text
-#  author_id  :integer
-#  created_at :datetime        not null
-#  updated_at :datetime        not null
-#  slug       :string(255)
-#  summary    :text
-#  thumbnail  :string(255)
+#  id           :integer         not null, primary key
+#  title        :string(255)
+#  content      :text
+#  author_id    :integer
+#  created_at   :datetime        not null
+#  updated_at   :datetime        not null
+#  slug         :string(255)
+#  summary      :text
+#  thumbnail    :string(255)
+#  published    :boolean         default(FALSE)
+#  published_at :datetime
 #
 
 include ActionView::Helpers::SanitizeHelper

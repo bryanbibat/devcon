@@ -18,6 +18,7 @@
 #  schedule     :text
 #  rules        :text
 #  registration :text
+#  published    :boolean         default(FALSE)
 #
 
 require 'spec_helper'

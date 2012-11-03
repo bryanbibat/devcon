@@ -14,6 +14,7 @@
 #  updated_at  :datetime        not null
 #  formal_name :string(255)
 #  short_name  :string(255)
+#  display     :boolean         default(FALSE)
 #
 
 class Entity < ActiveRecord::Base
