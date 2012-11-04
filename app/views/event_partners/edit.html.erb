@@ -1,0 +1,6 @@
+<% title 'Edit Event Partner' %>
+<h1>Edit Event Partner</h1>
+
+<%= simple_form_for @event_partner, :url => event_event_partner_path(@event, @event_partner), :method => :put do |f| %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+<% end %>

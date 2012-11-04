@@ -23,10 +23,7 @@
     <div class="row-fluid">
       <div class="span12">
         <h2 class="subtitle">When &amp; Where</h2>
-      </div>
-    </div>
-    <div class="row-fluid">
-      <div class="span6">
+        <%= gmaps("markers" => {"data" => @gmap_json}, "map_options" => {"processing" => "json", "auto_zoom" => false, "zoom" => 14}) %>
         <h3><%= @event.venue.name %></h3>
         <p><%= simple_format @event.venue.address %></p>
         <p>
@@ -35,10 +32,20 @@
           <%= l(@event.end_at, :format => :long) %> 
         </p>
       </div>
-      <div class="span6">
-        <%= gmaps("markers" => {"data" => @gmap_json}, "map_options" => {"processing" => "json", "auto_zoom" => false, "zoom" => 14}) %>
+    </div>
+    <div class="row-fluid">
+      <div class="span12">
+        <h2 class="subtitle">Partners</h2>
       </div>
     </div>
+    <%= render :partial => "event_partner", :collection => @event.event_partners %>
+    <% if can? :manage, EventPartner %>
+      <div class="row-fluid">
+        <div class="span12">
+          <p><%= link_to "Add New Partner", new_event_event_partner_path(@event), :class => "btn" %></p>
+        </div>
+      </div>
+    <% end %>
     <div class="row-fluid">
       <div class="span6">
         <h2 class="subtitle">Speakers</h2>

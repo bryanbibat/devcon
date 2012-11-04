@@ -1,0 +1,22 @@
+<% entity = event_partner.entity %>
+<div class="row-fluid">
+  <% unless entity.logo.blank? %>
+    <div class="span2">
+      <%= image_tag entity.logo.medium.url %>
+    </div>
+    <div class="span10">
+  <% else %>
+    <div class="span12">
+  <% end %>
+    <h3 class="subtitle"><%= link_to entity.name, entity %></h2>
+    <h4 class="role"><%= event_partner.role %></h3>
+    <% if event_partner.custom_blurb.blank? %>
+      <%= raw entity.blurb %>
+    <% else %>  
+      <%= raw event_partner.custom_blurb %>
+    <% end %>
+    <% if can? :manage, EventPartner %>
+      <p><%= link_to "Edit Event Partner", edit_event_event_partner_path(event_partner.event, event_partner), :class => "btn" %></p>
+    <% end %>  
+  </div>
+</div>

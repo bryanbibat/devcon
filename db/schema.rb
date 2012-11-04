@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121103214439) do
+ActiveRecord::Schema.define(:version => 20121104142606) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -98,6 +98,18 @@ ActiveRecord::Schema.define(:version => 20121103214439) do
   add_index "entities", ["level"], :name => "index_entities_on_level"
   add_index "entities", ["slug"], :name => "index_entities_on_slug", :unique => true
   add_index "entities", ["type"], :name => "index_entities_on_type"
+
+  create_table "event_partners", :force => true do |t|
+    t.integer  "event_id"
+    t.integer  "entity_id"
+    t.string   "role"
+    t.text     "custom_blurb"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "event_partners", ["entity_id"], :name => "index_event_partners_on_entity_id"
+  add_index "event_partners", ["event_id"], :name => "index_event_partners_on_event_id"
 
   create_table "events", :force => true do |t|
     t.string   "name"

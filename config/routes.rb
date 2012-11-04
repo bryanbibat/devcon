@@ -16,7 +16,9 @@ Devcon::Application.routes.draw do
     resources :comments, :except => [:new]
   end
 
-  resources :events
+  resources :events do 
+    resources :event_partners, :except => [:index, :show]
+  end
   resources :partners, :only => [:index, :show]
   resources :resource_people
   resources :venues

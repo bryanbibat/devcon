@@ -1,0 +1,10 @@
+<%= render 'shared/error_messages', :object => f.object %>
+
+<%= f.association :event, :input_html => { :class => "input-xxlarge", :disabled => :true } %>
+<%= f.association :entity, :input_html => { :class => "input-xxlarge" } %>
+<%= f.input :custom_blurb, :as => :ckeditor %>
+<%= f.input :role %>
+
+<div class="form-actions">
+  <%= f.button :submit, :class => 'btn btn-large btn-primary' %>
+</div>

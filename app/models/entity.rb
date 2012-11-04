@@ -22,6 +22,9 @@ class Entity < ActiveRecord::Base
 
   include SluggedResource
 
+  has_many :event_partners
+  has_many :events, :through => :event_partners
+
   TYPES = %w{ school company community }
   LEVELS = %w{ cool awesome }
 
