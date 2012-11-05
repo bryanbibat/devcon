@@ -31,5 +31,6 @@ class EventPartnersController < ApplicationController
 
   def load_parent
     @event = Event.find_by_slug!(params[:event_id])
+    authorize! :edit, @event
   end
 end
