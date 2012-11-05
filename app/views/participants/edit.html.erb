@@ -1,0 +1,6 @@
+<% title 'Edit Participant' %>
+<h1>Edit Participant</h1>
+
+<%= simple_form_for @participant, :url => event_participant_path(@event, @participant), :method => :put do |f| %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+<% end %>

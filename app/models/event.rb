@@ -27,6 +27,9 @@ class Event < ActiveRecord::Base
   belongs_to :parent, :class_name => "Event"
   has_many :event_partners
   has_many :entities, :through => :event_partners
+  has_many :participants
+  has_many :resource_people, :through => :participants
+
   attr_accessible :description, :description, :devcon_role, :end_at, :logo, :name, :parent_id, :slug, :start_at, :venue_id, :summary, :schedule, :rules, :registration
 
   include SluggedResource

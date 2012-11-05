@@ -1,0 +1,27 @@
+<% rp = participant.resource_person %>
+<div class="row-fluid">
+  <div class="span3">
+    <% unless rp.thumbnail.blank? %>
+      <%= image_tag rp.thumbnail.thumb.url %>
+    <% end %>
+  </div>
+  <div class="span9">
+    <h3 class="subtitle"><%= link_to rp.name, rp %></h2>
+    <h4 class="role"><%= participant.role %></h4>
+    <h4 class="person-title">
+      <% if participant.custom_title.blank? %>
+        <%= raw rp.main_title %>
+      <% else %>
+        <%= raw participant.custom_title %>
+      <% end %>
+    </h4>
+    <% if participant.custom_description.blank? %>
+      <%= raw rp.description %>
+    <% else %>
+      <%= raw participant.custom_description %>
+    <% end %>
+    <% if can? :manage, EventPartner %>
+      <p><%= link_to "Edit Participant", edit_event_participant_path(participant.event, participant), :class => "btn" %></p>
+    <% end %>  
+  </div>
+</div>

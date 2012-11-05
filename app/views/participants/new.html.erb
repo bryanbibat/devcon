@@ -1,0 +1,6 @@
+<% title 'New Participant' %>
+<h1>New Participant</h1>
+
+<%= simple_form_for @participant, :url => event_participants_path(@event), :method => :post do |f| %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+<% end %>

@@ -18,6 +18,7 @@ Devcon::Application.routes.draw do
 
   resources :events do 
     resources :event_partners, :except => [:index, :show]
+    resources :participants, :except => [:index, :show]
   end
   resources :partners, :only => [:index, :show]
   resources :resource_people
