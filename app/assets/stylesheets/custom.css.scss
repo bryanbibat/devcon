@@ -111,7 +111,7 @@ footer {
 /* main page */
 
 .hero-unit {
-  padding: 30px;
+  padding: 30px 30px 0px;
   margin-bottom: 0;
   background:#fff !important;
   h1 {
@@ -121,7 +121,7 @@ footer {
     font-family:Georgia, serif !important;
   }
   p.blurb {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 200;
     line-height: 27px;
   }
@@ -141,6 +141,10 @@ footer {
     font-size: 12px;
     line-height: 18px;
   }
+}
+
+.frontpage-share {
+  padding: 0 30px;
 }
 
 .partner-area {
