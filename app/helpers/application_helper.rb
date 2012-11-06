@@ -26,6 +26,9 @@ module ApplicationHelper
   end
 
   def thumbnail_url(obj)
-    request.protocol + request.host_with_port + (obj.thumbnail.opengraph.blank? ? asset_path("devcon_logo_opengraph.png") : obj.thumbnail.opengraph.url)
+    thumbnail = (obj.has_attribute?(:thumbnail) ? 
+                 obj.thumbnail : obj.logo)
+    request.protocol + request.host_with_port + (thumbnail.opengraph.blank? ? asset_path("devcon_logo_opengraph.png") : thumbnail.opengraph.url)
   end
+
 end
