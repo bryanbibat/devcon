@@ -9,6 +9,7 @@
           <li class="<%= (action_name == "home" ? "active" : "") %>"><%= link_to 'Home', root_path  %></li>
           <li class="<%= (controller_name == "articles" ? "active" : "") %>"><%= link_to 'Articles', articles_path %></li>
           <li class="<%= (controller_name == "events" ? "active" : "") %>"><%= link_to 'Events', events_path %></li>
+          <% if user_signed_in? %>
           <li class="<%= (controller_name == "partners" ? "active" : "") %>"><%= link_to 'Partners', partners_path %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -19,7 +20,9 @@
               <li class="<%= (controller_name == "venues" ? "active" : "") %>"><%= link_to 'Venues', venues_path %></li>
             </ul>
           </li>
+          <% end %>
         </ul>
+        <% if user_signed_in? %>
         <ul class="nav pull-right">
           <% if user_signed_in? %>
             <% if current_user.role? "admin" %>
@@ -49,6 +52,7 @@
             <li><%= link_to 'Sign in', new_user_session_path %></li>
           <% end %>
         </ul>
+        <% end %>
       </nav>
     </div>
   </div>
