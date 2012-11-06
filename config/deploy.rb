@@ -3,13 +3,14 @@ require "bundler/capistrano"
 set :deploy_via, :remote_cache
 set :application, "devcon"
 set :repository, "git://github.com/bryanbibat/devcon.git"
-set :deploy_to, "/home/deploy/apps/devcon/"
+set :deploy_to, "/home/deploy/apps/devcon-release/"
 
 set :scm, :git
+set :branch, "release"
 
 default_run_options[:pty] = true
 
-server "beta.devcon.ph", :app, :web, :db, :primary => true
+server "devcon.ph", :app, :web, :db, :primary => true
 set :user, "deploy"
 set :use_sudo, false
 
