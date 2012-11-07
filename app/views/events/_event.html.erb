@@ -8,6 +8,9 @@
       <%= l(event.start_at, :format => :long) %> 
       to
       <%= l(event.end_at, :format => :long) %> 
+      <% if event.start_at.future? %>
+        (<%= distance_of_time_in_words_to_now event.start_at %> from now)
+      <% end %>
       |
       <%= link_to "", event_url(event) + "#disqus_thread" %>
     </small></p>

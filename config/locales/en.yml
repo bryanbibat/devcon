@@ -6,3 +6,4 @@ en:
   time:
     formats:
       friendly_date: '%b. %d, %Y'
+      long: '%b %d, %Y %I:%M %p'

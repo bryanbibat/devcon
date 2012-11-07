@@ -1,9 +1,12 @@
 class EventsController < ApplicationController
   load_resource :find_by => :slug
-  load_and_authorize_resource 
+  load_and_authorize_resource :except => :index 
 
   def index
-    @events = Event.where(:parent_id => nil).includes(:subevents)
+    @current_events = Event.current.include_subevents
+    @previous_events = Event.finished.include_subevents.limit(5)
+    @previous_event_count = Event.finished.include_subevents.count
+    @events = Event.upcoming.include_subevents.paginate(:page => params[:page])
   end
 
   def new
