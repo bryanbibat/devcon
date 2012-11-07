@@ -6,6 +6,7 @@
     <%= f.input :slug %>
   <% end %>
   <%= f.association :parent %>
+  <%= f.input :logo, :as => :file %>
   <%= f.input :summary, :input_html => { class: 'input-xxlarge editor-html', size: "500x6" } %>
   <%= f.association :venue %>
   <%= f.input :start_at %>

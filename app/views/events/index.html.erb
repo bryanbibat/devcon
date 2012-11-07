@@ -4,4 +4,42 @@
   <%= link_to 'New event', new_event_path, :class => "btn" %>
 <% end %>
 
-<%= render @events %>
+<% unless @current_events.empty? %>
+  <div class="row-fluid">
+    <div class="span12">
+      <h2>Ongoing Events</h2>
+    </div>
+  </div>
+  <%= render @current_events %>
+<% end %>
+<% unless @events.empty? %>
+  <div class="row-fluid">
+    <div class="span12">
+      <h2>Upcoming Events</h2>
+    </div>
+  </div>
+  <%= render @events %>
+<% end %>
+<% unless @previous_events.empty? %>
+  <div class="row-fluid">
+    <div class="span12">
+      <h2>Previous Events</h2>
+    </div>
+  </div>
+  <% @previous_events.each do |event| %>
+    <div class="row-fluid previous-event">
+      <div class="span12">
+        <h2><%= link_to event.name, event, :class => 'title' %></h2>
+      </div>
+    </div>
+  <% end %>
+  <% if @previous_event_count > 5 %>
+    <div class="row-fluid">
+      <div class="span12">
+        <p><%= link_to 'view more previous events...', previous_events_path %></p>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+<%= render :partial => "shared/disqus_count" %>

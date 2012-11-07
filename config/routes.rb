@@ -28,6 +28,8 @@ Devcon::Application.routes.draw do
   resources :categories
   resources :tags
 
+  resources :previous_events, :only => :index
+
   match '/contact', :to => 'static_pages#contact'
   match '/about',   :to => 'static_pages#about'
 

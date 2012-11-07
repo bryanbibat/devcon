@@ -12,7 +12,6 @@
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
 #  directions  :text
-#  display     :boolean         default(FALSE)
 #
 
 class Venue < ActiveRecord::Base
@@ -20,6 +19,6 @@ class Venue < ActiveRecord::Base
 
   include SluggedResource
 
-  acts_as_gmappable
+  acts_as_gmappable :process_geocoding => false
 
 end

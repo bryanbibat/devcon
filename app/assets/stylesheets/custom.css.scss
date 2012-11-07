@@ -203,6 +203,14 @@ footer {
   width: 60px !important;
 }
 
+.previous-event {
+  .title, .subtitle {
+    font-family:Georgia, serif !important;
+    font-weight: normal;
+  }
+}
+
+
 /* miscellaneous */
 
 .debug_dump {
