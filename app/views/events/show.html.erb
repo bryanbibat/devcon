@@ -44,7 +44,7 @@
     <% unless @event.venues.empty? %>
       <div class="row-fluid">
         <div class="span12">
-          <h2 class="subtitle">When &amp; Where</h2>
+          <h2 class="subtitle">Where &amp; When</h2>
           <%= gmaps("markers" => {"data" => @gmap_json}, "map_options" => {"processing" => "json", "auto_zoom" => false, "zoom" => 14}) %>
           <% unless @event.venue.nil? %>
             <h3><%= @event.venue.name %></h3>
