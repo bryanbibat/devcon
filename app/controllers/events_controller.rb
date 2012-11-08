@@ -22,7 +22,10 @@ class EventsController < ApplicationController
   end
 
   def show
-    @gmap_json = @event.venues.to_gmaps4rails
+    @gmap_json = @event.venues.to_gmaps4rails do |venue, marker|
+      marker.infowindow render_to_string(:partial => "venues/infowindow", :layout => false, :locals => { :venue => venue })
+      marker.json({ :id => venue.slug })
+    end
   end
 
   def edit
