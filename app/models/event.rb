@@ -40,4 +40,8 @@ class Event < ActiveRecord::Base
   scope :current, where("start_at <= ? and end_at >= ?", Time.now, Time.now).order("start_at")
   scope :finished, where("end_at < ?", Time.now).order("end_at DESC")
   scope :include_subevents, where(:parent_id => nil).includes(:subevents)
+
+  def venues
+    ([venue] + subevents.map { |e| e.venue }).compact
+  end
 end

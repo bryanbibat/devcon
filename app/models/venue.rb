@@ -16,6 +16,7 @@
 
 class Venue < ActiveRecord::Base
   attr_accessible :address, :description, :latitude, :longitude, :name, :slug, :directions
+  has_many :events
 
   include SluggedResource
 

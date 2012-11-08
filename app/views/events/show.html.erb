@@ -30,19 +30,32 @@
         <% end %>
       </div>
     </div>
-    <div class="row-fluid">
-      <div class="span12">
-        <h2 class="subtitle">When &amp; Where</h2>
-        <%= gmaps("markers" => {"data" => @gmap_json}, "map_options" => {"processing" => "json", "auto_zoom" => false, "zoom" => 14}) %>
-        <h3><%= @event.venue.name %></h3>
-        <p><%= simple_format @event.venue.address %></p>
-        <p>
-          <%= l(@event.start_at, :format => :long) %> 
-          to
-          <%= l(@event.end_at, :format => :long) %> 
-        </p>
+    <% unless @event.venues.empty? %>
+      <div class="row-fluid">
+        <div class="span12">
+          <h2 class="subtitle">When &amp; Where</h2>
+          <%= gmaps("markers" => {"data" => @gmap_json}, "map_options" => {"processing" => "json", "auto_zoom" => false, "zoom" => 14}) %>
+          <% unless @event.venue.nil? %>
+            <h3><%= @event.venue.name %></h3>
+            <%= simple_format @event.venue.address %>
+            <p>
+              <%= l(@event.start_at, :format => :long) %> 
+              to
+              <%= l(@event.end_at, :format => :long) %> 
+            </p>
+          <% end %>
+          <% @event.subevents.each do |subevent| %>
+            <h3><%= subevent.name %> - <%= subevent.venue.name %></h3>
+            <%= simple_format subevent.venue.address %>
+            <p>
+              <%= l(subevent.start_at, :format => :long) %> 
+              to
+              <%= l(subevent.end_at, :format => :long) %> 
+            </p>
+          <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
     <% unless @event.participants.empty? %>
       <div class="row-fluid">
         <div class="span12">

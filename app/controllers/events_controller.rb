@@ -22,7 +22,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @gmap_json = [@event.venue].to_gmaps4rails
+    @gmap_json = @event.venues.to_gmaps4rails
   end
 
   def edit
