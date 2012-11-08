@@ -21,8 +21,11 @@
         <%= link_to "Destroy", event, :confirm => 'Are you sure?', :method => :delete %>
       <% end %>
     </p>
-    <% event.subevents.each do |subevent| %>
-      <h3><%= subevent.name %></h3>
+    <% unless event.subevents.empty? %>
+      <p class="parent-note">This event is made up of the following sub-events:</p>
+      <% event.subevents.each do |subevent| %>
+        <h3 class="parent-note"><%= link_to subevent.name, subevent %></li>
+      <% end %>
     <% end %>
   </div>
 </div>

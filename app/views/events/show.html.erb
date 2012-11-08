@@ -22,7 +22,18 @@
     </div>
     <div class="row-fluid">
       <div class="span12">
+        <% if @event.parent %>
+          <p class="parent-note">Part of <%= link_to "#{@event.parent.name}", @event.parent %></p>
+        <% end %>  
         <%= raw @event.description %>
+        <% unless @event.subevents.empty? %>
+          <p class="parent-note">This event is made up of the following sub-events:</p>
+          <ul>
+          <% @event.subevents.each do |subevent| %>
+            <li class="parent-note"><%= link_to subevent.name, subevent %></li>
+          <% end %>
+          </ul>
+        <% end %>
         <% if can? :manage, Event %>
           <p>
             <%= link_to "Edit", edit_event_path(@event), :class => 'btn' %>
