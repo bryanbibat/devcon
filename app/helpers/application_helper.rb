@@ -21,7 +21,8 @@ module ApplicationHelper
     end
   end
 
-  def generate_description(text) 
+  def generate_description(text)
+    text ||= ""
     text.tr("\n"," ").gsub(/\s+/, " ").strip
   end
 
