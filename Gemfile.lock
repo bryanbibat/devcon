@@ -33,7 +33,7 @@ GEM
     arel (3.0.2)
     babosa (0.3.8)
     bcrypt-ruby (3.0.1)
-    bootstrap-sass (2.1.0.1)
+    bootstrap-sass (2.1.1.0)
     bootstrap-will_paginate (0.0.5)
       will_paginate
     builder (3.0.4)
@@ -226,7 +226,7 @@ PLATFORMS
 DEPENDENCIES
   annotate (~> 2.4.1.beta)
   babosa
-  bootstrap-sass (~> 2.1.0.1)
+  bootstrap-sass (~> 2.1.1.0)
   bootstrap-will_paginate (= 0.0.5)
   cancan (= 1.6.7)
   capistrano
