@@ -1,4 +1,12 @@
-<% provide(:title, 'Events') %>
+<% title 'Events' %>
+<% description "Know about our upcoming events! You can also browse our past events." %>
+<% set_meta_tags :open_graph => {
+  :title => "Events | #{ENV['title']}",
+  :description => "Know about our upcoming events! You can also browse our past events.",
+  :type  => :article,
+  :url   => events_url,
+  :image => opengraph_thumb_url
+} %>
 <h1>Events</h1>
 <% if can? :create, Event %>
   <%= link_to 'New event', new_event_path, :class => "btn" %>

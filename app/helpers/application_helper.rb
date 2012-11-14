@@ -32,4 +32,8 @@ module ApplicationHelper
     request.protocol + request.host_with_port + thumbnail.opengraph.url
   end
 
+  def opengraph_thumb_url
+    request.protocol + request.host_with_port + path_to_image("opengraph_default_thumbnail.png")
+  end
+
 end
