@@ -1,4 +1,12 @@
 <% title 'Articles' %>
+<% description "News, articles, and random blog posts from our members." %>
+<% set_meta_tags :open_graph => {
+  :title => "Articles | #{ENV['title']}",
+  :description => "News, articles, and random blog posts from our members.",
+  :type  => :article,
+  :url   => events_url,
+  :image => opengraph_thumb_url
+} %>
 <h1>Articles</h1>
 <% if can? :create, Article %>
   <p>
