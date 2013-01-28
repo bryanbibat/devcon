@@ -16,7 +16,7 @@ set :use_sudo, false
 
 depend :remote, :gem, "bundler"
 
-set :rails_env, :production
+set :rails_env, "production"
 
 # for carrierwave
 set :shared_children, shared_children + %w{public/uploads}
@@ -35,4 +35,4 @@ task :copy_production_database_configuration do
   run "cp #{shared_path}/config/database.yml #{release_path}/config/database.yml"
 end
 
-after "deploy:update", "deploy:cleanup" 
+after "deploy:update", "deploy:cleanup", "deploy:migrate" 

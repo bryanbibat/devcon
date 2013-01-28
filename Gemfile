@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
-gem 'bootstrap-sass', '~> 2.1.1.0'
-gem 'devise', '2.1.2'
+gem 'bootstrap-sass', '~> 2.2.2.0'
+gem 'devise', '2.2.3'
 gem 'simple_form', '2.0.1'
 gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
