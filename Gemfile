@@ -40,7 +40,7 @@ gem 'jquery-rails'
 group :test do
   gem 'capybara', '1.1.2'
   gem 'launchy'
-  gem 'fabrication', '2.2.3'
+  gem 'fabrication', '2.5.4'
   gem 'spork'
   gem 'guard'
   gem 'guard-bundler'

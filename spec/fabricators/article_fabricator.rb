@@ -1,5 +1,5 @@
 Fabricator(:article) do
-  title 'This is a title'
+  title { sequence(:title) { |i| "This is a title #{i}" } }
   content 'This is the content'
   author { Fabricate(:author) }
 end

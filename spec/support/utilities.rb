@@ -26,7 +26,7 @@ end
 
 RSpec::Matchers.define :have_page_title do |title|
   match do |page|
-    page.should have_selector('title', :text => full_title(title))
+    page.should have_selector('title', :text => "#{title} | #{ENV['title']}")
   end
 end
 
