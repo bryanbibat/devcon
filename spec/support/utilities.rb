@@ -26,12 +26,18 @@ end
 
 RSpec::Matchers.define :have_page_title do |title|
   match do |page|
-    page.should have_selector('title', :text => "#{title} | #{ENV['title']}")
+    page.should have_selector('title', :text => full_title(title))
   end
 end
 
 RSpec::Matchers.define :have_page_heading do |heading|
   match do |page|
     page.should have_selector('h1', :text => heading)
+  end
+end
+
+RSpec::Matchers.define :have_url do |url|
+  match do |page|
+    page.current_url.should == url
   end
 end

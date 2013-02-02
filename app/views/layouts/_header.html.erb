@@ -22,7 +22,6 @@
           </li>
           <% end %>
         </ul>
-        <% if user_signed_in? %>
         <ul class="nav pull-right">
           <% if user_signed_in? %>
             <% if current_user.role? "admin" %>
@@ -48,11 +47,10 @@
               </ul>
             </li>
           <% else %>
-            <li><%= link_to 'Sign up', new_user_registration_path %></li>
+            <% #<li><%= link_to 'Sign up', new_user_registration_path ></li> %>
             <li><%= link_to 'Sign in', new_user_session_path %></li>
           <% end %>
         </ul>
-        <% end %>
       </nav>
     </div>
   </div>

@@ -33,11 +33,6 @@ describe 'Articles pages' do
       it { should_not have_link 'Edit' }
       it { should_not have_link 'Destroy' }
 
-      describe 'comments section' do
-        it { should have_content 'Comments' }
-        it { should have_content 'You must be logged in to comment' }
-        it { should_not have_button 'Submit comment' }
-      end
     end
 
     describe 'in the new page' do
@@ -46,7 +41,7 @@ describe 'Articles pages' do
 
       it { should have_error_message 'Access denied' }
       it { should have_page_title '' }
-      it { should have_page_heading 'Developers Connect' }
+      it { should have_url root_url }
     end
 
     describe 'in the edit page' do
@@ -58,7 +53,7 @@ describe 'Articles pages' do
 
       it { should have_error_message 'Access denied' }
       it { should have_page_title '' }
-      it { should have_page_heading 'Developers Connect' }
+      it { should have_url root_url }
     end
   end
 
@@ -96,20 +91,6 @@ describe 'Articles pages' do
         it { should_not have_link 'Edit' }
         it { should_not have_link 'Destroy' }
 
-        describe 'comments section' do
-          it { should have_content 'Comments' }
-          it { should_not have_content 'You must be logged in to comment' }
-
-          describe 'on posting comments' do
-            before do
-              fill_in 'Comment', :with => 'Foobar'
-              click_button 'Submit comment'
-            end
-
-            it { should have_content 'Foobar' }
-            it { should have_content @user.name }
-          end
-        end
       end
 
       describe 'in the new page' do
@@ -118,7 +99,7 @@ describe 'Articles pages' do
 
         it { should have_error_message 'Access denied' }
         it { should have_page_title '' }
-        it { should have_page_heading 'Developers Connect' }
+        it { should have_url root_url }
       end
 
       describe 'in the edit page' do
@@ -130,7 +111,7 @@ describe 'Articles pages' do
 
         it { should have_error_message 'Access denied' }
         it { should have_page_title '' }
-        it { should have_page_heading 'Developers Connect' }
+        it { should have_url root_url }
       end
     end
 
