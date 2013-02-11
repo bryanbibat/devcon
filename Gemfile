@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails', '3.2.12'
 gem 'bootstrap-sass', '~> 2.2.2.0'
 gem 'devise', '2.2.3'
 gem 'simple_form', '2.0.1'
@@ -25,6 +25,9 @@ group :development, :test do
   gem 'annotate', '~> 2.4.1.beta'
   gem 'pry'
   gem 'capistrano'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
 end
 
 # Gems used only for assets and not required
@@ -40,7 +43,7 @@ gem 'jquery-rails'
 group :test do
   gem 'capybara', '1.1.2'
   gem 'launchy'
-  gem 'fabrication', '2.2.3'
+  gem 'fabrication', '2.5.4'
   gem 'spork'
   gem 'guard'
   gem 'guard-bundler'

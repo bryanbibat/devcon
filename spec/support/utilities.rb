@@ -35,3 +35,9 @@ RSpec::Matchers.define :have_page_heading do |heading|
     page.should have_selector('h1', :text => heading)
   end
 end
+
+RSpec::Matchers.define :have_url do |url|
+  match do |page|
+    page.current_url.should == url
+  end
+end

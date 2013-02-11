@@ -42,46 +42,45 @@ describe 'User' do
 
   describe 'signup page' do
 
-    before { visit new_user_registration_path }
+    before { visit new_user_session_path }
 
-    it { should have_page_title 'Sign up' }
-    it { should have_page_heading 'Sign up' }
+    it { should_not have_link 'Sign up' }
   end
 
-  describe 'signing up' do
+  #describe 'signing up' do
 
-    before { visit new_user_registration_path }
+    #before { visit new_user_registration_path }
 
-    describe 'with invalid information' do
+    #describe 'with invalid information' do
 
-      it 'should not create a user' do
-        expect { click_button 'Sign up' }.not_to change(User, :count)
-      end
-    end
+      #it 'should not create a user' do
+        #expect { click_button 'Sign up' }.not_to change(User, :count)
+      #end
+    #end
 
-    describe 'with valid information' do
+    #describe 'with valid information' do
 
-      before do
-        fill_in 'Email', :with => 'user@example.com'
-        fill_in 'Password', :with => 'foobar'
-        fill_in 'Password confirmation', :with => 'foobar'
-      end
+      #before do
+        #fill_in 'Email', :with => 'user@example.com'
+        #fill_in 'Password', :with => 'foobar'
+        #fill_in 'Password confirmation', :with => 'foobar'
+      #end
 
-      it 'should create a user' do
-        expect { click_button 'Sign up' }.to change(User, :count).by(1)
-      end
+      #it 'should create a user' do
+        #expect { click_button 'Sign up' }.to change(User, :count).by(1)
+      #end
 
-      describe 'after saving the user' do
+      #describe 'after saving the user' do
 
-        before { click_button 'Sign up' }
+        #before { click_button 'Sign up' }
 
-        it { should have_notice_message 'Welcome!' }
-        it { should have_link 'Profile' }
-        it { should have_link 'Settings' }
-        it { should have_link 'Sign out' }
-        it { should_not have_link 'Sign up' }
-        it { should_not have_link 'Sign in' }
-      end
-    end
-  end
+        #it { should have_notice_message 'Welcome!' }
+        #it { should have_link 'Profile' }
+        #it { should have_link 'Settings' }
+        #it { should have_link 'Sign out' }
+        #it { should_not have_link 'Sign up' }
+        #it { should_not have_link 'Sign in' }
+      #end
+    #end
+  #end
 end
