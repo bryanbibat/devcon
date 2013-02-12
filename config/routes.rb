@@ -17,6 +17,9 @@ Devcon::Application.routes.draw do
   end
 
   resources :events do 
+    collection do
+      get :previous
+    end
     resources :event_partners, :except => [:index, :show]
     resources :participants, :except => [:index, :show]
   end
@@ -27,8 +30,6 @@ Devcon::Application.routes.draw do
   resources :entities
   resources :categories
   resources :tags
-
-  resources :previous_events, :only => :index
 
   match '/contact', :to => 'static_pages#contact'
   match '/about',   :to => 'static_pages#about'
