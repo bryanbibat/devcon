@@ -9,6 +9,10 @@ class EventsController < ApplicationController
     @events = Event.upcoming.include_subevents.paginate(:page => params[:page])
   end
 
+  def previous
+    @previous_events = Event.finished.include_subevents
+  end
+
   def new
   end
 

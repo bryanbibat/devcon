@@ -34,6 +34,7 @@ class Event < ActiveRecord::Base
   has_many :resource_people, :through => :participants
 
   attr_accessible :description, :description, :devcon_role, :end_at, :logo, :name, :parent_id, :slug, :start_at, :venue_id, :summary, :schedule, :rules, :registration
+  attr_accessible :event_type, :target_attendees, :actual_attendees
 
   include SluggedResource
 

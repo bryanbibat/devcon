@@ -1,0 +1,24 @@
+<% title 'Previous Events' %>
+<% description "Know about our past events!" %>
+<% set_meta_tags :open_graph => {
+  :title => "Previous Events | #{ENV['title']}",
+  :description => "Know about our past events!",
+  :type  => :article,
+  :url   => events_url,
+  :image => opengraph_thumb_url
+} %>
+<h1>Previous Events</h1>
+
+<% @previous_events.each do |event| %>
+  <div class="row-fluid previous-event">
+    <div class="span12">
+      <h2><%= link_to event.name, event, :class => 'title' %></h2>
+    </div>
+  </div>
+<% end %>
+
+<div class="row-fluid">
+  <div class="span12">
+    <p><%= link_to 'Go back events list', events_path %></p>
+  </div>
+</div>
