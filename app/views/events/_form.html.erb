@@ -9,8 +9,8 @@
   <%= f.input :logo, :as => :file %>
   <%= f.input :summary, :input_html => { class: 'input-xxlarge editor-html', size: "500x6" } %>
   <%= f.association :venue %>
-  <%= f.input :start_at, :as => :string, :input_html => { :class => "datetimepicker"} %>
-  <%= f.input :end_at, :as => :string, :input_html => { :class => "datetimepicker"} %>
+  <%= f.input :start_at, :as => :string, :input_html => { :class => "datetimepicker", :value => (l @event.start_at) } %>
+  <%= f.input :end_at, :as => :string, :input_html => { :class => "datetimepicker", :value => (l @event.end_at) } %>
   <%= f.input :description, :as => :ckeditor %>
   <%= f.input :schedule, :as => :ckeditor %>
   <%= f.input :rules, :as => :ckeditor %>
