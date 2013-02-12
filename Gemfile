@@ -39,6 +39,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 group :test do
   gem 'capybara', '1.1.2'
