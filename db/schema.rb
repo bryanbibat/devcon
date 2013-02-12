@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121105011451) do
+ActiveRecord::Schema.define(:version => 20130212093901) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -121,13 +121,16 @@ ActiveRecord::Schema.define(:version => 20121105011451) do
     t.integer  "parent_id"
     t.string   "logo"
     t.string   "devcon_role"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
     t.text     "summary"
     t.text     "schedule"
     t.text     "rules"
     t.text     "registration"
-    t.boolean  "published",    :default => false
+    t.boolean  "published",        :default => false
+    t.string   "event_type"
+    t.integer  "target_attendees"
+    t.integer  "actual_attendees"
   end
 
   add_index "events", ["parent_id"], :name => "index_events_on_parent_id"

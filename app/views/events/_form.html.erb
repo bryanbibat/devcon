@@ -16,6 +16,9 @@
   <%= f.input :rules, :as => :ckeditor %>
   <%= f.input :registration, :as => :ckeditor %>
   <%= f.input :devcon_role %>
+  <%= f.input :event_type %>
+  <%= f.input :target_attendees, :label => "No. of target attendees" %>
+  <%= f.input :actual_attendees, :label => "No. of actual attendees" %>
 
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn btn-large btn-primary' %>
