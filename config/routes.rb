@@ -35,4 +35,7 @@ Devcon::Application.routes.draw do
   match '/about',   :to => 'static_pages#about'
 
   root :to => 'static_pages#home'
+  unless Rails.application.config.consider_all_requests_local
+    match '*not_found', to: 'static_pages#error_404'
+  end
 end
