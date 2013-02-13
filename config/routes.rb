@@ -33,6 +33,9 @@ Devcon::Application.routes.draw do
 
   match '/contact', :to => 'static_pages#contact'
   match '/about',   :to => 'static_pages#about'
+  match '/feed' => 'static_pages#feed',
+      :as => :feed,
+      :defaults => { :format => 'atom' }
 
   root :to => 'static_pages#home'
   unless Rails.application.config.consider_all_requests_local
