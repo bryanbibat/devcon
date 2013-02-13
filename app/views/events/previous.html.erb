@@ -11,7 +11,7 @@
 
 <% @previous_events.each do |month, event_group| %>
   <h2><%= month %></h2>
-  <% event_group.each do |event| %>
+  <% event_group.reverse.each do |event| %>
     <div class="row-fluid previous-event">
       <div class="span12">
         <h3><%= link_to event.name, event, :class => 'title' %></h2>
