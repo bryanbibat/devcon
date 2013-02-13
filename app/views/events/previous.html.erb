@@ -9,12 +9,15 @@
 } %>
 <h1>Previous Events</h1>
 
-<% @previous_events.each do |event| %>
-  <div class="row-fluid previous-event">
-    <div class="span12">
-      <h2><%= link_to event.name, event, :class => 'title' %></h2>
+<% @previous_events.each do |month, event_group| %>
+  <h2><%= month %></h2>
+  <% event_group.each do |event| %>
+    <div class="row-fluid previous-event">
+      <div class="span12">
+        <h3><%= link_to event.name, event, :class => 'title' %></h2>
+      </div>
     </div>
-  </div>
+  <% end %>
 <% end %>
 
 <div class="row-fluid">

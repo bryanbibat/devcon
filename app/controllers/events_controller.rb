@@ -10,7 +10,7 @@ class EventsController < ApplicationController
   end
 
   def previous
-    @previous_events = Event.finished.include_subevents
+    @previous_events = Event.previous_by_month
   end
 
   def new
