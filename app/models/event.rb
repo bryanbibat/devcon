@@ -48,4 +48,10 @@ class Event < ActiveRecord::Base
   def venues
     ([venue] + subevents.map { |e| e.venue }).compact
   end
+
+  def self.previous_by_month
+    finished.include_subevents.group_by do |event|
+      event.start_at.strftime("%B %Y")
+    end
+  end
 end
