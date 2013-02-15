@@ -37,7 +37,7 @@ module ApplicationHelper
   end
 
   def text_field_datetime(datetime)
-    l(datetime.nil? ? DateTime.now : datetime)
+    l(datetime.nil? ? Time.zone.now : datetime)
   end
 
 end
