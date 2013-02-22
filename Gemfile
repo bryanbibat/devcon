@@ -52,6 +52,6 @@ group :test do
 
   gem 'growl'
   gem 'libnotify'
-  gem 'rb-inotify' if RUBY_PLATFORM.downcase.include?("linux")
-  gem 'rb-fsevent' if RUBY_PLATFORM.downcase.include?("darwin")
+  gem 'rb-inotify', :require => false
+  gem 'rb-fsevent', :require => false
 end

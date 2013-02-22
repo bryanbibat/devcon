@@ -2,7 +2,7 @@ require "bundler/capistrano"
 
 set :deploy_via, :remote_cache
 set :application, "devcon"
-set :repository, "git://github.com/bryanbibat/devcon.git"
+set :repository, "git://github.com/devcon-ph/devcon.git"
 set :deploy_to, "/home/deploy/apps/devcon/"
 
 set :scm, :git
