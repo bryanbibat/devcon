@@ -14,6 +14,7 @@ gem 'cancan', '1.6.7'
 gem 'babosa'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'unicorn'
 
 gem 'pg', '0.14.1'
 
@@ -23,6 +24,7 @@ group :development, :test do
   gem 'annotate', '~> 2.4.1.beta'
   gem 'pry'
   gem 'capistrano'
+  gem 'capistrano-unicorn'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
@@ -52,6 +54,6 @@ group :test do
 
   gem 'growl'
   gem 'libnotify'
-  gem 'rb-inotify' if RUBY_PLATFORM.downcase.include?("linux")
-  gem 'rb-fsevent' if RUBY_PLATFORM.downcase.include?("darwin")
+  gem 'rb-inotify', :require => false
+  gem 'rb-fsevent', :require => false
 end

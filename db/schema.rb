@@ -234,6 +234,6 @@ ActiveRecord::Schema.define(:version => 20130212093901) do
   end
 
   add_index "venues", ["display"], :name => "index_venues_on_display"
-  add_index "venues", ["slug"], :name => "index_venues_on_slug"
+  add_index "venues", ["slug"], :name => "index_venues_on_slug", :unique => true
 
 end
