@@ -64,7 +64,7 @@ class Event < ActiveRecord::Base
       action: 'TEMPLATE',
       text: self.name,
       dates: "#{start_time}/#{end_time}",
-      details: strip_tags(HTMLEntities.new.decode(self.description)),
+      details: truncate(strip_tags(HTMLEntities.new.decode(self.description)), length: 200),
       location: self.venue.address,
       trp: true,
       sprop: 'website:http://devcon.ph'
