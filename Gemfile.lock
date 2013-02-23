@@ -109,6 +109,7 @@ GEM
       spork (>= 0.8.4)
     highline (1.6.15)
     hike (1.2.1)
+    htmlentities (4.3.1)
     i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (2.2.1)
@@ -271,6 +272,7 @@ DEPENDENCIES
   guard-bundler
   guard-rspec
   guard-spork
+  htmlentities
   jquery-rails
   jquery-ui-rails
   launchy

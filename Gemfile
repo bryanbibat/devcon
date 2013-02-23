@@ -15,6 +15,7 @@ gem 'babosa'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'unicorn'
+gem 'htmlentities'
 
 gem 'pg', '0.14.1'
 

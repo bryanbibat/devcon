@@ -25,6 +25,8 @@
 #
 
 class Event < ActiveRecord::Base
+  include ActionView::Helpers
+
   belongs_to :venue
   has_many :subevents, :class_name => "Event", :foreign_key => :parent_id, :order => :start_at
   belongs_to :parent, :class_name => "Event"
@@ -53,5 +55,21 @@ class Event < ActiveRecord::Base
     finished.include_subevents.group_by do |event|
       event.start_at.strftime("%B %Y")
     end
+  end
+
+  def google_calendar_url
+    start_time = self.start_at.utc.strftime("%Y%m%dT%H%M00Z")
+    end_time = self.end_at.utc.strftime("%Y%m%dT%H%M00Z")
+    values = {
+      action: 'TEMPLATE',
+      text: self.name,
+      dates: "#{start_time}/#{end_time}",
+      details: strip_tags(HTMLEntities.new.decode(self.description)),
+      location: self.venue.address,
+      trp: true,
+      sprop: 'website:http://devcon.ph'
+    }
+
+    'http://google.com/calendar/event?' + values.to_query
   end
 end
