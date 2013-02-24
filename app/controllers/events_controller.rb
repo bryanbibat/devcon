@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   load_resource :find_by => :slug
-  load_and_authorize_resource :except => [:index, :previous] 
+  load_and_authorize_resource :except => [:index, :previous, :ics] 
 
   def index
     @current_events = Event.current.include_subevents
