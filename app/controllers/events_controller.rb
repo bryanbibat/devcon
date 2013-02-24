@@ -44,6 +44,6 @@ class EventsController < ApplicationController
   end
 
   def ics
-    send_data @event.icalendar(root_url), filename: "#{@event.name}.ics", type: 'text/calendar'
+    send_data @event.icalendar(root_url), filename: "#{@event.name}.ics", type: 'text/calendar', x_sendfile: true
   end
 end
