@@ -29,7 +29,7 @@
       <%= link_to 'Google Calendar', @event.google_calendar_url, :class => 'btn' %>
     </div>
     <div class="span1">
-      <%= link_to 'iCalendar', '', :class => 'btn' %>
+      <%= link_to 'iCalendar', ics_event_path(@event), :class => 'btn' %>
     </div>
   <% end %>
 </div>

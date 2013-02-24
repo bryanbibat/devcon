@@ -39,6 +39,7 @@ class Event < ActiveRecord::Base
   attr_accessible :event_type, :target_attendees, :actual_attendees
 
   include SluggedResource
+  include Icalendar
 
   mount_uploader :logo, ThumbnailUploader
 
@@ -71,5 +72,27 @@ class Event < ActiveRecord::Base
     }
 
     'http://google.com/calendar/event?' + values.to_query
+  end
+
+  def icalendar(root_url)
+    event_temp = self
+    cal = Calendar.new
+
+    cal.event do
+      dtstart     event_temp.start_at.strftime("%Y%m%dT%H%M00")
+      dtend       event_temp.end_at.strftime("%Y%m%dT%H%M00")
+      summary     event_temp.name
+      description event_temp.summary
+      klass       'PRIVATE'
+      url         "#{root_url}/events/#{event_temp.slug}"
+
+      alarm do
+        action  'DISPLAY'
+        summary 'Event notification'
+        trigger '-P1DT0H0M0S'
+      end
+    end
+
+    cal.to_ical
   end
 end

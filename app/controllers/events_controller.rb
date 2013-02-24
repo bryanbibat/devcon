@@ -42,4 +42,8 @@ class EventsController < ApplicationController
       render :edit
     end
   end
+
+  def ics
+    send_data @event.icalendar(root_url), filename: "#{@event.name}.ics", type: 'text/calendar'
+  end
 end

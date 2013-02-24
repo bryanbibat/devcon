@@ -20,6 +20,10 @@ Devcon::Application.routes.draw do
     collection do
       get :previous
     end
+
+    member do
+      get :ics
+    end
     resources :event_partners, :except => [:index, :show]
     resources :participants, :except => [:index, :show]
   end
