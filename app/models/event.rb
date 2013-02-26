@@ -52,6 +52,18 @@ class Event < ActiveRecord::Base
     ([venue] + subevents.map { |e| e.venue }).compact
   end
 
+  def effective_address
+    if venue.nil?
+      unless venues.empty?
+        venues[0].address
+      else
+        nil
+      end
+    else
+      venue.address
+    end
+  end
+
   def self.previous_by_month
     finished.include_subevents.group_by do |event|
       event.start_at.strftime("%B %Y")
@@ -66,7 +78,7 @@ class Event < ActiveRecord::Base
       text: self.name,
       dates: "#{start_time}/#{end_time}",
       details: truncate(strip_tags(HTMLEntities.new.decode(self.description)), length: 200),
-      location: self.venue.address,
+      location: self.effective_address,
       trp: true,
       sprop: 'website:http://devcon.ph'
     }
