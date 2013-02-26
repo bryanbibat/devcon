@@ -25,6 +25,8 @@
 #
 
 class Event < ActiveRecord::Base
+  include ActionView::Helpers
+
   belongs_to :venue
   has_many :subevents, :class_name => "Event", :foreign_key => :parent_id, :order => :start_at
   belongs_to :parent, :class_name => "Event"
@@ -37,6 +39,7 @@ class Event < ActiveRecord::Base
   attr_accessible :event_type, :target_attendees, :actual_attendees
 
   include SluggedResource
+  include Icalendar
 
   mount_uploader :logo, ThumbnailUploader
 
@@ -49,9 +52,59 @@ class Event < ActiveRecord::Base
     ([venue] + subevents.map { |e| e.venue }).compact
   end
 
+  def effective_address
+    if venue.nil?
+      unless venues.empty?
+        venues[0].address
+      else
+        nil
+      end
+    else
+      venue.address
+    end
+  end
+
   def self.previous_by_month
     finished.include_subevents.group_by do |event|
       event.start_at.strftime("%B %Y")
     end
+  end
+
+  def google_calendar_url
+    start_time = self.start_at.utc.strftime("%Y%m%dT%H%M00Z")
+    end_time = self.end_at.utc.strftime("%Y%m%dT%H%M00Z")
+    values = {
+      action: 'TEMPLATE',
+      text: self.name,
+      dates: "#{start_time}/#{end_time}",
+      details: truncate(strip_tags(HTMLEntities.new.decode(self.description)), length: 200),
+      location: self.effective_address,
+      trp: true,
+      sprop: 'website:http://devcon.ph'
+    }
+
+    'http://google.com/calendar/event?' + values.to_query
+  end
+
+  def icalendar(event_url)
+    event_temp = self
+    cal = Calendar.new
+
+    cal.event do
+      dtstart     event_temp.start_at.strftime("%Y%m%dT%H%M00")
+      dtend       event_temp.end_at.strftime("%Y%m%dT%H%M00")
+      summary     event_temp.name
+      description event_temp.summary
+      klass       'PRIVATE'
+      url         event_url
+
+      alarm do
+        action  'DISPLAY'
+        summary 'Event notification'
+        trigger '-P1DT0H0M0S'
+      end
+    end
+
+    cal.to_ical
   end
 end

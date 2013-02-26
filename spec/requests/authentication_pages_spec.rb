@@ -41,7 +41,6 @@ describe 'Authentication' do
       end
 
       it { should have_page_title '' }
-      it { should have_page_heading 'Developers Connect' }
 
       it { should have_link 'Profile', :href => user_path(@user) }
       it { should have_link 'Settings', :href => edit_user_registration_path }

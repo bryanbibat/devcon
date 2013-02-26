@@ -63,7 +63,6 @@ describe "Categories pages" do
 
         it { should have_error_message 'Access denied' }
         it { should have_page_title '' }
-        it { should have_page_heading 'Developers Connect' }
       end
 
       describe 'in the edit page' do
@@ -75,7 +74,6 @@ describe "Categories pages" do
 
         it { should have_error_message 'Access denied' }
         it { should have_page_title '' }
-        it { should have_page_heading 'Developers Connect' }
       end
     end
 

@@ -24,4 +24,12 @@
     </script>
   </div>
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  <% unless @event.nil? %>
+    <div class="span2 offset4">
+      <%= link_to 'Google Calendar', @event.google_calendar_url, :class => 'btn' %>
+    </div>
+    <div class="span1">
+      <%= link_to 'iCalendar', ics_event_path(@event), :class => 'btn' %>
+    </div>
+  <% end %>
 </div>

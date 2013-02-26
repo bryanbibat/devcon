@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   load_resource :find_by => :slug
-  load_and_authorize_resource :except => [:index, :previous] 
+  load_and_authorize_resource :except => [:index, :previous, :ics] 
 
   def index
     @current_events = Event.current.include_subevents
@@ -41,5 +41,9 @@ class EventsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def ics
+    send_data @event.icalendar(event_url(@event)), filename: "#{@event.name}.ics", type: 'text/calendar', x_sendfile: true
   end
 end
