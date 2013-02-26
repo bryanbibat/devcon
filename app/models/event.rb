@@ -86,7 +86,7 @@ class Event < ActiveRecord::Base
     'http://google.com/calendar/event?' + values.to_query
   end
 
-  def icalendar(root_url)
+  def icalendar(event_url)
     event_temp = self
     cal = Calendar.new
 
@@ -96,7 +96,7 @@ class Event < ActiveRecord::Base
       summary     event_temp.name
       description event_temp.summary
       klass       'PRIVATE'
-      url         "#{root_url}/events/#{event_temp.slug}"
+      url         event_url
 
       alarm do
         action  'DISPLAY'
