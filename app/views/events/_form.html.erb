@@ -6,7 +6,8 @@
     <%= f.input :slug %>
   <% end %>
   <%= f.association :parent %>
-  <%= f.input :logo, :as => :file %>
+  <%= f.input :logo, :as => :file, :hint => "a square logo, at least 200px x 200px" %>
+  <%= f.input :cover_photo, :as => :file, :hint => "at least 940px x 315px" %>
   <%= f.input :summary, :input_html => { class: 'input-xxlarge editor-html', size: "500x6" } %>
   <%= f.association :venue %>
   <%= f.input :start_at, :as => :string, :input_html => { :class => "datetimepicker", :value => text_field_datetime(@event.start_at) } %>
