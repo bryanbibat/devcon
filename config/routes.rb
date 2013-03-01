@@ -2,13 +2,13 @@ Devcon::Application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
   resources :users, :only => [:show]
 
   devise_scope :user do
     get 'login', :to => 'devise/sessions#new', :as => :new_user_session
     delete 'logout', :to => 'devise/sessions#destroy', :as => :destroy_user_session
-    get 'register', :to => 'devise/registrations#new', :as => :new_user_registration
+    get 'register', :to => 'registrations#new', :as => :new_user_registration
     get 'settings', :to => 'devise/registrations#edit', :as => :edit_user_registration
   end
 
