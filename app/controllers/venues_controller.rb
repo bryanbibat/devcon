@@ -3,7 +3,7 @@ class VenuesController < ApplicationController
   load_and_authorize_resource :except => [:show, :edit, :update]
 
   def index
-    @venues = Venue.all
+    @venues = Venue.order(:name)
   end
 
   def new
