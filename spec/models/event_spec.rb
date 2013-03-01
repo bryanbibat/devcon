@@ -22,6 +22,7 @@
 #  event_type       :string(255)
 #  target_attendees :integer
 #  actual_attendees :integer
+#  cover_photo      :string(255)
 #
 
 require 'spec_helper'

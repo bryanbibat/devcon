@@ -22,6 +22,7 @@
 #  event_type       :string(255)
 #  target_attendees :integer
 #  actual_attendees :integer
+#  cover_photo      :string(255)
 #
 
 class Event < ActiveRecord::Base
@@ -35,13 +36,15 @@ class Event < ActiveRecord::Base
   has_many :participants
   has_many :resource_people, :through => :participants
 
-  attr_accessible :description, :description, :devcon_role, :end_at, :logo, :name, :parent_id, :slug, :start_at, :venue_id, :summary, :schedule, :rules, :registration
-  attr_accessible :event_type, :target_attendees, :actual_attendees
+  attr_accessible :description, :description, :devcon_role, :end_at, :logo, :cover_photo,
+    :name, :parent_id, :slug, :start_at, :venue_id, :summary, :schedule, :rules, 
+    :registration, :event_type, :target_attendees, :actual_attendees
 
   include SluggedResource
   include Icalendar
 
   mount_uploader :logo, ThumbnailUploader
+  mount_uploader :cover_photo, CoverPhotoUploader
 
   scope :upcoming, where("start_at > current_timestamp").order("start_at")
   scope :current, where("start_at <= current_timestamp and end_at >= current_timestamp").order("start_at")
