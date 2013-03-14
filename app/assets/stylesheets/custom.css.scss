@@ -184,6 +184,48 @@ footer {
   padding-top: 10px;
 }
 
+/* faq */
+
+.faq {
+  p {
+    line-height: 1.5em;
+    text-align: justify;
+  }
+  .h2h-faq, .ida-faq {
+    text-align: center;
+  }
+  .caption {
+    font-style: italic;
+    font-size: 90%;
+  }
+  
+  .founder {
+    margin-top: 30px;
+  }
+  h3 {
+    margin: 20px 0 0px; 
+    font-size: 1.1em;
+    .caps {
+      text-transform: uppercase;
+    }
+  }
+  .profile {
+    p.twitter-handle {
+      margin-bottom: 3px;
+    }
+  }
+  .officer {
+    margin-bottom: 10px;
+    p {
+      margin-bottom: 0;
+    }
+  }
+  img.profile-pic {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+  }
+}
 /* articles, resource-speaker */
 
 .article, .resource-person, .event {

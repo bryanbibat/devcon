@@ -1,0 +1,114 @@
+<% title "#{ENV['title']} | Frequently Asked Questions" %>
+<% description "Developers Connect Philippines (DevCon) is a non-proﬁt organization which aims to promote the \"IT Pinoy Talent\" mainly by providing a unique venue for IT students, educators, professionals and enthusiasts to Sync, Support and Succeed." %>
+<% set_meta_tags :open_graph => {
+  :title => "#{ENV['title']} | Frequently Asked Questions",
+  :description => "Developers Connect Philippines (DevCon) is a non-proﬁt organization which aims to promote the \"IT Pinoy Talent\" mainly by providing a unique venue for IT students, educators, professionals and enthusiasts to Sync, Support and Succeed.",
+  :type  => :website,
+  :url   => faq_url,
+  :image => opengraph_thumb_url
+} %>
+<%= image_tag "logo.png", :class => "pull-right" %>
+<h1>Frequently Asked Questions</h1>
+
+<div class="faq">
+  <div class="row">
+    <div class="span12">
+      <h2>What is DevCon?</h2>
+      <p>Developers Connect Philippines, or simply "DevCon," is the youngest yet most comprehensive IT capabilities development organization in the Philippines. Known for hosting free <em>unconferences</em> for IT students, educators, professionals and enthusiasts, DevCon has grown to having over <em>18,000</em> participants since June 2009. It is highly sought after by educational institutions through its campus DevCon programs that aim to augment the academic learnings of students with up-to-date trends in the IT industry.</p>
+
+      <p>A pioneering project of the Philippine Software Industry Association (PSIA), DevCon successfully empowers Filipino developers and promotes the "IT Pinoy Talent" by bringing together people from the IT industry and academe across the country to <em>sync, support and succeed</em>. Its pilot event, DevCon Visayas, was held at the TechBar in Cebu City. DevCon also spanned a ten-city nationwide tour as part of the Next Wave Cities roadshow run by the then Commission on Information and Communications Technology (CICT) and Business Processing Association of the Philippines (BPA/P) in 2009.</p>
+
+      <p>To increase its reach, DevCon has signed a partnership with the Philippine Society of IT Educators (PSITE) to make DevCon accessible to IT students nationwide. Furthermore, to ensure that DevCon's presence will continue to grow, DevCon registered under the Securities and Exchange Commission as a non-profit organization. (Note that we thrive in the IT community because of volunteers who are always willing to help plan, organize, execute and participate in the events.)</p>
+      
+      <p>Our most recent achievement is the <em>Hack2HATCH: From Hacker to Founder</em> technopreneurship event in Cebu City held last 05-07 October 2012 in Radisson Blu Hotel and Mactan Shangri-La Resort where 22 Philippine startups competed to be among the top 8 teams to each get <em><%= number_to_currency 100000.00 %></em> in funding. Mentors and judges included Silicon Valley entrepreneurs, PhilDev board and trustees, and top businessmen in the country.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span10 offset1 h2h-faq">
+      <div class="thumbnail">
+        <%= image_tag "faq/h2h.jpg", :alt => "Hack2HATCH" %>
+        <div class="caption"><a href="http://www.hack2hatch.com/" target="_blank">Hack2HATCH</a> Winners, Mentors and Judges at the Mactan Shangri-La Resort</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row founder">
+    <div class="span12 profile">
+      <h2>Who founded DevCon?</h2>
+      <h3><span class="caps">Winston Damarillo</span>, Founder</h3>
+      <p class="twitter-handle"><a href="http://twitter.com/YGLWinston" target="_blank">@YGLWinston</a></p>
+      <p><%= image_tag "faq/winston.jpg", :alt => "Winston", :class => "profile-pic pull-left" %> A seasoned technopreneur and founder of DevCon, US-based Winston Damarillo has always been an advocate of the ICT sector in the Philippines and a believer of Filipino software engineering talent. In December 2009, with full commitment to collaborative knowledge-sharing, Winston opened the “TechBar” in Cebu IT Park, an in-office technology center that provides a venue for Filipino ingenuity to flow freely through interactive sessions, such as the very first BarCamp in the Philippines and other technology user group meetings. There is also a TechBar in Ortigas, Pasig City located in <a href="http://exist.com" target="_blank">Exist</a> which was launched in 2008 and used almost monthly by tech groups for different IT events. Quarterly, he travels to the country to conduct talks, inspiring students and new software developers.</p>
+    </div>
+  </div>
+  <div class="row officers">
+    <div class="span12">
+      <h2>Who are the officers of DevCon?</h2>
+
+      <div class="row officer">
+        <div class="span12 profile">
+          <h3><span class="caps">Jerry Rapes</span>, President</h3>
+          <p class="twitter-handle"><a href="http://twitter.com/JerryR" target="_blank">@JerryR</a></p>
+          <p><%= image_tag "faq/jerry.jpg", :alt => "Jerry", :class => "profile-pic pull-left" %> Currently the president of DevCon, Jerry is also president and CEO of the homegrown award-winning software development company <a href="http://exist.com" target="_blank">Exist</a>. Just like Winston, Jerry is an avid supporter of propelling the growth of ICT industry in the Philippines, particularly in Cebu. He has chaired the Cebu ICT &amp; BPO in 2009 and 2010 and has co-chaired the Philippine Open Source Summit held in Cebu in 2008. He is also VP of the Cebu Educational Development Foundation for Information Technology (CEDF-IT), a consortium dedicated to workforce development initiatives in the ICT and IT-enabled services industries.</p>
+        </div>
+      </div>
+
+      <div class="row officer">
+        <div class="span12 profile">
+          <h3><span class="caps">Haifa Carina Baluyos</span>, Executive Director</h3>
+          <p class="twitter-handle"><a href="http://twitter.com/HaifaCarina" target="_blank">@HaifaCarina</a></p>
+          <p><%= image_tag "faq/haifa.jpg", :alt => "Haifa", :class => "profile-pic pull-left" %> Haifa currently serves as the Executive Director of DevCon following her term as VP for Finance, and before that, as Executive Associate. She graduated with a bachelor's degree in Computer Science from Xavier University – Ateneo de Cagayan in 2011. She used to work as an iOS developer. Learn more about her at <a href="http://about.me/haifacarina" target="_blank">about.me/haifacarina</a>.</p>
+        </div>
+      </div>
+
+      <div class="row officer">
+        <div class="span12 profile">
+          <h3><span class="caps">Florida Ortiz</span>, VP for Marketing</h3>
+          <p class="twitter-handle"><a href="http://twitter.com/idadudes" target="_blank">@idadudes</a></p>
+          <p><%= image_tag "faq/ida.jpg", :alt => "Ida", :class => "profile-pic pull-left" %> One of the founding members of DevCon, Ida has previously functioned as its Executive Associate and VP for Membership. She is now the VP for Marketing of DevCon and concurrently an HR Assistant in <a href="http://exist.com" target="_blank">Exist</a>. She's also an intermediate student at <a href="http://polecatsmanila.com" target="_blank">Polecats Manila</a> and an occasional volunteer at <a href="http://www.paws.org.ph" target="_blank">PAWS</a>. Learn more about her at <a href="http://about.me/idaortiz" target="_blank">about.me/idaortiz</a>.</p>
+        </div>
+      </div>
+
+      <div class="row officer">
+        <div class="span12 profile">
+          <h3><span class="caps">Bryan Bibat</span>, VP for Technology</h3>
+          <p class="twitter-handle"><a href="http://twitter.com/bry_bibat" target="_blank">@bry_bibat</a></p>
+          <p><%= image_tag "faq/bry.jpg", :alt => "Bry", :class => "profile-pic pull-left" %> Bry is a freelance software engineer with nine years of experience in web development in both enterprise and non-enterprise applications. Currently, he is the VP for Technology of DevCon and an active evangelist for the Philippine Ruby Users Group (PhRUG). Learn more about him at <a href="http://bryanbibat.net" target="_blank">Bry</a>.
+        </div>
+      </div>
+
+      <div class="row officer">
+        <div class="span12 profile">
+          <h3><span class="caps">Terence Matthew Ponce</span>, VP for Programs</h3>
+          <p class="twitter-handle"><a href="http://twitter.com/TerencePonce" target="_blank">@TerencePonce</a></p>
+          <p><%= image_tag "faq/terence.jpg", :alt => "Terence", :class => "profile-pic pull-left" %> Terence joined DevCon in 2011 as a regular member and he is now its VP for Programs. He is also the community manager of the Philippine Ruby Users Group (PhRUG). He is a Ruby developer by trade. Learn more about him at <a href="http://terenceponce.github.com" target="_blank">terenceponce.github.com</a>.</p>
+        </div>
+      </div>
+
+      <div class="row officer">
+        <div class="span12 profile">
+          <h3><span class="caps">Carlo Miguel Ledesma</span>, VP for Membership</h3>
+          <p class="twitter-handle"><a href="http://twitter.com/Carlo_Ledesma" target="_blank">@Carlo_Ledesma</a></p>
+          <p><%= image_tag "faq/carlo.jpg", :alt => "Carlo", :class => "profile-pic pull-left" %> Carlo is a junior software engineer and an avid fan of technology, particularly software architecture, mobile development and engineering best practices. He has been participating in DevCon events since 2010 and is now its VP for Membership.</p>
+        </div>
+      </div>
+
+      <div class="row officer">
+        <div class="span12 profile">
+          <h3><span class="caps">Jossie Resma</span>, VP for Finance</h3>
+          <p class="twitter-handle"><a href="http://twitter.com/JResma" target="_blank">@JResma</a></p>
+          <p><%= image_tag "faq/jossie.jpg", :alt => "Jossie", :class => "profile-pic pull-left" %> Jossie, DevCon's VP for Finance, works full-time as a software engineer. She used to be the Sales Head of the Cagayan De Oro Quantum IT Convention. She graduated from Xavier University – Ateneo de Cagayan with a degree in Computer Science. Learn more about her at <a href="http://about.me/jossie.resma" target="_blank">about.me/jossie.resma</a>.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="span8 offset2 ida-faq">
+          <div class="thumbnail">
+            <%= image_tag "faq/ida-award.jpg", :alt => "iDA SG award" %>
+            <div class="caption">DevCon officers receiving a Plaque of Appreciation from<br/><a href="http://www.ida.gov.sg/Collaboration-and-Initiatives/Initiatives/Store/iSTART-Philippines.aspx/" target="_blank">iDA SG (Infocomm Development Authority of Singapore)</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

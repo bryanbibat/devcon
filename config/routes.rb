@@ -36,6 +36,7 @@ Devcon::Application.routes.draw do
   resources :tags
 
   match '/contact', :to => 'static_pages#contact'
+  match '/faq', :to => 'static_pages#faq', :as => 'faq'
   match '/feed' => 'static_pages#feed',
       :as => :feed,
       :defaults => { :format => 'atom' }
