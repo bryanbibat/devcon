@@ -187,12 +187,20 @@ footer {
 /* faq */
 
 .faq {
+  h2 {
+    margin-bottom: 20px;
+  }
   p {
     line-height: 1.5em;
     text-align: justify;
+    margin-bottom: 20px;
   }
-  .h2h-faq, .ida-faq {
+  .thumbnail {
     text-align: center;
+    margin-bottom: 20px;
+  }
+  .thumbnail.h2h-faq {
+    margin-bottom: 0px;
   }
   .caption {
     font-style: italic;
@@ -224,6 +232,27 @@ footer {
     width: 100px;
     height: 100px;
     margin-right: 10px;
+  }
+  .carlo-row {
+    margin-bottom: 20px;
+  }
+
+  .carlo-caption {
+    font-style: italic;
+    padding: 30px 20px;
+    p {
+      text-align: left;
+      font-size: 90%;
+    }
+  }
+  .chapter-next-row {
+    margin-top: 20px;
+  }
+  .chapter-caption {
+    font-style: italic;
+    p {
+      padding: 0 50px;
+    }
   }
 }
 /* articles, resource-speaker */
