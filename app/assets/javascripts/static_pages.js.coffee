@@ -20,9 +20,3 @@ $ ->
   if window.devicePixelRatio > 1
     $(".retina").each (i) ->
       replaceRetina this
-  $("#toc a").click (e) ->
-    e.preventDefault()
-    target = $(this).attr("href")
-    $("html, body").animate
-      scrollTop: $(target).offset().top
-    , 1000
