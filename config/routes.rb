@@ -36,6 +36,7 @@ Devcon::Application.routes.draw do
   resources :tags
 
   match '/contact', :to => 'static_pages#contact'
+  match '/faq', :to => 'static_pages#faq', :as => 'faq'
   match '/feed' => 'static_pages#feed',
       :as => :feed,
       :defaults => { :format => 'atom' }
@@ -46,7 +47,7 @@ Devcon::Application.routes.draw do
   end
 end
 #== Route Map
-# Generated on 01 Mar 2013 18:31
+# Generated on 15 Mar 2013 08:29
 #
 #         new_user_session GET    /users/sign_in(.:format)                            devise/sessions#new
 #             user_session POST   /users/sign_in(.:format)                            devise/sessions#create
@@ -136,6 +137,7 @@ end
 #                          PUT    /tags/:id(.:format)                                 tags#update
 #                          DELETE /tags/:id(.:format)                                 tags#destroy
 #                  contact        /contact(.:format)                                  static_pages#contact
+#                      faq        /faq(.:format)                                      static_pages#faq
 #                     feed        /feed(.:format)                                     static_pages#feed {:format=>"atom"}
 #                     root        /                                                   static_pages#home
 # 

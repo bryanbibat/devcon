@@ -8,3 +8,7 @@ en:
       default: '%d-%m-%Y %H:%M'
       friendly_date: '%b. %d, %Y'
       long: '%b %d, %Y %l:%M %p'
+  number:
+    currency:
+      format:
+        unit: "₱"

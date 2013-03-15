@@ -169,15 +169,93 @@ footer {
   }
 }
 
-.facebook-group {
+.social-icon {
+  max-height: 34px;
+  margin-top: -7px;
+}
+.social-link {
   font-size: 1.5em;
   font-weight: bold;
   padding-top: 10px;
-  a {
-    color: #617FBD;
-  }
 }
 
+/* faq */
+
+#toc {
+  padding-top: 20px;
+}
+.faq {
+  #what-is-devcon, #founder, #officers, #devcon-events, #joining-devcon, #student-partner, #hosting-campus-devcon, #devcon-chapters, #contact {
+    padding-top: 50px;
+  }
+  h2 {
+    margin-bottom: 20px;
+  }
+  p {
+    line-height: 1.5em;
+    text-align: justify;
+    margin-bottom: 20px;
+  }
+  .thumbnail {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .thumbnail.h2h-faq {
+    margin-bottom: 0px;
+  }
+  .caption {
+    font-style: italic;
+    font-size: 90%;
+  }
+  
+  h3 {
+    margin: 20px 0 0px; 
+    font-size: 1.1em;
+    .caps {
+      text-transform: uppercase;
+    }
+  }
+  h3#president {
+    margin-top: 0;
+  }
+  .profile {
+    p.twitter-handle {
+      margin-bottom: 3px;
+    }
+  }
+  .officer {
+    margin-bottom: 10px;
+    p {
+      margin-bottom: 0;
+    }
+  }
+  img.profile-pic {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+  }
+  .carlo-row {
+    margin-bottom: 20px;
+  }
+
+  .carlo-caption {
+    font-style: italic;
+    padding: 30px 20px;
+    p {
+      text-align: left;
+      font-size: 90%;
+    }
+  }
+  .chapter-next-row {
+    margin-top: 20px;
+  }
+  .chapter-caption {
+    font-style: italic;
+    p {
+      padding: 0 50px;
+    }
+  }
+}
 /* articles, resource-speaker */
 
 .article, .resource-person, .event {
