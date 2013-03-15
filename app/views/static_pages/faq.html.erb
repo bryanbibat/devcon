@@ -7,11 +7,27 @@
   :url   => faq_url,
   :image => opengraph_thumb_url
 } %>
-<%= image_tag "logo.png", :class => "pull-right" %>
-<h1>Frequently Asked Questions</h1>
+<div class="row">
+  <div class="span12">
+    <%= image_tag "logo.png", :class => "pull-right" %>
+    <h1>Frequently Asked Questions</h1>
+  </div>
+</div>
+
+<ul id="toc">
+  <li><a href="#what-is-devcon">What is DevCon?</a></li>
+  <li><a href="#founder">Who founded DevCon?</a></li>
+  <li><a href="#officers">Who are the officers of DevCon?</a></li>
+  <li><a href="#devcon-events">What are the usual DevCon events?</a></li>
+  <li><a href="#joining-devcon">How do I become a member of DevCon?</a></li>
+  <li><a href="#student-partner">What is a DevCon Student Partner?</a></li>
+  <li><a href="#hosting-campus-devcon">Can our school host a Campus DevCon?</a></li>
+  <li><a href="#devcon-chapters">Does DevCon have local chapters?</a></li>
+  <li><a href="#contact">How do I reach DevCon?</a></li>
+</ul>
 
 <div class="faq">
-  <div class="row">
+  <div class="row" id="what-is-devcon">
     <div class="span12">
       <h2>What is DevCon?</h2>
       <p>Developers Connect Philippines, or simply "DevCon," is the youngest yet most comprehensive IT capabilities development organization in the Philippines. Known for hosting free <em>unconferences</em> for IT students, educators, professionals and enthusiasts, DevCon has grown to having over <em>18,000</em> participants since June 2009. It is highly sought after by educational institutions through its campus DevCon programs that aim to augment the academic learnings of students with up-to-date trends in the IT industry.</p>
@@ -32,7 +48,7 @@
     </div>
   </div>
 
-  <div class="row founder">
+  <div class="row" id="founder">
     <div class="span12 profile">
       <h2>Who founded DevCon?</h2>
       <h3><span class="caps">Winston Damarillo</span>, Founder</h3>
@@ -40,13 +56,13 @@
       <p><%= image_tag "faq/winston.jpg", :alt => "Winston", :class => "profile-pic pull-left" %> A seasoned technopreneur and founder of DevCon, US-based Winston Damarillo has always been an advocate of the ICT sector in the Philippines and a believer of Filipino software engineering talent. In December 2009, with full commitment to collaborative knowledge-sharing, Winston opened the “TechBar” in Cebu IT Park, an in-office technology center that provides a venue for Filipino ingenuity to flow freely through interactive sessions, such as the very first BarCamp in the Philippines and other technology user group meetings. There is also a TechBar in Ortigas, Pasig City located in <a href="http://exist.com" target="_blank">Exist</a> which was launched in 2008 and used almost monthly by tech groups for different IT events. Quarterly, he travels to the country to conduct talks, inspiring students and new software developers.</p>
     </div>
   </div>
-  <div class="row officers">
+  <div class="row" id="officers">
     <div class="span12">
       <h2>Who are the officers of DevCon?</h2>
 
       <div class="row officer">
         <div class="span12 profile">
-          <h3><span class="caps">Jerry Rapes</span>, President</h3>
+          <h3 id="president"><span class="caps">Jerry Rapes</span>, President</h3>
           <p class="twitter-handle"><a href="http://twitter.com/JerryR" target="_blank">@JerryR</a></p>
           <p><%= image_tag "faq/jerry.jpg", :alt => "Jerry", :class => "profile-pic pull-left" %> Currently the president of DevCon, Jerry is also president and CEO of the homegrown award-winning software development company <a href="http://exist.com" target="_blank">Exist</a>. Just like Winston, Jerry is an avid supporter of propelling the growth of ICT industry in the Philippines, particularly in Cebu. He has chaired the Cebu ICT &amp; BPO in 2009 and 2010 and has co-chaired the Philippine Open Source Summit held in Cebu in 2008. He is also VP of the Cebu Educational Development Foundation for Information Technology (CEDF-IT), a consortium dedicated to workforce development initiatives in the ICT and IT-enabled services industries.</p>
         </div>
@@ -72,7 +88,7 @@
         <div class="span12 profile">
           <h3><span class="caps">Bryan Bibat</span>, VP for Technology</h3>
           <p class="twitter-handle"><a href="http://twitter.com/bry_bibat" target="_blank">@bry_bibat</a></p>
-          <p><%= image_tag "faq/bry.jpg", :alt => "Bry", :class => "profile-pic pull-left" %> Bry is a freelance software engineer with nine years of experience in web development in both enterprise and non-enterprise applications. Currently, he is the VP for Technology of DevCon and an active evangelist for the Philippine Ruby Users Group (PhRUG). Learn more about him at <a href="http://bryanbibat.net" target="_blank">Bry</a>.
+          <p><%= image_tag "faq/bry.jpg", :alt => "Bry", :class => "profile-pic pull-left" %> Bry is a freelance software engineer with nine years of experience in web development in both enterprise and non-enterprise applications. Currently, he is the VP for Technology of DevCon and an active evangelist for the Philippine Ruby Users Group (PhRUG). Learn more about him at <a href="http://bryanbibat.net" target="_blank">bryanbibat.net</a>.
         </div>
       </div>
 
@@ -111,7 +127,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row" id="devcon-events">
     <div class="span12">
       <h2>What are the usual DevCon events?</h2>
 
@@ -187,7 +203,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row" id="joining-devcon">
     <div class="span12">
       <h2>How do I become a member of DevCon?</h2>
       
@@ -212,7 +228,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row" id="student-partner">
     <div class="span12">
       <h2>What is a DevCon Student Partner?</h2>
 
@@ -220,7 +236,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row" id="hosting-campus-devcon">
     <div class="span12">
       <h2>Can our school host a Campus DevCon?</h2>
 
@@ -252,7 +268,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row" id="devcon-chapters">
     <div class="span12">
       <h2>Does DevCon have local chapters?</h2>
 
@@ -282,7 +298,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row" id="contact">
     <div class="span12">
       <h2>How do I reach DevCon?</h2>
 

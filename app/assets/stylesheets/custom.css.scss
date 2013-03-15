@@ -186,7 +186,13 @@ footer {
 
 /* faq */
 
+#toc {
+  padding-top: 20px;
+}
 .faq {
+  #what-is-devcon, #founder, #officers, #devcon-events, #joining-devcon, #student-partner, #hosting-campus-devcon, #devcon-chapters, #contact {
+    padding-top: 50px;
+  }
   h2 {
     margin-bottom: 20px;
   }
@@ -207,15 +213,15 @@ footer {
     font-size: 90%;
   }
   
-  .founder {
-    margin-top: 30px;
-  }
   h3 {
     margin: 20px 0 0px; 
     font-size: 1.1em;
     .caps {
       text-transform: uppercase;
     }
+  }
+  h3#president {
+    margin-top: 0;
   }
   .profile {
     p.twitter-handle {
