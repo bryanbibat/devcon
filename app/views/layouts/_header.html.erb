@@ -7,6 +7,7 @@
       <nav>
         <ul class="nav">
           <li class="<%= (action_name == "home" ? "active" : "") %>"><%= link_to 'Home', root_path  %></li>
+          <li class="<%= (action_name == "faq" ? "active" : "") %>"><%= link_to 'FAQ', faq_path  %></li>
           <li class="<%= (controller_name == "articles" ? "active" : "") %>"><%= link_to 'Articles', articles_path %></li>
           <li class="<%= (controller_name == "events" ? "active" : "") %>"><%= link_to 'Events', events_path %></li>
           <% if user_signed_in? %>
@@ -23,7 +24,6 @@
           <% end %>
         </ul>
         <ul class="nav pull-right">
-          <li class="<%= (action_name == "faq" ? "active" : "") %>"><%= link_to 'FAQ', faq_path  %></li>
           <% if user_signed_in? %>
             <% if current_user.role? "admin" %>
               <li id="fat-menu" class="dropdown">

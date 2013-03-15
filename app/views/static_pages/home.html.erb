@@ -73,11 +73,22 @@
     }(document, 'script', 'facebook-jssdk'));</script>
     <div id="fb-root"></div>
     <div class="fb-like-box" data-href="http://www.facebook.com/DevConPH" data-width="400" data-show-faces="true" data-stream="false" data-header="false"></div>
-    <p class="facebook-group"><%= link_to "Join our Facebook Group", "http://www.facebook.com/groups/devconph/" %></p>
-    <p class="eventbrite-link">
-      <a href="http://www.eventbrite.com/org/1602161168?ref=eorgbtn" target="_blank">
-        <img src="https://ebmedia.eventbrite.com/s3-s3/static/images/icons/eb-icon_medium.png" />
+    <p class="social-link">
+      <a href="http://www.facebook.com/groups/devconph/" target="_blank">
+        <%= image_tag "facebook.png", :class => "social-icon" %>
+        Join our Facebook Group
+      </a>
+    </p>
+    <p class="social-link">
+      <a href="http://devconph.eventbrite.com/" target="_blank">
+        <%= image_tag "eventbrite.png", :class => "social-icon" %>
         View our Eventbrite profile page
+      </a>
+    </p>
+    <p class="social-link">
+      <a href="http://youtube.com/devconph/" target="_blank">
+        <%= image_tag "youtube.png", :class => "social-icon" %>
+        View our YouTube channel
       </a>
     </p>
   </div>
