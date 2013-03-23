@@ -58,4 +58,5 @@ group :test do
   gem 'libnotify'
   gem 'rb-inotify', :require => false
   gem 'rb-fsevent', :require => false
+  gem 'shoulda-matchers'
 end

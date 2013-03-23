@@ -24,13 +24,6 @@ describe Tag do
 
   it { should be_valid }
 
-  describe 'when name is blank' do
-    before { @tag.name = ' ' }
-    it { should_not be_valid }
-  end
-
-  describe 'when description is blank' do
-    before { @tag.description = ' ' }
-    it { should be_valid }
-  end
+  it { should validate_presence_of(:name) }
+  it { should_not validate_presence_of(:description) }
 end
