@@ -9,7 +9,7 @@
 } %>
 <div class="row">
   <div class="span12">
-    <%= image_tag "logo.png", :class => "pull-right" %>
+    <%= image_tag "logo.png", class: "pull-right"%>
     <h1>Frequently Asked Questions</h1>
   </div>
 </div>
@@ -26,11 +26,15 @@
   <li><a href="#contact">How do I reach DevCon?</a></li>
 </ul>
 
+<div class="faq-download">
+  <%= image_tag "pdf.gif", :alt => "PDF" %> <a href="/DevConFAQ.pdf">Download this FAQ in PDF</a>
+</div>
+
 <div class="faq">
   <div class="row" id="what-is-devcon">
     <div class="span12">
       <h2>What is DevCon?</h2>
-      <p>Developers Connect Philippines, or simply "DevCon," is the youngest yet most comprehensive IT capabilities development organization in the Philippines. Known for hosting free <em>unconferences</em> for IT students, educators, professionals and enthusiasts, DevCon has grown to having over <em>18,000</em> participants since June 2009. It is highly sought after by educational institutions through its campus DevCon programs that aim to augment the academic learnings of students with up-to-date trends in the IT industry.</p>
+      <p>Developers Connect Philippines, or simply "DevCon," is the youngest yet most comprehensive IT capabilities development organization in the Philippines. Known for hosting free <em>unconferences</em> for IT students, educators, professionals and enthusiasts, DevCon has grown to having over <em>20,000</em> participants since June 2009. It is highly sought after by educational institutions through its campus DevCon programs that aim to augment the academic learnings of students with up-to-date trends in the IT industry.</p>
 
       <p>A pioneering project of the Philippine Software Industry Association (PSIA), DevCon successfully empowers Filipino developers and promotes the "IT Pinoy Talent" by bringing together people from the IT industry and academe across the country to <em>sync, support and succeed</em>. Its pilot event, DevCon Visayas, was held at the TechBar in Cebu City. DevCon also spanned a ten-city nationwide tour as part of the Next Wave Cities roadshow run by the then Commission on Information and Communications Technology (CICT) and Business Processing Association of the Philippines (BPA/P) in 2009.</p>
 
@@ -80,7 +84,7 @@
         <div class="span12 profile">
           <h3><span class="caps">Florida Ortiz</span>, VP for Marketing</h3>
           <p class="twitter-handle"><a href="http://twitter.com/idadudes" target="_blank">@idadudes</a></p>
-          <p><%= image_tag "faq/ida.jpg", :alt => "Ida", :class => "profile-pic pull-left" %> One of the founding members of DevCon, Ida has previously functioned as its Executive Associate and VP for Membership. She is now the VP for Marketing of DevCon and concurrently an HR Assistant in <a href="http://exist.com" target="_blank">Exist</a>. She's also an intermediate student at <a href="http://polecatsmanila.com" target="_blank">Polecats Manila</a> and an occasional volunteer at <a href="http://www.paws.org.ph" target="_blank">PAWS</a>. Learn more about her at <a href="http://about.me/idaortiz" target="_blank">about.me/idaortiz</a>.</p>
+          <p><%= image_tag "faq/ida.jpg", :alt => "Ida", :class => "profile-pic pull-left" %> One of the founding members of DevCon, Ida has previously functioned as its Executive Associate and VP for Membership. She is now the VP for Marketing of DevCon. She worked as an HR in <a href="http://exist.com" target="_blank">Exist</a>. She's also an intermediate student at <a href="http://polecatsmanila.com" target="_blank">Polecats Manila</a> and an occasional volunteer at <a href="http://www.paws.org.ph" target="_blank">PAWS</a>. Learn more about her at <a href="http://about.me/idaortiz" target="_blank">about.me/idaortiz</a>.</p>
         </div>
       </div>
 
