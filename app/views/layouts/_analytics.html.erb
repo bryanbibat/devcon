@@ -1,9 +1,9 @@
 <!-- Piwik -->
-<script type="text/javascript" src="http://analytics.devcon.ph/piwik.js"></script>
+<script type="text/javascript" src="//analytics.devcon.ph/piwik.js"></script>
 <script type="text/javascript">
 (function() {
 try {
-var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+var piwikTracker = Piwik.getTracker("http://analytics.devcon.ph/piwik.php", 1);
 piwikTracker.trackPageView();
 piwikTracker.enableLinkTracking();
 } catch( err ) {}
