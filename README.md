@@ -29,6 +29,6 @@ All future enhancements are logged at https://github.com/devcon-ph/devcon/issues
 
 ## Deployment
 
-This app has two main branches, the `master` branch for staging i.e. http://beta.devcon.ph, and the `release` branch for production i.e. http://devcon.ph.
+This app has two main branches, the `master` branch for staging i.e. http://beta.devcon.ph, and the `release` branch for production i.e. http://devcon.ph. All enhancements must be performed on the `master` branch and tested prior to merging to the `release` branch.
 
 As of this writing, only [Bry](https://github.com/bryanbibat/) and [Terence](https://github.com/terenceponce) have access rights to deploy to the server.
