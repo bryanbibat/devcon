@@ -1,6 +1,8 @@
+![image](https://raw.github.com/devcon-ph/devcon/master/app/assets/images/logo.png)
+
 # DevCon
 
-This is a work-in-progress revamp for the website of [DevCon Philippines](http://devcon.ph)
+This is a work-in-progress revamp for the website of [Developers Connnect Philippines](http://devcon.ph)
 
 ## Developer Notes
 
