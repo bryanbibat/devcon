@@ -109,6 +109,8 @@ GEM
       childprocess (>= 0.2.3)
       guard (>= 1.1)
       spork (>= 0.8.4)
+    guard-unicorn (0.0.8)
+      guard (>= 1.1)
     highline (1.6.16)
     hike (1.2.1)
     htmlentities (4.3.1)
@@ -285,6 +287,7 @@ DEPENDENCIES
   guard-bundler
   guard-rspec
   guard-spork
+  guard-unicorn
   htmlentities
   icalendar
   jquery-rails
