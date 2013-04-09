@@ -25,6 +25,14 @@ describe 'Static pages' do
     it_should_behave_like 'all static pages'
   end
 
+  describe 'FAQ page' do
+    before { visit faq_path }
+    let(:heading)    { 'Frequently Asked Questions' }
+    let(:page_title) { 'Frequently Asked Questions' }
+
+    it_should_behave_like 'all static pages'
+  end
+
   it 'should have the right links on the layout' do
     visit root_path
     click_link 'Contact'
@@ -35,5 +43,9 @@ describe 'Static pages' do
     page.should have_selector('title', :text => full_title('Sign in'))
     click_link 'Articles'
     page.should have_selector('title', :text => full_title('Articles'))
+    click_link 'Events'
+    page.should have_selector('title', :text => full_title('Events'))
+    click_link 'FAQ'
+    page.should have_selector('title', :text => full_title('Frequently Asked Questions'))
   end
 end
