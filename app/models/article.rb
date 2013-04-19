@@ -27,7 +27,7 @@ class Article < ActiveRecord::Base
   validates :title, :presence => true
   validates :content, :presence => true
   validates :author_id, :presence => true
-  validates_presence_of :title, :slug
+  validates_presence_of :slug
   validates_uniqueness_of :slug
 
   default_scope :order => 'articles.created_at DESC'

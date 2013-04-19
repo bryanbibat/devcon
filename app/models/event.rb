@@ -22,6 +22,7 @@
 #  event_type       :string(255)
 #  target_attendees :integer
 #  actual_attendees :integer
+#  cover_photo      :string(255)
 #
 
 class Event < ActiveRecord::Base
@@ -35,13 +36,15 @@ class Event < ActiveRecord::Base
   has_many :participants
   has_many :resource_people, :through => :participants
 
-  attr_accessible :description, :description, :devcon_role, :end_at, :logo, :name, :parent_id, :slug, :start_at, :venue_id, :summary, :schedule, :rules, :registration
-  attr_accessible :event_type, :target_attendees, :actual_attendees
+  attr_accessible :description, :description, :devcon_role, :end_at, :logo, :cover_photo,
+    :name, :parent_id, :slug, :start_at, :venue_id, :summary, :schedule, :rules, 
+    :registration, :event_type, :target_attendees, :actual_attendees
 
   include SluggedResource
   include Icalendar
 
   mount_uploader :logo, ThumbnailUploader
+  mount_uploader :cover_photo, CoverPhotoUploader
 
   scope :upcoming, where("start_at > current_timestamp").order("start_at")
   scope :current, where("start_at <= current_timestamp and end_at >= current_timestamp").order("start_at")
@@ -50,6 +53,18 @@ class Event < ActiveRecord::Base
 
   def venues
     ([venue] + subevents.map { |e| e.venue }).compact
+  end
+
+  def effective_address
+    if venue.nil?
+      unless venues.empty?
+        venues[0].address
+      else
+        nil
+      end
+    else
+      venue.address
+    end
   end
 
   def self.previous_by_month
@@ -66,7 +81,7 @@ class Event < ActiveRecord::Base
       text: self.name,
       dates: "#{start_time}/#{end_time}",
       details: truncate(strip_tags(HTMLEntities.new.decode(self.description)), length: 200),
-      location: self.venue.address,
+      location: self.effective_address,
       trp: true,
       sprop: 'website:http://devcon.ph'
     }
@@ -74,7 +89,7 @@ class Event < ActiveRecord::Base
     'http://google.com/calendar/event?' + values.to_query
   end
 
-  def icalendar(root_url)
+  def icalendar(event_url)
     event_temp = self
     cal = Calendar.new
 
@@ -84,7 +99,7 @@ class Event < ActiveRecord::Base
       summary     event_temp.name
       description event_temp.summary
       klass       'PRIVATE'
-      url         "#{root_url}/events/#{event_temp.slug}"
+      url         event_url
 
       alarm do
         action  'DISPLAY'

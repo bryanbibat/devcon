@@ -49,38 +49,15 @@ describe User do
 
   it { should be_valid }
 
-  describe 'when email is not present' do
-    before { @user.email = ' ' }
-    it { should_not be_valid }
-  end
-
-  describe 'when email format is invalid' do
-    invalid_addresses = %w[user@foo,com user_at_foo.org example.user@foo.]
-    invalid_addresses.each do |invalid_address|
-      before { @user.email = invalid_address }
-      it { should_not be_valid }
-    end
-  end
-
-  describe 'when email format is valid' do
-    valid_addresses = %w[user@foo.com A_USER@f.b.org frst.lst@foo.jp a+b@baz.cn]
-    valid_addresses.each do |valid_address|
-      before { @user.email = valid_address }
-      it { should be_valid }
-    end
-  end
-
-  describe 'when email address is already taken' do
-    before do
-      @user_with_same_email = @user.dup
-      @user_with_same_email.email = @user.email
-      @user_with_same_email.save
-    end
-
-    subject { @user_with_same_email }
-
-    it { should_not be_valid }
-  end
+  it { should validate_presence_of(:email) }
+  it { should_not allow_value('user@foo,com').for(:email) }
+  it { should_not allow_value('user_at_foo.org').for(:email) }
+  it { should_not allow_value('example.user@foo.').for(:email) }
+  it { should allow_value('user@foo.com').for(:email) }
+  it { should allow_value('A_USER@f.b.org').for(:email) }
+  it { should allow_value('frst.lst@foo.jp').for(:email) }
+  it { should allow_value('a+b@baz.cn').for(:email) }
+  it { should validate_uniqueness_of(:email) }
 
   describe 'when password is not present' do
     before { @user.password = @user.password_confirmation = ' ' }

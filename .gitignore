@@ -14,7 +14,7 @@ capybara-*.html
 **.orig
 rerun.txt
 pickle-email-*.html
-
+coverage/*
 /config/database.yml
 /public/uploads
 /bin

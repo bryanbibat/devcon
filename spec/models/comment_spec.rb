@@ -27,33 +27,9 @@ describe Comment do
 
   it { should be_valid }
 
-  describe 'with blank content' do
-    before { @comment.content = ' ' }
-    it { should_not be_valid }
-  end
-
-  describe 'with no user' do
-    before { @comment.user = nil }
-    it { should_not be_valid }
-  end
-
-  describe 'accessible attributes' do
-    it 'should not allow access to user_id' do
-      expect do
-        Comment.new(:user_id => @user.id)
-      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
-    end
-
-    it 'should not allow access to commentable_id' do
-      expect do
-        Comment.new(:commentable_id => 1)
-      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
-    end
-
-    it 'should not allow access to commentable_type' do
-      expect do
-        Comment.new(:commentable_type => 'Something')
-      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
-    end
-  end
+  it { should validate_presence_of(:content) }
+  it { should validate_presence_of(:user) }
+  it { should_not allow_mass_assignment_of(:user_id) }
+  it { should_not allow_mass_assignment_of(:commentable_id) }
+  it { should_not allow_mass_assignment_of(:commentable_type) }
 end

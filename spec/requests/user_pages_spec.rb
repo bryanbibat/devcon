@@ -40,17 +40,20 @@ describe 'User' do
     end
   end
 
-  describe 'signup page' do
+  #describe 'signup page' do
 
-    before { visit new_user_session_path }
+    #before { visit new_user_session_path }
 
-    it { should_not have_link 'Sign up' }
-  end
+    #it { should_not have_link 'Sign up' }
+  #end
 
-  #describe 'signing up' do
+  describe 'signing up' do
 
-    #before { visit new_user_registration_path }
+    before { visit new_user_registration_path }
 
+    it 'should redirect to root' do
+      current_path.should == root_path
+    end
     #describe 'with invalid information' do
 
       #it 'should not create a user' do
@@ -82,5 +85,5 @@ describe 'User' do
         #it { should_not have_link 'Sign in' }
       #end
     #end
-  #end
+  end
 end

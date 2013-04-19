@@ -35,26 +35,12 @@ describe Article do
 
   it { should be_valid }
 
-  describe 'when author_id is not present' do
-    before { @article.author_id = nil }
-    it { should_not be_valid }
-  end
+  it { should validate_presence_of(:author_id) }
+  it { should validate_presence_of(:content) }
+  it { should_not allow_mass_assignment_of(:author_id) }
 
   describe 'with blank title' do
     before { @article.title = ' ' }
     it { should_not be_valid }
-  end
-
-  describe 'with blank content' do
-    before { @article.content = ' ' }
-    it { should_not be_valid }
-  end
-
-  describe 'accessible attributes' do
-    it 'should not allow access to author_id' do
-      expect do
-        Article.new(:author_id => @author.id)
-      end.should raise_error(ActiveModel::MassAssignmentSecurity::Error)
-    end
   end
 end

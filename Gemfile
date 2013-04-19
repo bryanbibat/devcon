@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.12'
+gem 'rails', '3.2.13'
 gem 'bootstrap-sass', '~> 2.2.2.0'
 gem 'devise', '2.2.3'
 gem 'simple_form', '2.0.1'
@@ -53,9 +53,10 @@ group :test do
   gem 'guard-bundler'
   gem 'guard-rspec'
   gem 'guard-spork'
-
+  gem 'simplecov', :require => false
   gem 'growl'
   gem 'libnotify'
   gem 'rb-inotify', :require => false
   gem 'rb-fsevent', :require => false
+  gem 'shoulda-matchers'
 end
