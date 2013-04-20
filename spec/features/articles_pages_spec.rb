@@ -173,7 +173,7 @@ describe 'Articles pages' do
           end
 
           it { should_not have_link 'Edit', :href => edit_article_path(@article) }
-          it { should have_link 'Destroy', :method => :delete, :href => article_path(@article) }
+          it { should_not have_delete_link 'Destroy', article_path(@article) }
         end
       end
 
