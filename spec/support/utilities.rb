@@ -26,7 +26,7 @@ end
 
 RSpec::Matchers.define :have_page_title do |title|
   match do |page|
-    page.should have_selector('title', :text => full_title(title))
+    page.should have_title full_title(title)
   end
 end
 
@@ -39,5 +39,11 @@ end
 RSpec::Matchers.define :have_url do |url|
   match do |page|
     page.current_url.should == url
+  end
+end
+
+RSpec::Matchers.define :have_delete_link do |text, link|
+  match do |page|
+    page.should have_selector("a[data-method=delete][href=\"#{link}\"", :text => text)
   end
 end

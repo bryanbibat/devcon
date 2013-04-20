@@ -94,7 +94,8 @@ describe 'Authentication' do
 
           before do
             @article = Fabricate(:article, :author => @author)
-            put article_path(@article)
+            visit edit_article_path(@article)
+            click_button "Submit"
           end
 
           specify { response.should redirect_to(root_path) }
