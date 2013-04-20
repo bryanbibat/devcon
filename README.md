@@ -6,7 +6,7 @@ This is a work-in-progress revamp for the website of [Developers Connnect Philip
 
 ## Developer Notes
 
-This is a run of the mill Rails + PostgreSQL app so running a local copy should look something like:
+This is a Ruby 2.0 + Rails 3.2 + PostgreSQL app so running a local copy should look something like:
 
     git clone git://github.com/devcon-ph/devcon.git
     cd devcon
@@ -22,6 +22,12 @@ Guard will run both the Unicorn server at port 3000 and the specs.
 This app uses [better\_errors](https://github.com/charliesome/better_errors) for debugging. Don't forget to set the `TRUSTED_IP` environment variable if you're not testing on your local machine.
 
 This app also uses [rails\_panel](https://github.com/dejan/rails_panel) so you don't need to look at the development log while developing.
+
+## Creating a user
+
+To create an admin user, open the console (`rails c`) and enter the following:
+
+    User.create email: "test@example.com", password: "password", password_confirmation: "password", roles: ["admin", "moderator", "author"]
 
 ## Plans
 
