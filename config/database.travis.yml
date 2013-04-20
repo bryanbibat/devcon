@@ -1,0 +1,6 @@
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: devcon_test
+  pool: 5
+  username: postgres
