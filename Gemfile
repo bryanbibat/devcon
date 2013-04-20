@@ -20,16 +20,40 @@ gem 'icalendar'
 
 gem 'pg', '0.15.0'
 
-group :development, :test do
-  gem 'rspec-rails', '2.13.0'
-  gem 'database_cleaner', '0.9.1'
-  gem 'annotate', '~> 2.4.1.beta'
-  gem 'pry'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+
+group :development do
   gem 'capistrano'
   gem 'capistrano-unicorn'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
+  gem 'annotate', '~> 2.4.1.beta'
+  gem 'guard'
+  gem 'guard-bundler'
+  gem 'guard-rspec'
+  gem 'guard-spork'
+  gem 'guard-unicorn'
+end
+
+group :development, :test do
+  gem 'rspec-rails', '2.13.0'
+  gem 'pry'
+end
+
+group :test do
+  gem 'capybara', '2.1.0'
+  gem 'database_cleaner', '0.9.1'
+  gem 'launchy'
+  gem 'fabrication', '2.5.4'
+  gem 'spork'
+  gem 'simplecov', :require => false
+  gem 'growl'
+  gem 'libnotify'
+  gem 'rb-inotify', :require => false
+  gem 'rb-fsevent', :require => false
+  gem 'shoulda-matchers'
 end
 
 # Gems used only for assets and not required
@@ -39,25 +63,4 @@ group :assets do
   gem 'coffee-rails', '3.2.2'
   gem 'uglifier', '1.2.3'
   gem 'turbo-sprockets-rails3'
-end
-
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
-
-group :test do
-  gem 'capybara', '2.1.0'
-  gem 'launchy'
-  gem 'fabrication', '2.5.4'
-  gem 'spork'
-  gem 'guard'
-  gem 'guard-bundler'
-  gem 'guard-rspec'
-  gem 'guard-spork'
-  gem 'guard-unicorn'
-  gem 'simplecov', :require => false
-  gem 'growl'
-  gem 'libnotify'
-  gem 'rb-inotify', :require => false
-  gem 'rb-fsevent', :require => false
-  gem 'shoulda-matchers'
 end
