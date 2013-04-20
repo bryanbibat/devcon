@@ -40,13 +40,10 @@ end
 group :development, :test do
   gem 'rspec-rails', '2.13.0'
   gem 'pry'
-end
-
-group :test do
-  gem 'capybara', '2.1.0'
-  gem 'database_cleaner', '0.9.1'
-  gem 'launchy'
   gem 'fabrication', '2.5.4'
+  gem 'database_cleaner', '0.9.1'
+  gem 'capybara', '2.1.0'
+  gem 'launchy'
   gem 'spork'
   gem 'simplecov', :require => false
   gem 'growl'
