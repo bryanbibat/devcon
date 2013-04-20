@@ -2,7 +2,7 @@ guard 'bundler' do
   watch('Gemfile')
 end
 
-guard :unicorn, :port => 3000, :daemonized => true do
+guard :unicorn, :port => 3000, :daemonized => true, :config_file => "config/unicorn/development.rb" do
   watch(%r{^app\/(controllers|models|helpers)\/.+\.rb$})
   watch(%r{^lib\/.+\.rb$})
   watch('Gemfile.lock')
