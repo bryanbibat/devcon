@@ -2,6 +2,14 @@ guard 'bundler' do
   watch('Gemfile')
 end
 
+guard :unicorn, :port => 3000, :daemonized => true do
+  watch(%r{^app\/(controllers|models|helpers)\/.+\.rb$})
+  watch(%r{^lib\/.+\.rb$})
+  watch('Gemfile.lock')
+  watch('config/routes.rb')
+  watch('config/application.rb')
+end
+
 guard 'spork', wait: 60, cucumber: false, rspec: true, test_unit: false do
   watch('config/application.rb')
   watch('config/environment.rb')

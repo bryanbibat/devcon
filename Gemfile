@@ -53,6 +53,7 @@ group :test do
   gem 'guard-bundler'
   gem 'guard-rspec'
   gem 'guard-spork'
+  gem 'guard-unicorn'
   gem 'simplecov', :require => false
   gem 'growl'
   gem 'libnotify'

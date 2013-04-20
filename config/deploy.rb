@@ -31,10 +31,14 @@ task :symlink_unicorn_socket do
   run "ln -s #{shared_path}/sockets #{current_path}/tmp/sockets"
 end
 
-before "deploy:finalize_update", :copy_production_database_configuration
+before "deploy:finalize_update", :copy_production_database_configuration, :replace_secret_token
 
 task :copy_production_database_configuration do
   run "cp #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+end
+
+task :replace_secret_token do
+  run "cp #{shared_path}/config/secret_token.rb #{release_path}/config/initializers/secret_token.rb"
 end
 
 after "deploy:update", "deploy:cleanup", "deploy:migrate" 

@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe ResourcePerson do
-  pending "add some examples to (or delete) #{__FILE__}"
 end
 # == Schema Information
 #
