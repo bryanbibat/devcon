@@ -1,5 +1,7 @@
 ![image](https://raw.github.com/devcon-ph/devcon/master/app/assets/images/logo.png)
 
+[![Build Status](https://travis-ci.org/devcon-ph/devcon.png?branch=master,release)](https://travis-ci.org/devcon-ph/devcon)
+
 # DevCon
 
 This is a work-in-progress revamp for the website of [Developers Connnect Philippines](http://devcon.ph)
