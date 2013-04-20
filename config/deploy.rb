@@ -9,6 +9,7 @@ set :scm, :git
 set :branch, "release"
 
 default_run_options[:pty] = true
+default_run_options[:shell] = "/bin/bash --login"
 
 server "devcon.ph", :app, :web, :db, :primary => true
 set :user, "deploy"
