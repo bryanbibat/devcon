@@ -5,9 +5,6 @@
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= csrf_meta_tags %>
     <%= render 'layouts/shim' %>
-    <% if user_signed_in? and current_user.role? "admin" %>
-      <%= javascript_include_tag 'ckeditor/init' %>
-    <% end %>
     <link href="/favicon.ico" rel="shortcut icon">
     <link href="/apple-touch-icon-144-precomposed.png" sizes="144x144" rel="apple-touch-icon-precomposed">
     <link href="/apple-touch-icon-114-precomposed.png" sizes="114x114" rel="apple-touch-icon-precomposed">
@@ -24,6 +21,9 @@
       <%= render 'layouts/footer' %>
       <%= debug(params) if Rails.env.development? %>
     </div>
+    <% if user_signed_in? and current_user.role? "admin" %>
+      <%= javascript_include_tag 'ckeditor/init' %>
+    <% end %>
     <%= javascript_include_tag "application" %>
     <%= yield :scripts %>
   </body>
