@@ -16,19 +16,20 @@ class ApplicationController < ActionController::Base
   private
   def render_404(exception)
     @not_found_path = exception.message
-    respond_to do |format|
-      format.html { render template: 'static_pages/error_404', layout: 'layouts/application', status: 404 }
-      format.all { render nothing: true, status: 404 }
-    end
+    render_error_page 404
   end
 
   def render_500(exception)
     @error = exception
     logger.error @error.message
     @error.backtrace.each { |e| logger.error e }
+    render_error_page 500
+  end
+
+  def render_error_page(error)
     respond_to do |format|
-      format.html { render template: 'static_pages/error_500', layout: 'layouts/application', status: 500 }
-      format.all { render nothing: true, status: 500}
+      format.html { render template: "static_pages/error_#{error}", layout: 'layouts/application', status: error }
+      format.all { render nothing: true, status: error}
     end
   end
 end
