@@ -22,7 +22,7 @@ set :rails_env, "production"
 set :shared_children, shared_children + %w{public/uploads}
 
 after "deploy:setup", :create_unicorn_socket
-before "deploy:restart", :symlink_unicorn_socket
+before "deploy:restart", :'unicorn:restart', :symlink_unicorn_socket
 
 task :create_unicorn_socket do
   run "mkdir #{shared_path}/sockets -p"
