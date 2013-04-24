@@ -1,6 +1,7 @@
-![image](https://raw.github.com/devcon-ph/devcon/master/app/assets/images/logo.png)
+![image](http://devcon.ph/assets/logo.png)
 
-[![Build Status](https://travis-ci.org/devcon-ph/devcon.png?branch=master)](https://travis-ci.org/devcon-ph/devcon) [![Build Status](https://travis-ci.org/devcon-ph/devcon.png?branch=release)](https://travis-ci.org/devcon-ph/devcon)
+  * master: [![Build Status](https://travis-ci.org/devcon-ph/devcon.png?branch=master)](https://travis-ci.org/devcon-ph/devcon)
+  * release: [![Build Status](https://travis-ci.org/devcon-ph/devcon.png?branch=release)](https://travis-ci.org/devcon-ph/devcon)
 
 # DevCon
 
