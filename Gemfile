@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
-gem 'bootstrap-sass', '~> 2.3.1.0'
+gem 'bootstrap-sass', '~> 2.3.1.1'
 gem 'devise', '2.2.3'
 gem 'simple_form', '2.1.0'
 gem 'will_paginate', '~> 3.0.4'
@@ -37,7 +37,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '2.13.0'
+  gem 'rspec-rails', '2.13.1'
   gem 'pry'
   gem 'fabrication', '2.6.5'
   gem 'faker'
