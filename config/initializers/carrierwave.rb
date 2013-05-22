@@ -1,3 +1,3 @@
 CarrierWave.configure do |config|
-  config.asset_host = "http://az413909.vo.msecnd.net/devcon"
+  config.asset_host = "http://assets.devcon.ph"
 end
