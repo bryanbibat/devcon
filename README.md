@@ -1,6 +1,9 @@
-![image](https://raw.github.com/devcon-ph/devcon/master/app/assets/images/logo.png)
+![image](http://devcon.ph/assets/logo.png)
 
-[![Build Status](https://travis-ci.org/devcon-ph/devcon.png?branch=master)](https://travis-ci.org/devcon-ph/devcon) [![Build Status](https://travis-ci.org/devcon-ph/devcon.png?branch=release)](https://travis-ci.org/devcon-ph/devcon)
+  * master: [![Build Status](https://travis-ci.org/devcon-ph/devcon.png?branch=master)](https://travis-ci.org/devcon-ph/devcon)
+  * release: [![Build Status](https://travis-ci.org/devcon-ph/devcon.png?branch=release)](https://travis-ci.org/devcon-ph/devcon)
+  * [![Code Climate](https://codeclimate.com/github/devcon-ph/devcon.png)](https://codeclimate.com/github/devcon-ph/devcon)
+  * [![Dependency Status](https://gemnasium.com/devcon-ph/devcon.png)](https://gemnasium.com/devcon-ph/devcon)
 
 # DevCon
 
@@ -16,7 +19,7 @@ This is a Ruby 2.0 + Rails 3.2 + PostgreSQL app so running a local copy should l
     cp config/database.yml.example config/database.yml
     vim config/database.yml
     rake db:create
-    rake db:migrate
+    rake db:test:prepare && rake db:migrate
     guard
 
 Guard will run both the Unicorn server at port 3000 and the specs.
