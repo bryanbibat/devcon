@@ -22,8 +22,6 @@ set :rails_env, "production"
 # for carrierwave
 set :shared_children, shared_children + %w{public/uploads tmp/sockets}
 
-before "deploy:restart", :'unicorn:restart'
-
 before "deploy:finalize_update", :copy_production_database_configuration, :replace_secret_token
 
 task :copy_production_database_configuration do
