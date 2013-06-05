@@ -19,18 +19,9 @@ depend :remote, :gem, "bundler"
 set :rails_env, "production"
 
 # for carrierwave
-set :shared_children, shared_children + %w{public/uploads}
+set :shared_children, shared_children + %w{public/uploads tmp/sockets}
 
-after "deploy:setup", :create_unicorn_socket
-before "deploy:restart", :'unicorn:restart', :symlink_unicorn_socket
-
-task :create_unicorn_socket do
-  run "mkdir #{shared_path}/sockets -p"
-end
-
-task :symlink_unicorn_socket do
-  run "ln -s #{shared_path}/sockets #{current_path}/tmp/sockets"
-end
+before "deploy:restart", :'unicorn:restart'
 
 before "deploy:finalize_update", :copy_production_database_configuration, :replace_secret_token
 
