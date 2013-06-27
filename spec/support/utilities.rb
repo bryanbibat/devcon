@@ -6,6 +6,17 @@ def capybara_signin(user)
   click_button 'Sign in'
 end
 
+def omniauth_mock(provider, email, name)
+    OmniAuth.config.add_mock(provider, {
+        :uid => '123545',
+        :provider => provider,
+        :info => {
+            :email => email,
+            :name => name
+        }
+    })
+end
+
 RSpec::Matchers.define :have_error_message do |message|
   match do |page|
     page.has_selector? 'div.alert.alert-error', :text => message
