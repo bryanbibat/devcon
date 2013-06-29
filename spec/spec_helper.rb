@@ -87,8 +87,3 @@ Spork.each_run do
   # in spec/support/ and its subdirectories.
   Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 end
-OmniAuth.config.mock_auth[:facebook] = {
-    'uid' => '123545',
-    'provider' => 'facebook'
-}
-

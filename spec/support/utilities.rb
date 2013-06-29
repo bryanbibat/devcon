@@ -7,14 +7,11 @@ def capybara_signin(user)
 end
 
 def omniauth_mock(provider, email, name)
-    OmniAuth.config.add_mock(provider, {
-        :uid => '123545',
-        :provider => provider,
-        :info => {
-            :email => email,
-            :name => name
-        }
-    })
+  OmniAuth.config.add_mock(provider, {
+    :uid => '123545',
+    :provider => provider,
+    :info => { :email => email, :name => name }
+  })
 end
 
 RSpec::Matchers.define :have_error_message do |message|
