@@ -55,15 +55,14 @@ class User < ActiveRecord::Base
   def self.from_omniauth(auth)
     user = where(email: auth.info.email).first
 
-    provider = Authentication.where(provider: auth.provider, uid: auth.uid, user_id: user).first
-
     unless user.nil?
+      provider = Authentication.where(provider: auth.provider, uid: auth.uid, user_id: user).first
+
       if provider.nil?
         user.authentications.create!(provider: auth.provider, uid: auth.uid)
         user.name = auth.info.name
       end
     end
-
     user
   end
 end
