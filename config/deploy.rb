@@ -36,4 +36,4 @@ after "deploy:update", "deploy:cleanup", "deploy:migrate"
 
 require "capistrano-unicorn"
 
-after 'deploy:restart', 'unicorn:reload'
+after 'deploy:restart', 'unicorn:restart'
