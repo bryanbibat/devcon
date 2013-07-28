@@ -2,8 +2,13 @@ require 'spork'
 require 'simplecov'
 require 'coveralls'
 
-SimpleCov.start 'rails'
-Coveralls.wear!
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+SimpleCov.start 'rails' do
+  add_filter 'app/secrets'
+end
 
 Spork.prefork do
   # This file is copied to spec/ when you run 'rails generate rspec:install'
