@@ -1,7 +1,9 @@
 require 'spork'
 require 'simplecov'
+require 'coveralls'
 
 SimpleCov.start 'rails'
+Coveralls.wear!
 
 Spork.prefork do
   # This file is copied to spec/ when you run 'rails generate rspec:install'
