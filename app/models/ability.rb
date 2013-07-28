@@ -9,13 +9,16 @@ class Ability
     else
       can :read, :all
 
-      can :create, Comment
-      can :update, Comment do |comment|
-        comment.try(:user) == user
-      end
-      can :destroy, Comment do |comment|
-        comment.try(:user) == user
-      end
+      # Commented out because we are using
+      # Disqus for comments
+      #
+      # can :create, Comment
+      # can :update, Comment do |comment|
+      #   comment.try(:user) == user
+      # end
+      # can :destroy, Comment do |comment|
+      #   comment.try(:user) == user
+      # end
 
       if user.role?(:author)
         can :create, Article
