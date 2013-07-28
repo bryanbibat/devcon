@@ -4,6 +4,7 @@
   * release: [![Build Status](https://travis-ci.org/devcon-ph/devcon.png?branch=release)](https://travis-ci.org/devcon-ph/devcon)
   * [![Code Climate](https://codeclimate.com/github/devcon-ph/devcon.png)](https://codeclimate.com/github/devcon-ph/devcon)
   * [![Dependency Status](https://gemnasium.com/devcon-ph/devcon.png)](https://gemnasium.com/devcon-ph/devcon)
+  * [![Coverage Status](https://coveralls.io/repos/devcon-ph/devcon/badge.png)](https://coveralls.io/r/devcon-ph/devcon)
 
 # DevCon
 
