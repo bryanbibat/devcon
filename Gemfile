@@ -49,8 +49,8 @@ group :development, :test do
   gem 'launchy'
   gem 'spork'
   gem 'simplecov', :require => false
-  gem 'growl' if /darwin/ =~ RUBY_PLATFORM
-  gem 'libnotify' if /linux/ =~ RUBY_PLATFORM
+  gem 'growl', require: false
+  gem 'libnotify', require: false
   gem 'rb-inotify', :require => false
   gem 'rb-fsevent', :require => false
   gem 'shoulda-matchers'
