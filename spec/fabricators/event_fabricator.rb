@@ -1,12 +1,9 @@
 Fabricator(:event) do
-  name        "MyString"
-  slug        "MyString"
-  description "MyText"
-  venue       nil
-  start_at    "2012-10-22 00:40:51"
-  end_at      "2012-10-22 00:40:51"
-  description "MyText"
-  parent_id   1
-  logo        "MyString"
-  devcon_role "MyString"
+  name { sequence(:name) { |n| "Event-#{n + 1}" } }
+  slug { sequence(:slug) { |n| "event-#{n + 1}" } }
+  description { sequence(:description) { |n| "Best event #{n + 1}" } }
+  venue
+  start_at Time.now
+  end_at 5.hours.from_now
+  summary { sequence(:summary) { |n| "Good event #{n + 1}" } }
 end
