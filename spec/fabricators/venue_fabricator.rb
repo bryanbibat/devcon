@@ -1,8 +1,8 @@
 Fabricator(:venue) do
-  name        "MyString"
-  slug        "MyString"
-  address     "MyText"
+  name { sequence(:name) { |n| "Venue-#{n + 1}" } }
+  slug { sequence(:slug) { |n| "venue-#{n + 1}" } }
+  address { sequence(:address) { |n| "Address-#{n + 1}" } }
   latitude    "9.99"
   longitude   "9.99"
-  description "MyText"
+  description { sequence(:description) { |n| "Description-#{n + 1}" } }
 end

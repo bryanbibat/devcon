@@ -28,4 +28,15 @@
 require 'spec_helper'
 
 describe Event do
+  before do
+    @parent_event = Fabricate(:event)
+    @event = Fabricate(:event, parent: @parent_event)
+  end
+
+  describe "#venues" do
+    it "must return venues" do
+      venues = @event.venues
+      venues.should_not eq([])
+    end
+  end
 end
