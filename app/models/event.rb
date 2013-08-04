@@ -52,7 +52,7 @@ class Event < ActiveRecord::Base
   scope :include_subevents, where(:parent_id => nil).includes(:subevents)
 
   def venues
-    ([venue] + subevents.map { |e| e.venue }).compact
+    ([venue] + subevents.map { |e| e.venue }).compact.uniq
   end
 
   def effective_address
