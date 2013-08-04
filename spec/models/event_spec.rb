@@ -34,9 +34,14 @@ describe Event do
   end
 
   describe "#venues" do
-    it "must return venues" do
+    it "should return venues" do
       venues = @event.venues
       venues.should_not eq([])
+    end
+
+    it "should return venue of subevents as well" do
+      venues = @parent_event.venues
+      venues.should include(@event.venue)
     end
   end
 end
