@@ -8,3 +8,4 @@
 //= require forms
 //= require static_pages
 //= require omniauth_callbacks
+
