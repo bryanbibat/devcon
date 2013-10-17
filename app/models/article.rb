@@ -18,7 +18,6 @@
 include ActionView::Helpers::SanitizeHelper
 
 class Article < ActiveRecord::Base
-  attr_accessible :title, :content, :category_ids, :slug, :thumbnail, :summary
   belongs_to :author, :class_name => 'User', :foreign_key => 'author_id'
   has_and_belongs_to_many :categories
   has_and_belongs_to_many :tags
@@ -30,7 +29,7 @@ class Article < ActiveRecord::Base
   validates_presence_of :slug
   validates_uniqueness_of :slug
 
-  default_scope :order => 'articles.created_at DESC'
+  default_scope -> { order('articles.created_at DESC') }
 
   before_validation :generate_slug, :generate_summary
 

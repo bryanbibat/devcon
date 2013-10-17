@@ -21,7 +21,7 @@
         <%= link_to 'Edit', edit_article_path(article) %>
       <% end %>
       <% if can? :destroy, article %>
-        <%= link_to 'Destroy', article_path(article), :confirm => 'Are you sure?', :method => :delete %>
+        <%= link_to 'Destroy', article_path(article), :data => { :confirm => 'Are you sure?' }, :method => :delete %>
       <% end %>
     <p>
   </div>

@@ -14,8 +14,6 @@
 #
 
 class ResourcePerson < ActiveRecord::Base
-  attr_accessible :description, :main_title, :thumbnail, :name, :description
-
   include SluggedResource
 
   mount_uploader :thumbnail, ThumbnailUploader

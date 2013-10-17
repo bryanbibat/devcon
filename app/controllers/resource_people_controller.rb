@@ -10,7 +10,6 @@ class ResourcePeopleController < ApplicationController
   end
 
   def create
-    @resource_person = ResourcePerson.create(params[:resource_person])
     if @resource_person.save
       redirect_to resource_person_path(@resource_person), :notice => "Resource Person successfully created"
     else
@@ -20,4 +19,10 @@ class ResourcePeopleController < ApplicationController
 
   def show
   end
+
+  private
+
+    def resource_person_params
+      params.require(:resource_person).permit(:description, :main_title, :thumbnail, :name, :description)
+    end
 end

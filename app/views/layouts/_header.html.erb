@@ -42,14 +42,14 @@
               </a>
               <ul class="dropdown-menu">
                 <li><%= link_to 'Profile', current_user %></li>
-                <li><%= link_to 'Settings', edit_user_registration_path %></li>
+                <li><%= link_to 'Settings', settings_path %></li>
                 <li class="divider"></li>
-                <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+                <li><%= link_to 'Sign out', logout_path, :method => :delete %></li>
               </ul>
             </li>
           <% else %>
             <% #<li><%= link_to 'Sign up', new_user_registration_path ></li> %>
-            <li><%= link_to 'Sign in', new_user_session_path %></li>
+            <li><%= link_to 'Sign in', login_path %></li>
           <% end %>
         </ul>
       </nav>

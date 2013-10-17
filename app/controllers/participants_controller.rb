@@ -6,7 +6,7 @@ class ParticipantsController < ApplicationController
   end
 
   def create
-    @participant = @event.participants.build(params[:participant])
+    @participant = @event.participants.build(particpant_params)
     if @participant.save
       redirect_to event_path(@event), :notice => "Participant successfully added"
     else
@@ -20,7 +20,7 @@ class ParticipantsController < ApplicationController
 
   def update
     @participant = @event.participants.find(params[:id])
-    if @participant.update_attributes(params[:participant])
+    if @participant.update_attributes(participant_params)
       redirect_to event_path(@event), :notice => "Participant successfully updated"
     else
       render :edit
@@ -33,4 +33,9 @@ class ParticipantsController < ApplicationController
     @event = Event.find_by_slug!(params[:event_id])
     authorize! :edit, @event
   end
+  
+    def participant_params
+      params.require(:participant).permit(:role, :custom_description, :custom_title, :resource_person_id)
+    end
+  
 end

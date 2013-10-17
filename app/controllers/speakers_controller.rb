@@ -10,7 +10,6 @@ class SpeakersController < ApplicationController
   end
 
   def create
-    @speaker = Speaker.create(params[:speaker])
     if @speaker.save
       redirect_to speaker_path(@speaker), :notice => "Speaker successfully created"
     else
@@ -20,4 +19,10 @@ class SpeakersController < ApplicationController
 
   def show
   end
+
+  private
+
+    def speaker_params
+      params.require(:speaker).permit(:description, :name, :slug)
+    end
 end

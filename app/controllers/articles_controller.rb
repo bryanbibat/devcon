@@ -30,7 +30,7 @@ class ArticlesController < ApplicationController
   def update
     params[:article][:category_ids] ||= []
 
-    if @article.update_attributes(params[:article])
+    if @article.update_attributes(article_params)
       flash[:success] = 'Article has been updated!'
       redirect_to @article
     else
@@ -48,5 +48,9 @@ class ArticlesController < ApplicationController
 
     def paginate_articles
       @articles = Article.paginate(:page => params[:page])
+    end
+
+    def article_params
+      params.require(:article).permit(:title, :content, { :category_ids => []}, :slug, :thumbnail, :summary)
     end
 end

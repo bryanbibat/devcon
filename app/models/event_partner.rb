@@ -12,7 +12,6 @@
 #
 
 class EventPartner < ActiveRecord::Base
-  attr_accessible :custom_blurb, :entity_id, :role
   validates_presence_of :entity_id, :event_id, :role
   validates_uniqueness_of :entity_id, :scope => :event_id
 

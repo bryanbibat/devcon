@@ -29,7 +29,7 @@ describe Comment do
 
   it { should validate_presence_of(:content) }
   it { should validate_presence_of(:user) }
-  it { should_not allow_mass_assignment_of(:user_id) }
-  it { should_not allow_mass_assignment_of(:commentable_id) }
-  it { should_not allow_mass_assignment_of(:commentable_type) }
+  #it { should_not allow_mass_assignment_of(:user_id) }
+  #it { should_not allow_mass_assignment_of(:commentable_id) }
+  #it { should_not allow_mass_assignment_of(:commentable_type) }
 end

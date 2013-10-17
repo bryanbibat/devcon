@@ -10,7 +10,6 @@ class VenuesController < ApplicationController
   end
 
   def create
-    @venue = Venue.create(params[:venue])
     if @venue.save
       redirect_to venue_path(@venue), :notice => "Venue successfully created"
     else
@@ -22,7 +21,7 @@ class VenuesController < ApplicationController
   end
 
   def update
-    if @venue.update_attributes(params[:venue])
+    if @venue.update_attributes(venue_params)
       redirect_to venue_path(@venue), :notice => "Venue successfully updated"
     else
       render :edit
@@ -32,4 +31,9 @@ class VenuesController < ApplicationController
   def show
   end
 
+  private
+
+    def venue_params
+      params.require(:venue).permit(:address, :description, :latitude, :longitude, :name, :slug, :directions)
+    end
 end

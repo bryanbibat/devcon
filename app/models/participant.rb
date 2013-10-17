@@ -15,7 +15,6 @@
 class Participant < ActiveRecord::Base
   belongs_to :event
   belongs_to :resource_person
-  attr_accessible :role, :custom_description, :custom_title, :resource_person_id
 
   validates_presence_of :event_id, :resource_person_id, :role
   validates_uniqueness_of :resource_person_id, :scope => :event_id
