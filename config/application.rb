@@ -57,7 +57,7 @@ module Devcon
     # Prevents access to DB when precompiling
     config.assets.initialize_on_precompile = false
 
-    config.assets.precompile += ['admin.js']
+    # config.assets.precompile += ['admin.js']
 
     config.generators do |g|
       g.test_framework :rspec, :fixture => true
