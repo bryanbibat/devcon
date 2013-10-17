@@ -1,3 +1,4 @@
+//
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.all
@@ -8,4 +9,5 @@
 //= require forms
 //= require static_pages
 //= require omniauth_callbacks
+//= require_directory ./gmaps4rails/.
 
