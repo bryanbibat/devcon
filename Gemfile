@@ -5,7 +5,7 @@ gem 'bootstrap-sass', '~> 2.3.1.0'
 gem 'devise', '~> 3.1.0'
 gem 'simple_form', '~> 3.0.0'
 gem 'will_paginate', '~> 3.0.4'
-gem 'bootstrap-will_paginate', '0.0.9'
+gem 'bootstrap-will_paginate', '0.0.10'
 gem 'ckeditor', '~> 4.0.6'
 gem 'meta-tags', :require => 'meta_tags'
 gem 'gmaps4rails'
@@ -20,13 +20,13 @@ gem 'icalendar'
 gem 'omniauth-facebook'
 gem 'coveralls', require: false
 
-gem 'pg', '0.16'
+gem 'pg', '0.17.0'
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
 group :development do
-  gem 'capistrano', '~> 2.15.4'
+  gem 'capistrano', '~> 2.15.5'
   gem 'capistrano-unicorn'
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -58,5 +58,5 @@ group :development, :test do
 end
 
 gem 'sass-rails',   '~> 4.0.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.0.1'
 gem 'uglifier', '>= 2.0.1'
