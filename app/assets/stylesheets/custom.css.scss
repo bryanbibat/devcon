@@ -31,6 +31,13 @@ html {
   }
 }
 
+@media (max-width: 767px) {
+  /* GoRated takes up space on mobile so we remove it */
+  #gorated_rating {
+    display: none;
+  }
+}
+
 section {
   overflow: auto;
 }
