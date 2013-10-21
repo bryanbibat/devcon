@@ -1,4 +1,5 @@
 @import 'bootstrap';
+@import 'bootstrap-responsive';
 
 /* mixins, variables, etc. */
 
@@ -17,8 +18,17 @@ html {
   overflow-y: scroll;
 }
 
-body {
-  padding-top: 60px;
+@media (min-width: 979px) {
+  body {
+    padding-top: 60px;
+  }
+}
+
+@media (max-width: 979px) {
+  /* Remove any padding from the body */
+  body {
+    padding-top: 0;
+  }
 }
 
 section {

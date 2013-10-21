@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
-gem 'bootstrap-sass', '2.3.1.0'
-gem 'devise', '2.2.3'
-gem 'simple_form', '2.1.0'
+gem 'rails', '3.2.15'
+gem 'bootstrap-sass', '~> 2.3.2.2'
+gem 'devise', '~> 3.1.1'
+gem 'simple_form', '~> 2.1.0'
 gem 'will_paginate', '~> 3.0.4'
-gem 'bootstrap-will_paginate', '0.0.9'
+gem 'bootstrap-will_paginate', '0.0.10'
 gem 'ckeditor', '4.0.4'
 gem 'meta-tags', :require => 'meta_tags'
 gem 'gmaps4rails'
@@ -20,13 +20,13 @@ gem 'icalendar'
 gem 'omniauth-facebook'
 gem 'coveralls', require: false
 
-gem 'pg', '0.15.1'
+gem 'pg', '0.17.0'
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
 group :development do
-  gem 'capistrano'
+  gem 'capistrano', '~> 2.15.4'
   gem 'capistrano-unicorn'
   gem 'better_errors'
   gem 'binding_of_caller'

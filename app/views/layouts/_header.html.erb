@@ -1,10 +1,15 @@
 <header class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
       <%= link_to root_path, :class => 'brand' do %>
         <img src="/logo.png" class="retina" />
       <% end %>
-      <nav>
+      <nav class="nav-collapse collapse">
         <ul class="nav">
           <li class="<%= (action_name == "home" ? "active" : "") %>"><%= link_to 'Home', root_path  %></li>
           <li class="<%= (action_name == "faq" ? "active" : "") %>"><%= link_to 'FAQ', faq_path  %></li>
