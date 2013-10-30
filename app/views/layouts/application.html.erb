@@ -23,9 +23,10 @@
       <%= debug(params) if Rails.env.development? %>
     </div>
     <% if user_signed_in? and (current_user.role?("admin") or current_user.role?("author")) %>
-      <%= javascript_include_tag 'ckeditor/init' %>
+      <%= javascript_include_tag "admin" %>
+    <% else %>
+      <%= javascript_include_tag "application" %>
     <% end %>
-    <%= javascript_include_tag "application" %>
     <%= yield :scripts %>
   </body>
 </html>

@@ -10,7 +10,6 @@ class EntitiesController < ApplicationController
   end
 
   def create
-    @entity = Entity.create(params[:entity])
     if @entity.save
       redirect_to entity_path(@entity), :notice => "Entity successfully created"
     else
@@ -22,7 +21,7 @@ class EntitiesController < ApplicationController
   end
 
   def update
-    if @entity.update_attributes(params[:entity])
+    if @entity.update_attributes(entity_params)
       redirect_to entity_path(@entity), :notice => "Entity successfully updated"
     else
       render :edit
@@ -33,4 +32,10 @@ class EntitiesController < ApplicationController
     @entity = Entity.find_by_slug!(params[:id])
   end
 
+  private
+
+    def entity_params
+      params.require(:entity).permit(:blurb, :description, :level, :logo, :name, :slug, :type, :formal_name, :short_name
+)
+    end
 end

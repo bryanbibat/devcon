@@ -29,16 +29,12 @@ class Event < ActiveRecord::Base
   include ActionView::Helpers
 
   belongs_to :venue
-  has_many :subevents, :class_name => "Event", :foreign_key => :parent_id, :order => :start_at
+  has_many :subevents, -> { order(:start_at) }, :class_name => "Event", :foreign_key => :parent_id
   belongs_to :parent, :class_name => "Event"
   has_many :event_partners
   has_many :entities, :through => :event_partners
   has_many :participants
   has_many :resource_people, :through => :participants
-
-  attr_accessible :description, :description, :devcon_role, :end_at, :logo, :cover_photo,
-    :name, :parent_id, :slug, :start_at, :venue_id, :summary, :schedule, :rules, 
-    :registration, :event_type, :target_attendees, :actual_attendees
 
   include SluggedResource
   include Icalendar
@@ -46,10 +42,10 @@ class Event < ActiveRecord::Base
   mount_uploader :logo, ThumbnailUploader
   mount_uploader :cover_photo, CoverPhotoUploader
 
-  scope :upcoming, where("start_at > current_timestamp").order("start_at")
-  scope :current, where("start_at <= current_timestamp and end_at >= current_timestamp").order("start_at")
-  scope :finished, where("end_at < current_timestamp").order("end_at DESC")
-  scope :include_subevents, where(:parent_id => nil).includes(:subevents)
+  scope :upcoming, -> { where("start_at > current_timestamp").order("start_at") }
+  scope :current, -> { where("start_at <= current_timestamp and end_at >= current_timestamp").order("start_at") }
+  scope :finished, -> { where("end_at < current_timestamp").order("end_at DESC") }
+  scope :include_subevents, -> { where(:parent_id => nil).includes(:subevents) }
 
   def venues
     ([venue] + subevents.map { |e| e.venue }).compact.uniq

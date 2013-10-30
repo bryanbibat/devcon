@@ -24,7 +24,7 @@ class TagsController < ApplicationController
   end
 
   def update
-    if @tag.update_attributes(params[:tag])
+    if @tag.update_attributes(tag_params)
       flash[:success] = 'Successfully updated tag!'
       redirect_to @tag
     else
@@ -42,5 +42,9 @@ class TagsController < ApplicationController
 
     def paginate_tags
       @tags = Tag.paginate(:page => params[:page])
+    end
+
+    def tag_params
+      params.require(:tag).permit(:description, :name)
     end
 end

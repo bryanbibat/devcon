@@ -18,8 +18,6 @@
 #
 
 class Entity < ActiveRecord::Base
-  attr_accessible :blurb, :description, :level, :logo, :name, :slug, :type, :formal_name, :short_name
-
   include SluggedResource
 
   has_many :event_partners

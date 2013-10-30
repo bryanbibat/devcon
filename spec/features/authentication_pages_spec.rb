@@ -43,9 +43,9 @@ describe 'Authentication' do
       it { should have_page_title '' }
 
       it { should have_link 'Profile', :href => user_path(@user) }
-      it { should have_link 'Settings', :href => edit_user_registration_path }
-      it { should have_link 'Sign out', :href => destroy_user_session_path }
-      it { should_not have_link 'Sign in', :href => new_user_session_path }
+      it { should have_link 'Settings', :href => settings_path }
+      it { should have_link 'Sign out', :href => logout_path }
+      it { should_not have_link 'Sign in', :href => login_path }
 
       describe 'followed by signout' do
 

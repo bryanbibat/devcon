@@ -37,7 +37,6 @@ describe Article do
 
   it { should validate_presence_of(:author_id) }
   it { should validate_presence_of(:content) }
-  it { should_not allow_mass_assignment_of(:author_id) }
 
   describe 'with blank title' do
     before { @article.title = ' ' }

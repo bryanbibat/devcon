@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
 
   def create
     @commentable = find_commentable
-    @comment = @commentable.comments.build(params[:comment])
+    @comment = @commentable.comments.build(comment_params)
     unauthorized! if cannot? :create, @comment
 
     @comment.user = current_user
@@ -34,5 +34,9 @@ class CommentsController < ApplicationController
         end
       end
       nil
+    end
+
+    def comment_params
+      params.require(:comment).permit(:comment)
     end
 end

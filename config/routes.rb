@@ -6,10 +6,10 @@ Devcon::Application.routes.draw do
   resources :users, :only => [:show]
 
   devise_scope :user do
-    get 'login', :to => 'devise/sessions#new', :as => :new_user_session
-    delete 'logout', :to => 'devise/sessions#destroy', :as => :destroy_user_session
-    get 'register', :to => 'registrations#new', :as => :new_user_registration
-    get 'settings', :to => 'devise/registrations#edit', :as => :edit_user_registration
+    get 'login', :to => 'devise/sessions#new'
+    delete 'logout', :to => 'devise/sessions#destroy'
+    get 'register', :to => 'registrations#new'
+    get 'settings', :to => 'devise/registrations#edit'
   end
 
   resources :articles do
@@ -35,15 +35,15 @@ Devcon::Application.routes.draw do
   resources :categories
   resources :tags
 
-  match '/contact', :to => 'static_pages#contact'
-  match '/faq', :to => 'static_pages#faq', :as => 'faq'
-  match '/feed' => 'static_pages#feed',
+  get '/contact', :to => 'static_pages#contact'
+  get '/faq', :to => 'static_pages#faq', :as => 'faq'
+  get '/feed' => 'static_pages#feed',
       :as => :feed,
       :defaults => { :format => 'atom' }
 
   root :to => 'static_pages#home'
   unless Rails.application.config.consider_all_requests_local
-    match '*not_found', to: 'static_pages#error_404'
+    get '*not_found', to: 'static_pages#error_404'
   end
 end
 #== Route Map

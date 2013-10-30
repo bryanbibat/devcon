@@ -25,7 +25,7 @@ class CategoriesController < ApplicationController
   end
 
   def update
-    if @category.update_attributes(params[:category])
+    if @category.update_attributes(category_params)
       flash[:success] = 'Successfully updated category!'
       redirect_to @category
     else
@@ -43,5 +43,9 @@ class CategoriesController < ApplicationController
 
     def paginate_categories
       @categories = Category.paginate(:page => params[:page])
+    end
+
+    def category_params
+      params.require(:category).permit(:description, :name, :slug)
     end
 end

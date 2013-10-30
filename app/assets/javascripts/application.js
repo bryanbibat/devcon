@@ -13,5 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.all
+//= require jquery-ui-sliderAccess
+//= require jquery-ui-timepicker-addon
 //= require bootstrap
-//= require_tree .
+//= require forms
+//= require static_pages
+//= require omniauth_callbacks
+

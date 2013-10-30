@@ -1,15 +1,15 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.15'
-gem 'bootstrap-sass', '~> 2.3.2.2'
-gem 'devise', '~> 3.1.1'
-gem 'simple_form', '~> 2.1.0'
+gem 'rails', '~> 4.0.1.rc1'
+gem 'bootstrap-sass', '~> 2.3.1.0'
+gem 'devise', '~> 3.1.0'
+gem 'simple_form', '~> 3.0.0'
 gem 'will_paginate', '~> 3.0.4'
 gem 'bootstrap-will_paginate', '0.0.10'
-gem 'ckeditor', '4.0.4'
+gem 'ckeditor', :git => 'https://github.com/galetahub/ckeditor.git'
 gem 'meta-tags', :require => 'meta_tags'
-gem 'gmaps4rails'
-gem 'cancan', '1.6.9'
+gem 'gmaps4rails', '~> 1.5.6'
+gem 'cancan', '~> 1.6.9'
 gem 'babosa'
 gem 'carrierwave'
 gem 'mini_magick'
@@ -26,7 +26,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
 group :development do
-  gem 'capistrano', '~> 2.15.4'
+  gem 'capistrano', '~> 2.15.5'
   gem 'capistrano-unicorn'
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -44,7 +44,7 @@ group :development, :test do
   gem 'pry'
   gem 'fabrication', '2.6.5'
   gem 'faker'
-  gem 'database_cleaner', '0.9.1'
+  gem 'database_cleaner', '~> 1.2.0'
   gem 'capybara', '2.1.0'
   gem 'launchy'
   gem 'spork'
@@ -54,13 +54,9 @@ group :development, :test do
   gem 'rb-inotify', :require => false
   gem 'rb-fsevent', :require => false
   gem 'shoulda-matchers'
+  gem 'quiet_assets'
 end
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '3.2.6'
-  gem 'coffee-rails', '3.2.2'
-  gem 'uglifier', '2.0.1'
-  gem 'turbo-sprockets-rails3'
-end
+gem 'sass-rails',   '~> 4.0.0'
+gem 'coffee-rails', '~> 4.0.1'
+gem 'uglifier', '>= 2.0.1'

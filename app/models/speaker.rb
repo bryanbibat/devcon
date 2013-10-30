@@ -11,7 +11,5 @@
 #
 
 class Speaker < ActiveRecord::Base
-  attr_accessible :description, :name, :slug
-
   include SluggedResource
 end

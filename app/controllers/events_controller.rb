@@ -17,7 +17,6 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.create(params[:event])
     if @event.save
       redirect_to event_path(@event), :notice => "Event successfully created"
     else
@@ -36,7 +35,7 @@ class EventsController < ApplicationController
   end
 
   def update
-    if @event.update_attributes(params[:event])
+    if @event.update_attributes(event_params)
       redirect_to event_path(@event), :notice => "Event successfully updated"
     else
       render :edit
@@ -46,4 +45,13 @@ class EventsController < ApplicationController
   def ics
     send_data @event.icalendar(event_url(@event)), filename: "#{@event.name}.ics", type: 'text/calendar', x_sendfile: true
   end
+
+  private
+
+    def event_params
+      params.require(:event).permit(:description, :description, :devcon_role, :end_at, :logo, :cover_photo,
+        :name, :parent_id, :slug, :start_at, :venue_id, :summary, :schedule, :rules, 
+        :registration, :event_type, :target_attendees, :actual_attendees)
+    end
+
 end
