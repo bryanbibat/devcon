@@ -4,6 +4,7 @@
 //= require jquery.ui.all
 //= require jquery-ui-sliderAccess
 //= require jquery-ui-timepicker-addon
+//= require ckeditor/override
 //= require ckeditor/init
 //= require bootstrap
 //= require forms
