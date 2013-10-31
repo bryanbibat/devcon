@@ -12,7 +12,7 @@ timeout 30
 
 listen APP_ROOT + "/tmp/sockets/unicorn.sock", :backlog => 64
 
-pid APP_ROOT + "/tmp/pids/unicorn.pid"
+pid "/home/deploy/apps/devcon/current/tmp/pids/unicorn.pid"
 
 stderr_path APP_ROOT + "/log/unicorn.stderr.log"
 stdout_path APP_ROOT + "/log/unicorn.stdout.log"
