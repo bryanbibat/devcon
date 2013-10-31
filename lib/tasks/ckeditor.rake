@@ -11,7 +11,11 @@ namespace :ckeditor do
   desc 'Copy ckeditor assets, that cant be used with digest'
   task copy_nondigest_assets: :environment do
     copy_assets(/ckeditor\/contents.css/)
+    copy_assets(/ckeditor\/config.js/)
+    copy_assets(/ckeditor\/lang\/en.js/)
+    copy_assets(/ckeditor\/styles.js/)
     copy_assets(/ckeditor\/skins\/moono\/.+png/)
+    copy_assets(/ckeditor\/skins\/moono\/.+css/)
   end
 end
 
