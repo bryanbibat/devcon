@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 4.0.1.rc1'
-gem 'bootstrap-sass', '~> 2.3.1.0'
+gem 'bootstrap-sass', '~> 2.3.2.2'
 gem 'devise', '~> 3.1.0'
 gem 'simple_form', '~> 3.0.0'
 gem 'will_paginate', '~> 3.0.4'
@@ -37,6 +37,7 @@ group :development do
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'guard-unicorn'
+  gem 'capistrano-local-precompile', require: false
 end
 
 group :development, :test do

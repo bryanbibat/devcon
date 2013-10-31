@@ -1,4 +1,5 @@
 require "bundler/capistrano"
+require 'capistrano/local_precompile'
 
 set :deploy_via, :remote_cache
 set :application, "devcon"

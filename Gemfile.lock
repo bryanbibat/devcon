@@ -58,6 +58,8 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
+    capistrano-local-precompile (0.0.2)
+      capistrano
     capistrano-unicorn (0.2.0)
       capistrano (< 3.0)
     capybara (2.1.0)
@@ -299,10 +301,11 @@ DEPENDENCIES
   babosa
   better_errors
   binding_of_caller
-  bootstrap-sass (~> 2.3.1.0)
+  bootstrap-sass (~> 2.3.2.2)
   bootstrap-will_paginate (= 0.0.10)
   cancan (~> 1.6.9)
   capistrano (~> 2.15.5)
+  capistrano-local-precompile
   capistrano-unicorn
   capybara (= 2.1.0)
   carrierwave
