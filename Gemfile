@@ -37,9 +37,8 @@ group :development do
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'guard-unicorn'
+  gem 'capistrano-local-precompile', require: false
 end
-
-gem 'therubyracer'
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
