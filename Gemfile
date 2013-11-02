@@ -64,3 +64,7 @@ group :assets do
   gem 'uglifier', '2.0.1'
   gem 'turbo-sprockets-rails3'
 end
+
+group :production do
+  gem 'newrelic_rpm'
+end
