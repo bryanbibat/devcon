@@ -33,6 +33,7 @@ end
 task :replace_secret_token do
   run "cp #{shared_path}/config/secret_token.rb #{release_path}/config/initializers/secret_token.rb"
   run "cp #{shared_path}/config/devise.rb #{release_path}/config/initializers/devise.rb"
+  run "cp #{shared_path}/config/newrelic.yml #{release_path}/config/newrelic.yml"
 end
 
 after "deploy:update", "deploy:cleanup", "deploy:migrate" 
@@ -47,6 +48,8 @@ after 'deploy:assets:precompile', 'copy_nondigest_assets'
 
 namespace :deploy do
   namespace :assets do
+    task :update_asset_mtimes, :roles => lambda { assets_role }, :except => { :no_release => true } do
+    end
     task :clean_expired, :roles => lambda { assets_role }, :except => { :no_release => true } do
       run "cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} assets:clean"
     end
