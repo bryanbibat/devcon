@@ -31,6 +31,7 @@ end
 task :replace_secret_token do
   run "cp #{shared_path}/config/secret_token.rb #{release_path}/config/initializers/secret_token.rb"
   run "cp #{shared_path}/config/devise.rb #{release_path}/config/initializers/devise.rb"
+  run "cp #{shared_path}/config/newrelic.yml #{release_path}/config/newrelic.yml"
 end
 
 after "deploy:update", "deploy:cleanup", "deploy:migrate" 
