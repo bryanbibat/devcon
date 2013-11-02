@@ -15,8 +15,11 @@
 //= require jquery.ui.all
 //= require jquery-ui-sliderAccess
 //= require jquery-ui-timepicker-addon
+//= require gmaps4rails/gmaps4rails.base
+//= require gmaps4rails/gmaps4rails.googlemaps
 //= require bootstrap
 //= require forms
 //= require static_pages
 //= require omniauth_callbacks
+//= require_directory ./gmaps4rails/.
 
