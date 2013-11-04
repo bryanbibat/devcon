@@ -48,7 +48,6 @@
         <% end %>
       </div>
     </div>
-    <% cache [@event, "rest-of-page"] do %>
     <% unless @event.venues.empty? %>
       <div class="row-fluid">
         <div class="span12">
@@ -75,6 +74,7 @@
         </div>
       </div>
     <% end %>
+    <% cache [@event, "rest-of-page"] do %>
     <% unless @event.participants.empty? %>
       <div class="row-fluid">
         <div class="span12">
