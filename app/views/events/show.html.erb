@@ -1,5 +1,5 @@
-<% cache @event do %>
 <% title @event.name %>
+<% cache [@event, "header"] do %>
 <% description generate_description(@event.summary) %>
 <% set_meta_tags :open_graph => {
   :title => "#{@event.name} | #{ENV['title']}",
@@ -8,9 +8,11 @@
   :url   => event_url(@event),
   :image => thumbnail_url(@event)
 } %>
+<% end %>
 
 <div class="row-fluid event">
   <div class="span12">
+    <% cache [@event, "title"] do %>
     <div class="row-fluid">
       <div class="span12">
         <%= image_tag @event.cover_photo.cover.url %>
@@ -22,8 +24,10 @@
         </small></p>
       </div>
     </div>
+    <% end %>
     <div class="row-fluid">
       <div class="span12">
+        <% cache [@event, "description"] do %>
         <% if @event.parent %>
           <p class="parent-note">Part of <%= link_to "#{@event.parent.name}", @event.parent %></p>
         <% end %>  
@@ -36,6 +40,7 @@
           <% end %>
           </ul>
         <% end %>
+        <% end %>
         <% if can? :manage, Event %>
           <p>
             <%= link_to "Edit", edit_event_path(@event), :class => 'btn' %>
@@ -43,6 +48,7 @@
         <% end %>
       </div>
     </div>
+    <% cache [@event, "rest-of-page"] do %>
     <% unless @event.venues.empty? %>
       <div class="row-fluid">
         <div class="span12">
@@ -77,35 +83,7 @@
       </div>
       <%= render :partial => "event_partner", :collection => @event.event_partners %>
     <% end %>
-    <% if can? :manage, EventPartner %>
-      <div class="row-fluid">
-        <div class="span12">
-          <p><%= link_to "Add New Partner", new_event_event_partner_path(@event), :class => "btn" %></p>
-        </div>
-      </div>
-    <% end %>
     <div class="row-fluid">
-      <% unless @event.participants.empty? %>
-        <div class="span6">
-          <h2 class="subtitle">Speakers</h2>
-          <%= render :partial => "participant", :collection => @event.participants %>
-          <% if can? :manage, Participant %>
-            <div class="row-fluid">
-              <div class="span12">
-                <p><%= link_to "Add Participant", new_event_participant_path(@event), :class => "btn" %></p>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      <% else %>
-        <% if can? :manage, Participant %>
-          <div class="row-fluid">
-            <div class="span12">
-              <p><%= link_to "Add Participant", new_event_participant_path(@event), :class => "btn" %></p>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
       <% unless @event.schedule.blank? %>
         <div class="span6">
           <h2 class="subtitle">Schedule</h2>
@@ -140,8 +118,9 @@
       </div>
     </div>
     <div id="disqus_thread"></div>
+    <% end %>
   </div>
 </div>
-
+<% cache [@event, "comments"] do %>
 <%= render :partial => "shared/disqus_comments" %>
 <% end %>
