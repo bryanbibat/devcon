@@ -1,4 +1,4 @@
-<% cache @article do %>
+<% cache [@article, "header"] do %>
 <% title @article.title %>
 <% description generate_description(@article.summary) %>
 <% set_meta_tags :open_graph => {
@@ -10,6 +10,7 @@
 } %>
 
 <div class="row-fluid article">
+  <% cache [@article, "top"] do %>
   <div class="span2">
     <%= image_tag @article.thumbnail.thumb %>
   </div>
@@ -35,12 +36,14 @@
       <%= raw @article.content %>
       <p>
         <%= link_to 'Back to articles', articles_path %>
+  <% end %>
         <% if can? :update, @article %>
           <%= link_to 'Edit', edit_article_path(@article) %>
         <% end %>
         <% if can? :destroy, @article %>
           <%= link_to 'Destroy', article_path(@article), :confirm => 'Are you sure?', :method => :delete %>
         <% end %>
+  <% cache [@article, "bottom"] do %>
       </p>
     </div>
     <div class="row-fluid social-sharing">
@@ -51,4 +54,4 @@
 </div>
 
 <%= render :partial => "shared/disqus_comments" %>
-<% end %>
+  <% end %>
