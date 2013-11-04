@@ -1,3 +1,4 @@
+<% cache @article do %>
 <% title @article.title %>
 <% description generate_description(@article.summary) %>
 <% set_meta_tags :open_graph => {
@@ -42,9 +43,12 @@
         <% end %>
       </p>
     </div>
-    <%= render "shared/social_sharing" %>
+    <div class="row-fluid social-sharing">
+      <%= render "shared/social_sharing" %>
+    </div>
     <div id="disqus_thread"></div>
   </div>
 </div>
 
 <%= render :partial => "shared/disqus_comments" %>
+<% end %>

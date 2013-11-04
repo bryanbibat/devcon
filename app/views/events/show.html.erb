@@ -1,3 +1,4 @@
+<% cache @event do %>
 <% title @event.name %>
 <% description generate_description(@event.summary) %>
 <% set_meta_tags :open_graph => {
@@ -129,9 +130,18 @@
       </div>
     <% end %>
     <hr>
-    <%= render "shared/social_sharing" %>
+    <div class="row-fluid social-sharing">
+      <%= render "shared/social_sharing" %>
+      <div class="span2 offset4">
+        <%= link_to 'Google Calendar', @event.google_calendar_url, :class => 'btn' %>
+      </div>
+      <div class="span1">
+        <%= link_to 'iCalendar', ics_event_path(@event), :class => 'btn' %>
+      </div>
+    </div>
     <div id="disqus_thread"></div>
   </div>
 </div>
 
 <%= render :partial => "shared/disqus_comments" %>
+<% end %>
