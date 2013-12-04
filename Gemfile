@@ -37,11 +37,11 @@ group :development do
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'guard-unicorn'
-  # gem 'capistrano-local-precompile', require: false
+  gem 'capistrano-local-precompile', require: false
 end
 
 group :development, :test do
-  gem 'rspec-rails', '2.13.1'
+  gem 'rspec-rails', '2.14.0'
   gem 'pry'
   gem 'fabrication', '2.6.5'
   gem 'faker'
