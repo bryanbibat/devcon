@@ -20,7 +20,7 @@ depend :remote, :gem, "bundler"
 set :rails_env, "production"
 
 # for carrierwave
-set :shared_children, shared_children + %w{public/uploads tmp/sockets}
+set :shared_children, shared_children + %w{public/uploads}
 
 before "deploy:finalize_update", :copy_production_database_configuration, :replace_secret_token
 
