@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.0.1'
+gem 'rails', '~> 4.0.2'
 gem 'bootstrap-sass', '~> 2.3.2.2'
 gem 'devise', '~> 3.1.0'
-gem 'simple_form', '~> 3.0.0'
+gem 'simple_form', '~> 3.0.1'
 gem 'will_paginate', '~> 3.0.4'
 gem 'bootstrap-will_paginate', '0.0.10'
 gem 'ckeditor', :git => 'https://github.com/galetahub/ckeditor.git'
@@ -37,7 +37,7 @@ group :development do
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'guard-unicorn'
-  gem 'capistrano-local-precompile', require: false
+  # gem 'capistrano-local-precompile', require: false
 end
 
 group :development, :test do
