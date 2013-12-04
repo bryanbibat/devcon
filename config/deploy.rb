@@ -6,7 +6,7 @@ set :repository, "git://github.com/devcon-ph/devcon.git"
 set :deploy_to, "/home/deploy/apps/devcon-release/"
 
 set :scm, :git
-set :branch, "caching"
+set :branch, "production"
 
 default_run_options[:pty] = true
 default_run_options[:shell] = "/bin/bash --login"
@@ -20,7 +20,7 @@ depend :remote, :gem, "bundler"
 set :rails_env, "production"
 
 # for carrierwave
-set :shared_children, shared_children + %w{public/uploads tmp/sockets}
+set :shared_children, shared_children + %w{public/uploads}
 
 before "deploy:finalize_update", :copy_production_database_configuration, :replace_secret_token
 
@@ -36,6 +36,10 @@ end
 
 after "deploy:update", "deploy:cleanup", "deploy:migrate" 
 
-require "capistrano-unicorn"
-
-after 'deploy:restart', 'unicorn:restart'
+namespace :deploy do
+  task :start do ; end
+  task :stop do ; end
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "touch #{File.join(current_path,'tmp','restart.txt')}"
+  end
+end
