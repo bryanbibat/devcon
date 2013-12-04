@@ -103,7 +103,7 @@ GEM
       multipart-post (~> 1.2.0)
     ffi (1.9.3)
     formatador (0.2.4)
-    gmaps4rails (2.1.1)
+    gmaps4rails (1.5.6)
     growl (1.0.3)
     guard (2.2.4)
       formatador (>= 0.2.4)
@@ -316,7 +316,7 @@ DEPENDENCIES
   devise (~> 3.1.1)
   fabrication (= 2.6.5)
   faker
-  gmaps4rails
+  gmaps4rails (= 1.5.6)
   growl
   guard
   guard-bundler
