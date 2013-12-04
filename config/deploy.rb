@@ -22,8 +22,6 @@ set :rails_env, "production"
 # for carrierwave
 set :shared_children, shared_children + %w{public/uploads tmp/sockets}
 
-before "deploy:restart", :'unicorn:duplicate'
-
 before "deploy:finalize_update", :copy_production_database_configuration, :replace_secret_token
 
 task :copy_production_database_configuration do
@@ -38,8 +36,6 @@ end
 
 after "deploy:update", "deploy:cleanup", "deploy:migrate" 
 
-require "capistrano-unicorn"
-
 desc 'copy ckeditor nondigest assets'
 task :copy_nondigest_assets, roles: :app do
   run "cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} ckeditor:copy_nondigest_assets"
@@ -53,5 +49,10 @@ namespace :deploy do
     task :clean_expired, :roles => lambda { assets_role }, :except => { :no_release => true } do
       run "cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} assets:clean"
     end
+  end
+  task :start do ; end
+  task :stop do ; end
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "touch #{File.join(current_path,'tmp','restart.txt')}"
   end
 end
