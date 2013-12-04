@@ -6,7 +6,7 @@ set :repository, "git://github.com/devcon-ph/devcon.git"
 set :deploy_to, "/home/deploy/apps/devcon-release/"
 
 set :scm, :git
-set :branch, "production"
+set :branch, "release"
 
 default_run_options[:pty] = true
 default_run_options[:shell] = "/bin/bash --login"
