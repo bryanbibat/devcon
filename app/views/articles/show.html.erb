@@ -5,7 +5,7 @@
   :description => generate_description(@article.summary),
   :type  => :article,
   :url   => article_url(@article),
-  :image => thumbnail_url(@article)
+  :image => [thumbnail_url(@article), { :width => 200, :height => 200 }]
 } %>
 
 <div class="row-fluid article">
