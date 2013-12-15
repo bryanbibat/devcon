@@ -1,5 +1,4 @@
 <% title @event.name %>
-<% cache [@event, "header"] do %>
 <% description generate_description(@event.summary) %>
 <% set_meta_tags :open_graph => {
   :title => "#{@event.name} | #{ENV['title']}",
@@ -8,7 +7,6 @@
   :url   => event_url(@event),
   :image => thumbnail_url(@event)
 } %>
-<% end %>
 
 <div class="row-fluid event">
   <div class="span12">
