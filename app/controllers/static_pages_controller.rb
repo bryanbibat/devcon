@@ -20,4 +20,27 @@ class StaticPagesController < ApplicationController
       format.rss { redirect_to feed_path(:format => :atom), :status => :moved_permanently }
     end
   end
+
+  def calendar
+    cal = Icalendar::Calendar.new
+
+    Event.all.each do |event_temp|
+      url = event_url(event_temp)
+      cal.event do
+        dtstart     event_temp.start_at.strftime("%Y%m%dT%H%M00")
+        dtend       event_temp.end_at.strftime("%Y%m%dT%H%M00")
+        summary     event_temp.name
+        description event_temp.summary
+        klass       'PRIVATE'
+        url         url
+
+        alarm do
+          action  'DISPLAY'
+          summary 'Event notification'
+          trigger '-P1DT0H0M0S'
+        end
+      end
+    end
+    send_data cal.to_ical, filename: "calendar.ics", type: 'text/calendar', x_sendfile: true
+  end
 end

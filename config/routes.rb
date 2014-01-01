@@ -40,6 +40,8 @@ Devcon::Application.routes.draw do
   match '/feed' => 'static_pages#feed',
       :as => :feed,
       :defaults => { :format => 'atom' }
+  match '/calendar' => 'static_pages#calendar',
+      :as => :calendar
 
   root :to => 'static_pages#home'
   unless Rails.application.config.consider_all_requests_local
