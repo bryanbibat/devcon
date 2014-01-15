@@ -1,58 +1,54 @@
-require "bundler/capistrano"
-require 'capistrano/local_precompile'
+# config valid only for Capistrano 3.1
+lock '3.1.0'
 
-set :deploy_via, :remote_cache
-set :application, "devcon"
-set :repository, "git://github.com/devcon-ph/devcon.git"
-set :deploy_to, "/home/deploy/apps/devcon/"
+set :application, 'devcon'
+set :repo_url, 'git://github.com/devcon-ph/devcon.git'
 
-set :scm, :git
+# Default branch is :master
+# ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
-default_run_options[:pty] = true
-default_run_options[:shell] = "/bin/bash --login"
+# Default value for :scm is :git
+# set :scm, :git
 
-server "beta.devcon.ph", :app, :web, :db, :primary => true
-set :user, "deploy"
-set :use_sudo, false
+# Default value for :format is :pretty
+# set :format, :pretty
 
-depend :remote, :gem, "bundler"
+# Default value for :log_level is :debug
+# set :log_level, :debug
 
-set :rails_env, "production"
+# Default value for :pty is false
+# set :pty, true
 
-# for carrierwave
-set :shared_children, shared_children + %w{public/uploads}
+# Default value for :linked_files is []
+set :linked_files, %w{config/database.yml config/initializers/secret_token.rb config/initializers/devise.rb config/initializers/newrelic.yml}
 
-before "deploy:finalize_update", :copy_production_database_configuration, :replace_secret_token
+# Default value for linked_dirs is []
+set :linked_dirs, %w{public/uploads public/assets}
 
-task :copy_production_database_configuration do
-  run "cp #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-end
+# Default value for default_env is {}
+# set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
-task :replace_secret_token do
-  run "cp #{shared_path}/config/secret_token.rb #{release_path}/config/initializers/secret_token.rb"
-  run "cp #{shared_path}/config/devise.rb #{release_path}/config/initializers/devise.rb"
-  run "cp #{shared_path}/config/newrelic.yml #{release_path}/config/newrelic.yml"
-end
-
-after "deploy:update", "deploy:cleanup", "deploy:migrate" 
-
-desc 'copy ckeditor nondigest assets'
-task :copy_nondigest_assets, roles: :app do
-  run "cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} ckeditor:copy_nondigest_assets"
-end
-after 'deploy:assets:precompile', 'copy_nondigest_assets'
+# Default value for keep_releases is 5
+# set :keep_releases, 5
 
 namespace :deploy do
-  namespace :assets do
-    task :update_asset_mtimes, :roles => lambda { assets_role }, :except => { :no_release => true } do
-    end
-    task :clean_expired, :roles => lambda { assets_role }, :except => { :no_release => true } do
-      run "cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} assets:clean"
+
+  desc 'Restart application'
+  task :restart do
+    on roles(:app), in: :sequence, wait: 5 do
+      execute :touch, release_path.join('tmp/restart.txt')
     end
   end
-  task :start do ; end
-  task :stop do ; end
-  task :restart, :roles => :app, :except => { :no_release => true } do
-    run "touch #{File.join(current_path,'tmp','restart.txt')}"
+
+  after :publishing, :restart
+
+  after :restart, :clear_cache do
+    on roles(:web), in: :groups, limit: 3, wait: 10 do
+      # Here we can do anything such as:
+      # within release_path do
+      #   execute :rake, 'cache:clear'
+      # end
+    end
   end
+
 end

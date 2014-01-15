@@ -27,7 +27,9 @@ gem 'jquery-ui-rails'
 gem 'non-stupid-digest-assets'
 
 group :development do
-  gem 'capistrano', '~> 2.15.5'
+  gem 'capistrano', '~> 3.1.0'
+  gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano-bundler'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
@@ -37,7 +39,6 @@ group :development do
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'guard-unicorn'
-  gem 'capistrano-local-precompile', require: false
 end
 
 group :development, :test do
