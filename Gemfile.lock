@@ -337,5 +337,5 @@ DEPENDENCIES
   simple_form (~> 3.0.1)
   simplecov
   spork
-  uglifier (>= 2.0.1)
+  uglifier (~> 2.4.0)
   will_paginate (~> 3.0.4)

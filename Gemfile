@@ -59,7 +59,7 @@ end
 
 gem 'sass-rails',   '~> 4.0.0'
 gem 'coffee-rails', '~> 4.0.1'
-gem 'uglifier', '>= 2.0.1'
+gem 'uglifier', '~> 2.4.0'
 
 group :production do
   gem 'newrelic_rpm'
