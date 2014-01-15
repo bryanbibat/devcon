@@ -59,6 +59,9 @@ module Devcon
 
     config.assets.precompile += ['admin.js']
 
+    # disable locale checking since we're only using English
+    config.i18n.enforce_available_locales = false
+
     config.generators do |g|
       g.test_framework :rspec, :fixture => true
       g.fixture_replacement :fabrication
