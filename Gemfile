@@ -6,7 +6,7 @@ gem 'devise', '~> 3.1.0'
 gem 'simple_form', '~> 3.0.1'
 gem 'will_paginate', '~> 3.0.4'
 gem 'bootstrap-will_paginate', '0.0.10'
-gem 'ckeditor', :git => 'https://github.com/galetahub/ckeditor.git'
+gem 'ckeditor'
 gem 'meta-tags', :require => 'meta_tags'
 gem 'gmaps4rails', '~> 1.5.6'
 gem 'cancan', '~> 1.6.9'
@@ -19,13 +19,14 @@ gem 'icalendar'
 gem 'omniauth-facebook'
 gem 'coveralls', require: false
 
-gem 'pg', '0.17.0'
+gem 'pg', '0.17.1'
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
+gem 'non-stupid-digest-assets'
+
 group :development do
-  gem 'unicorn'
   gem 'capistrano', '~> 2.15.5'
   gem 'better_errors'
   gem 'binding_of_caller'
