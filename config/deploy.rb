@@ -23,7 +23,7 @@ set :repo_url, 'git://github.com/devcon-ph/devcon.git'
 set :linked_files, %w{config/database.yml config/initializers/secret_token.rb config/initializers/devise.rb config/initializers/newrelic.yml}
 
 # Default value for linked_dirs is []
-set :linked_dirs, %w{public/uploads public/assets}
+set :linked_dirs, %w{public/uploads public/assets tmp}
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
