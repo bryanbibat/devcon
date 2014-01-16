@@ -64,7 +64,3 @@ gem 'uglifier', '~> 2.4.0'
 group :production do
   gem 'newrelic_rpm'
 end
-
-group :production do
-  gem 'newrelic_rpm'
-end
