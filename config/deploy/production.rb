@@ -1,4 +1,4 @@
-set :deploy_to, '/home/deploy/cap3apps/devcon-release/'
+set :deploy_to, '/home/deploy/apps/devcon-release/'
 
 # Simple Role Syntax
 # ==================

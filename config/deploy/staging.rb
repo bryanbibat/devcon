@@ -1,4 +1,4 @@
-set :deploy_to, '/home/deploy/cap3apps/devcon/'
+set :deploy_to, '/home/deploy/apps/devcon/'
 set :rails_env, 'production'
 
 # Simple Role Syntax
