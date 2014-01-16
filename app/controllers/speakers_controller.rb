@@ -10,6 +10,7 @@ class SpeakersController < ApplicationController
   end
 
   def create
+    @speaker = Speaker.create(params[:speaker])
     if @speaker.save
       redirect_to speaker_path(@speaker), :notice => "Speaker successfully created"
     else

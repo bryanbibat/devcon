@@ -170,12 +170,17 @@ footer {
     display:inline;
     margin:0 5px;
   }
-  .partner-list li {
-    float: left;
-    text-align: center;
-    width: 180px;
-    height: 150px;
-    display:block;
+  .partner-list {
+    li {
+      float: left;
+      text-align: center;
+      width: 180px;
+      height: 150px;
+      display:block;
+    }
+    li.diamond {
+      width: 300px;
+    }
   }
 }
 

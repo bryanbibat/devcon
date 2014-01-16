@@ -20,7 +20,7 @@ set :repo_url, 'git://github.com/devcon-ph/devcon.git'
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, %w{config/database.yml config/initializers/secret_token.rb config/initializers/devise.rb config/initializers/newrelic.yml}
+set :linked_files, %w{config/database.yml config/initializers/secret_token.rb config/initializers/devise.rb config/initializers/newrelic.yml app/views/layouts/_analytics.html.erb config/env.yml}
 
 # Default value for linked_dirs is []
 set :linked_dirs, %w{public/uploads public/assets tmp}
@@ -51,4 +51,10 @@ namespace :deploy do
     end
   end
 
+namespace :deploy do
+  task :start do ; end
+  task :stop do ; end
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "touch #{File.join(current_path,'tmp','restart.txt')}"
+  end
 end

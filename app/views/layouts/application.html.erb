@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="fb:admins" content="100000251664444" />
     <%= display_meta_tags :site => ENV['title'], :reverse => true %>
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= csrf_meta_tags %>
@@ -22,6 +23,7 @@
       <%= render 'layouts/footer' %>
       <%= debug(params) if Rails.env.development? %>
     </div>
+    <%= render 'layouts/analytics' %>
     <% if user_signed_in? and (current_user.role?("admin") or current_user.role?("author")) %>
       <%= javascript_include_tag "admin" %>
     <% else %>

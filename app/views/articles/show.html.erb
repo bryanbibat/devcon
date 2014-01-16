@@ -5,10 +5,11 @@
   :description => generate_description(@article.summary),
   :type  => :article,
   :url   => article_url(@article),
-  :image => thumbnail_url(@article)
+  :image => [thumbnail_url(@article), { :width => 200, :height => 200 }]
 } %>
 
 <div class="row-fluid article">
+  <% cache [@article, "top"] do %>
   <div class="span2">
     <%= image_tag @article.thumbnail.thumb %>
   </div>
@@ -34,17 +35,22 @@
       <%= raw @article.content %>
       <p>
         <%= link_to 'Back to articles', articles_path %>
+  <% end %>
         <% if can? :update, @article %>
           <%= link_to 'Edit', edit_article_path(@article) %>
         <% end %>
         <% if can? :destroy, @article %>
           <%= link_to 'Destroy', article_path(@article), :data => { :confirm => 'Are you sure?' }, :method => :delete %>
         <% end %>
+  <% cache [@article, "bottom"] do %>
       </p>
     </div>
-    <%= render "shared/social_sharing" %>
+    <div class="row-fluid social-sharing">
+      <%= render "shared/social_sharing" %>
+    </div>
     <div id="disqus_thread"></div>
   </div>
 </div>
 
 <%= render :partial => "shared/disqus_comments" %>
+  <% end %>

@@ -10,6 +10,7 @@ class ResourcePeopleController < ApplicationController
   end
 
   def create
+    @resource_person = ResourcePerson.create(resource_person_params)
     if @resource_person.save
       redirect_to resource_person_path(@resource_person), :notice => "Resource Person successfully created"
     else

@@ -1,4 +1,3 @@
-
 #
 # This file configures the New Relic Agent.  New Relic monitors
 # Ruby, Java, .NET, PHP, and Python applications with deep visibility and low overhead.
@@ -43,7 +42,7 @@ common: &default_settings
   #       - Ajax Service
   #       - All Services
   #
-  app_name: DevCon Beta
+  app_name: Developers Connect
 
   # When "true", the agent collects performance data about your
   # application and reports this data to the New Relic service at

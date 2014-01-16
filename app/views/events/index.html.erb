@@ -8,6 +8,9 @@
   :image => opengraph_thumb_url
 } %>
 <h1>Events</h1>
+
+<%= link_to 'iCalendar', calendar_path, :class => 'btn' %>
+
 <% if can? :create, Event %>
   <%= link_to 'New event', new_event_path, :class => "btn" %>
 <% end %>
