@@ -29,11 +29,11 @@ module ApplicationHelper
   def thumbnail_url(obj)
     thumbnail = (obj.has_attribute?(:thumbnail) ? 
                  obj.thumbnail : obj.logo)
-    thumbnail.opengraph.url
+    request.protocol + request.host_with_port + thumbnail.opengraph.url
   end
 
   def opengraph_thumb_url
-    path_to_image("opengraph_default_thumbnail.png")
+    request.protocol + request.host_with_port + path_to_image("opengraph_default_thumbnail.png")
   end
 
   def text_field_datetime(datetime)
