@@ -1,0 +1,1 @@
+0 0 * * * cd /home/deploy/apps/devcon-release/current; RAILS_ENV=production bundle exec rake sitemap:refresh
