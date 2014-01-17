@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 4.0.2'
 gem 'bootstrap-sass', '~> 2.3.2.2'
-gem 'devise', '~> 3.1.0'
+gem 'devise', '~> 3.2.2'
 gem 'simple_form', '~> 3.0.1'
 gem 'will_paginate', '~> 3.0.4'
 gem 'bootstrap-will_paginate', '0.0.10'
@@ -33,7 +33,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
-  gem 'annotate', '~> 2.5.0'
+  gem 'annotate', '~> 2.6.1'
   gem 'guard'
   gem 'guard-bundler'
   gem 'guard-rspec'
@@ -42,12 +42,12 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '2.14.0'
+  gem 'rspec-rails', '2.14.1'
   gem 'pry'
-  gem 'fabrication', '2.6.5'
+  gem 'fabrication', '2.9.6'
   gem 'faker'
   gem 'database_cleaner', '~> 1.2.0'
-  gem 'capybara', '2.1.0'
+  gem 'capybara', '2.2.1'
   gem 'launchy'
   gem 'spork'
   gem 'simplecov', :require => false
