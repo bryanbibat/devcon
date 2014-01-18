@@ -34,7 +34,7 @@ class StaticPagesController < ApplicationController
         dtstamp     event_temp.updated_at.strftime("%Y%m%dT%H%M00")
         uid         "#{event_temp.slug}@devcon.ph"
         summary     event_temp.name
-        description event_temp.summary
+        description (event_temp.summary || "") + " " + url
         klass       'PUBLIC'
         url         url
       end
