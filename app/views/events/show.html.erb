@@ -7,6 +7,9 @@
   :url   => event_url(@event),
   :image => [thumbnail_url(@event), { :width => 200, :height => 200 }]
 } %>
+<% content_for :scripts do %>
+  <%= render "gmaps" %>
+<% end %>
 
 <div class="row-fluid event">
   <div class="span12">
@@ -50,7 +53,9 @@
       <div class="row-fluid">
         <div class="span12">
           <h2 class="subtitle">Where &amp; When</h2>
-          <%= gmaps("markers" => {"data" => @gmap_json}, "map_options" => {"processing" => "json", "auto_zoom" => false, "zoom" => 14}) %>
+          <div class="map_container">
+            <div id="map" class="gmaps4rails_map"></div>
+          </div>
           <% unless @event.venue.nil? %>
             <h3><%= @event.venue.name %></h3>
             <%= simple_format @event.venue.address %>

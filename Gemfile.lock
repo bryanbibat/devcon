@@ -67,7 +67,7 @@ GEM
       json (>= 1.7)
     celluloid (0.15.2)
       timers (~> 1.1.0)
-    childprocess (0.3.9)
+    childprocess (0.4.0)
       ffi (~> 1.0, >= 1.0.11)
     ckeditor (4.0.8)
       mime-types
@@ -105,7 +105,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     ffi (1.9.3)
     formatador (0.2.4)
-    gmaps4rails (1.5.6)
+    gmaps4rails (2.1.1)
     growl (1.0.3)
     guard (2.3.0)
       formatador (>= 0.2.4)
@@ -284,6 +284,7 @@ GEM
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    underscore-rails (1.5.2)
     warden (1.2.3)
       rack (>= 1.0)
     will_paginate (3.0.5)
@@ -313,7 +314,7 @@ DEPENDENCIES
   devise (~> 3.2.2)
   fabrication (= 2.9.6)
   faker
-  gmaps4rails (~> 1.5.6)
+  gmaps4rails (~> 2.1.1)
   growl
   guard
   guard-bundler
@@ -345,4 +346,5 @@ DEPENDENCIES
   sitemap_generator
   spork
   uglifier (~> 2.4.0)
+  underscore-rails
   will_paginate (~> 3.0.4)
