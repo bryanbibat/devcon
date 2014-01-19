@@ -1,7 +1,6 @@
 ![image](http://devcon.ph/assets/logo.png)
 
-  * master: [![Build Status](https://travis-ci.org/devcon-ph/devcon.png?branch=master)](https://travis-ci.org/devcon-ph/devcon)
-  * release: [![Build Status](https://travis-ci.org/devcon-ph/devcon.png?branch=release)](https://travis-ci.org/devcon-ph/devcon)
+  * [![Build Status](https://travis-ci.org/devcon-ph/devcon.png?branch=master)](https://travis-ci.org/devcon-ph/devcon)
   * [![Code Climate](https://codeclimate.com/github/devcon-ph/devcon.png)](https://codeclimate.com/github/devcon-ph/devcon)
   * [![Dependency Status](https://gemnasium.com/devcon-ph/devcon.png)](https://gemnasium.com/devcon-ph/devcon)
   * [![Coverage Status](https://coveralls.io/repos/devcon-ph/devcon/badge.png)](https://coveralls.io/r/devcon-ph/devcon)
@@ -12,7 +11,7 @@ This is a work-in-progress revamp for the website of [Developers Connnect Philip
 
 ## Developer Notes
 
-This is a Ruby 2.0 + Rails 3.2 + PostgreSQL app so running a local copy should look something like:
+This is a Ruby 2.1 + Rails 4.0 + PostgreSQL app so running a local copy should look something like:
 
     git clone git://github.com/devcon-ph/devcon.git
     cd devcon
@@ -42,6 +41,9 @@ All future enhancements are logged at https://github.com/devcon-ph/devcon/issues
 
 ## Deployment
 
-This app has two main branches, the `master` branch for staging i.e. http://beta.devcon.ph, and the `release` branch for production i.e. http://devcon.ph. All enhancements must be performed on the `master` branch and tested prior to merging to the `release` branch.
+This app has only one main branch, the `master` branch. 
+
+When deploying a new build, test it first in staging (http://beta.devcon.ph) using `bundle exec cap staging deploy`.  
+Once verified, you can now deploy it to the production site (http://devcon.ph) using `bundle exec cap production deploy`.
 
 As of this writing, only [Bry](https://github.com/bryanbibat/) and [Terence](https://github.com/terenceponce) have access rights to deploy to the server.
