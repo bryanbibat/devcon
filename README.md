@@ -1,4 +1,4 @@
-![image](https://i.imgur.com/AB3geYD.png)
+![image](https://i.imgur.com/ZZp523k.png)
 
   * [![Build Status](https://travis-ci.org/devcon-ph/devcon.png?branch=master)](https://travis-ci.org/devcon-ph/devcon)
   * [![Code Climate](https://codeclimate.com/github/devcon-ph/devcon.png)](https://codeclimate.com/github/devcon-ph/devcon)
