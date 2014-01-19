@@ -113,10 +113,8 @@
     <hr>
     <div class="row social-sharing">
       <%= render "shared/social_sharing" %>
-      <div class="col-sm-2 col-sm-offset-4">
+      <div class="col-sm-3 col-sm-offset-4">
         <%= link_to 'Google Calendar', @event.google_calendar_url, :class => 'btn btn-default' %>
-      </div>
-      <div class="col-sm-1">
         <%= link_to 'iCalendar', ics_event_path(@event), :class => 'btn btn-default' %>
       </div>
     </div>
