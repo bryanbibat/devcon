@@ -1,8 +1,8 @@
-<div class="row-fluid event">
-  <div class="span2">
+<div class="row event">
+  <div class="col-md-2 col-sm-3">
     <%= image_tag event.logo.thumb %>
   </div>
-  <div class="span10">
+  <div class="col-md-10 col-sm-9">
     <h2><%= link_to event.name, event, :class => 'title' %></h2>
     <p><small>
       <%= l(event.start_at, :format => :long) %> 

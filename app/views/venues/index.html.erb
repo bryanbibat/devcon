@@ -1,7 +1,7 @@
 <% provide(:title, 'Venues') %>
 <h1>Venues</h1>
 <% if can? :create, Venue %>
-  <p><%= link_to 'New venue', new_venue_path, :class => "btn" %></p>
+  <p><%= link_to 'New venue', new_venue_path, :class => "btn btn-default" %></p>
 <% end %>
 <table class="table table-striped">
   <tr>

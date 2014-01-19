@@ -1,10 +1,9 @@
 @import 'bootstrap';
-@import 'bootstrap-responsive';
 
 /* mixins, variables, etc. */
 
-$grayLight: #999;
-$grayMediumLight: #eaeaea;
+$gray-light: #999;
+$gray-lighter: #eaeaea;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -18,17 +17,8 @@ html {
   overflow-y: scroll;
 }
 
-@media (min-width: 979px) {
-  body {
-    padding-top: 60px;
-  }
-}
-
-@media (max-width: 979px) {
-  /* Remove any padding from the body */
-  body {
-    padding-top: 0;
-  }
+body {
+  padding-top: 60px;
 }
 
 section {
@@ -83,8 +73,8 @@ p {
   }
 }
 
-.navbar .nav > li > a {
-  padding: 13px 15px 12px;
+.navbar-brand {
+  padding: 12px 15px 8px;
 }
 
 /* footer */
@@ -92,14 +82,14 @@ p {
 footer {
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid $grayMediumLight;
-  color: $grayLight;
+  border-top: 1px solid $gray-lighter;
+  color: $gray-light;
 
   a {
     color: $gray;
 
     &:hover {
-      color: $grayDarker;
+      color: $gray-darker;
     }
   }
 
@@ -120,7 +110,7 @@ footer {
 
 /* main page */
 
-.hero-unit {
+.jumbotron {
   padding: 30px 30px 0px;
   margin-bottom: 0;
   background:#fff !important;
@@ -257,6 +247,9 @@ footer {
   }
   .carlo-row, .hack2hatch-row {
     margin-bottom: 20px;
+    img {
+      width: 100%;
+    }
   }
 
   .carlo-caption {
@@ -265,6 +258,11 @@ footer {
     p {
       text-align: left;
       font-size: 90%;
+    }
+  }
+  .chapter-images {
+    img {
+      width: 100%;
     }
   }
   .chapter-next-row {
@@ -280,7 +278,7 @@ footer {
 /* articles, resource-speaker */
 
 .article, .resource-person, .event {
-  border-bottom: 1px solid $grayMediumLight;
+  border-bottom: 1px solid $gray-lighter;
   padding: 20px 0 30px;
   .title, .subtitle {
     font-family:Georgia, serif !important;
@@ -304,7 +302,7 @@ footer {
 }
 
 .fb-share {
-  width: 75px !important;
+  width: 80px !important;
 }
 
 .gplus-share {

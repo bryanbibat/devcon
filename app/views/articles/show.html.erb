@@ -8,12 +8,12 @@
   :image => [thumbnail_url(@article), { :width => 200, :height => 200 }]
 } %>
 
-<div class="row-fluid article">
+<div class="row article">
   <% cache [@article, "top"] do %>
-  <div class="span2">
+  <div class="col-lg-2 col-md-2">
     <%= image_tag @article.thumbnail.thumb %>
   </div>
-  <div class="span10">
+  <div class="col-lg-10 col-md-10">
     <h1><%= link_to @article.title, @article, :class => 'title' %></h1>
     <p><small>
       <%= l(@article.created_at, :format => :friendly_date) %> 
@@ -45,7 +45,7 @@
   <% cache [@article, "bottom"] do %>
       </p>
     </div>
-    <div class="row-fluid social-sharing">
+    <div class="row social-sharing">
       <%= render "shared/social_sharing" %>
     </div>
     <div id="disqus_thread"></div>

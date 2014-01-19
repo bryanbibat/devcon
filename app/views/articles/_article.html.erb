@@ -1,8 +1,8 @@
-<div class="row-fluid article">
-  <div class="span2">
+<div class="row article">
+  <div class="col-md-2 col-sm-3">
     <%= image_tag article.thumbnail.thumb %>
   </div>
-  <div class="span10">
+  <div class="col-md-10 col-sm-9">
     <h2><%= link_to article.title, article, :class => 'title' %></h2>
     <p><small>
       <%= l(article.created_at, :format => :friendly_date) %> 

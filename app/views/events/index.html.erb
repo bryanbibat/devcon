@@ -9,44 +9,44 @@
 } %>
 <h1>Events</h1>
 
-<%= link_to 'iCalendar', calendar_path, :class => 'btn' %>
+<%= link_to 'iCalendar', calendar_path, :class => 'btn btn-default' %>
 
 <% if can? :create, Event %>
-  <%= link_to 'New event', new_event_path, :class => "btn" %>
+  <%= link_to 'New event', new_event_path, :class => "btn btn-default" %>
 <% end %>
 
 <% unless @current_events.empty? %>
-  <div class="row-fluid">
-    <div class="span12">
+  <div class="row">
+    <div class="col-sm-12">
       <h2>Ongoing Events</h2>
     </div>
   </div>
   <%= render @current_events %>
 <% end %>
 <% unless @events.empty? %>
-  <div class="row-fluid">
-    <div class="span12">
+  <div class="row">
+    <div class="col-sm-12">
       <h2>Upcoming Events</h2>
     </div>
   </div>
   <%= render @events %>
 <% end %>
 <% unless @previous_events.empty? %>
-  <div class="row-fluid">
-    <div class="span12">
+  <div class="row">
+    <div class="col-sm-12">
       <h2>Previous Events</h2>
     </div>
   </div>
   <% @previous_events.each do |event| %>
-    <div class="row-fluid previous-event">
-      <div class="span12">
+    <div class="row previous-event">
+      <div class="col-sm-12">
         <h2><%= link_to event.name, event, :class => 'title' %></h2>
       </div>
     </div>
   <% end %>
   <% if @previous_event_count > 5 %>
-    <div class="row-fluid">
-      <div class="span12">
+    <div class="row">
+      <div class="col-sm-12">
         <p><%= link_to 'view more previous events...', previous_events_path %></p>
       </div>
     </div>
