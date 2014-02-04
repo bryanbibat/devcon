@@ -29,7 +29,7 @@ module ApplicationHelper
   def thumbnail_url(obj)
     thumbnail = (obj.has_attribute?(:thumbnail) ? 
                  obj.thumbnail : obj.logo)
-    thumbnail.opengraph.url
+    thumbnail.path == nil ? opengraph_thumb_url : thumbnail.opengraph.url
   end
 
   def opengraph_thumb_url

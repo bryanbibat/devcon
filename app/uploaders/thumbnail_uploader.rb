@@ -18,8 +18,9 @@ class ThumbnailUploader < CarrierWave::Uploader::Base
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
-    # For Rails 3.1+ asset pipeline compatibility:
-    ActionController::Base.helpers.asset_url([version_name, "default_thumbnail.png"].compact.join('_'))
+    # disable until asset hosts work outside controllers
+    # ActionController::Base.helpers.asset_url([version_name, "default_thumbnail.png"].compact.join('_'))
+    nil
   end
 
   version :thumb do
