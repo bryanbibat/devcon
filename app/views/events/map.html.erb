@@ -1,0 +1,50 @@
+<% title "Events Map" %>
+<% description "Map of recent events conducted by DevCon" %>
+<% set_meta_tags :open_graph => {
+  :title => "Events Map",
+  :description => "Map of recent events conducted by DevCon",
+  :type  => :website,
+  :url   => map_events_url,
+  :image => [opengraph_thumb_url, { :width => 200, :height => 200 }]
+} %>
+<!DOCTYPE html>
+<html style="height:100%">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="fb:admins" content="100000251664444" />
+    <%= display_meta_tags :site => ENV['title'], :reverse => true %>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= csrf_meta_tags %>
+    <%= render 'layouts/shim' %>
+    <link href="/favicon.ico" rel="shortcut icon">
+    <link href="/apple-touch-icon-144-precomposed.png" sizes="144x144" rel="apple-touch-icon-precomposed">
+    <link href="/apple-touch-icon-114-precomposed.png" sizes="114x114" rel="apple-touch-icon-precomposed">
+    <link href="/apple-touch-icon-72-precomposed.png" sizes="72x72" rel="apple-touch-icon-precomposed">
+    <link href="/apple-touch-icon-57-precomposed.png" rel="apple-touch-icon-precomposed">
+    <%= auto_discovery_link_tag :atom, "/feed" %>
+    <%= auto_discovery_link_tag :rss, "/feed.rss" %>
+  </head>
+  <body style="height:100%">
+    <%= render 'layouts/header' %>
+    <div id="map" style="height:100%;overflow-y:hidden;margin-top:-5px;margin-left:5px;margin-right:5px">
+      <%= yield %>
+    </div>
+    <%= render 'layouts/analytics' %>
+    <% if user_signed_in? and (current_user.role?("admin") or current_user.role?("author")) %>
+      <%= javascript_include_tag "admin" %>
+    <% else %>
+      <%= javascript_include_tag "application" %>
+    <% end %>
+    <%= javascript_include_tag "//maps.google.com/maps/api/js?v=3.13&sensor=false&libraries=geometry" %>
+    <%= javascript_include_tag "//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js" %>
+    <script type="text/javascript">
+      handler = Gmaps.build('Google', { markers: { maxRandomDistance: null } });
+      handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+        markers = handler.addMarkers(<%=raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.map.centerOn([12, 120.9822000]);
+        handler.getMap().setZoom(6);
+      });
+    </script>
+  </body>
+</html>

@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   load_resource :find_by => :slug
-  load_and_authorize_resource :except => [:index, :previous, :ics] 
+  load_and_authorize_resource :except => [:index, :previous, :ics, :map] 
 
   def index
     @current_events = Event.current.include_subevents
@@ -46,6 +46,17 @@ class EventsController < ApplicationController
 
   def ics
     send_data @event.icalendar(event_url(@event)), filename: "#{@event.name}.ics", type: 'text/calendar', x_sendfile: true
+  end
+
+  def map
+    @events = Event.find_by_sql("SELECT DISTINCT ON (venue_id) * FROM events WHERE venue_id IS NOT NULL ORDER BY venue_id, end_at DESC")
+    @hash = Gmaps4rails.build_markers(@events) do |event, marker|
+      marker.lat event.venue.latitude
+      marker.lng event.venue.longitude
+      marker.infowindow render_to_string(:partial => "venues/infowindow_recent", :layout => false, :locals => { :event => event })
+      marker.json({ :id => event.venue.slug })
+    end
+    render :map, :layout => false
   end
 
   private

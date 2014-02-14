@@ -19,6 +19,7 @@ Devcon::Application.routes.draw do
   resources :events do 
     collection do
       get :previous
+      get :map
     end
 
     member do
