@@ -1,3 +1,11 @@
 <p><strong><%= event.venue.name %></strong></p>
 <%= simple_format event.venue.address %>
-<p><strong>Most recent event:</strong><br><%= link_to event.name, event %></p>
+<p>
+<strong><%= event.end_at.past? ? "Most recent" : "Upcoming" %> event:</strong><br>
+<%= link_to event.name, event %><br>
+<small><em>
+<%= l(event.start_at, :format => :long) %> 
+to
+<%= l(event.end_at, :format => :long) %>
+</em></small>
+</p>

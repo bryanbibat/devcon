@@ -49,7 +49,7 @@ class EventsController < ApplicationController
   end
 
   def map
-    @events = Event.find_by_sql("SELECT DISTINCT ON (venue_id) * FROM events WHERE venue_id IS NOT NULL ORDER BY venue_id, end_at DESC")
+    @events = Event.select("DISTINCT ON (venue_id) *").where("venue_id IS NOT NULL").order("venue_id, end_at DESC").includes(:venue)
     @hash = Gmaps4rails.build_markers(@events) do |event, marker|
       marker.lat event.venue.latitude
       marker.lng event.venue.longitude
