@@ -51,6 +51,13 @@ class EventsController < ApplicationController
   def map
     @events = Event.select("DISTINCT ON (venue_id) *").where("venue_id IS NOT NULL").order("venue_id, end_at DESC").includes(:venue)
     @hash = Gmaps4rails.build_markers(@events) do |event, marker|
+      if event.end_at.future?
+        marker.picture({
+          :url => "http://maps.google.com/mapfiles/marker_green.png",
+          :width   => 20,
+          :height  => 34
+        })
+      end
       marker.lat event.venue.latitude
       marker.lng event.venue.longitude
       marker.infowindow render_to_string(:partial => "venues/infowindow_recent", :layout => false, :locals => { :event => event })
