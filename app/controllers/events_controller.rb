@@ -53,9 +53,9 @@ class EventsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@events) do |event, marker|
       if event.end_at.future?
         marker.picture({
-          :url => "http://maps.google.com/mapfiles/marker_green.png",
-          :width   => 20,
-          :height  => 34
+          :url => "http://mt.google.com/vt/icon?psize=30&font=fonts/arialuni_t.ttf&color=ff304C13&name=icons/spotlight/spotlight-waypoint-a.png&ax=43&ay=48&text=%E2%80%A2",
+          :width   => 22,
+          :height  => 40
         })
       end
       marker.lat event.venue.latitude
