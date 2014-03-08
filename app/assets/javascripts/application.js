@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require underscore
 //= require gmaps/google
+//= require bootstrap
 //= require forms
 //= require static_pages
 //= require omniauth_callbacks
