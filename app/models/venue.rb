@@ -17,6 +17,7 @@
 
 class Venue < ActiveRecord::Base
   has_many :events
+  default_scope -> { order('name') }
 
   include SluggedResource
 end
