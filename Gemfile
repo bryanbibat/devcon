@@ -43,9 +43,9 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '2.14.1'
+  gem 'rspec-rails', '~> 2.14.1'
   gem 'pry'
-  gem 'fabrication', '2.9.6'
+  gem 'fabrication', '~> 2.9.6'
   gem 'faker'
   gem 'database_cleaner', '~> 1.2.0'
   gem 'capybara', '2.2.1'
