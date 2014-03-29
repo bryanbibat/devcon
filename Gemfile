@@ -45,7 +45,7 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 2.14.1'
   gem 'pry'
-  gem 'fabrication', '~> 2.9.6'
+  gem 'fabrication', '~> 2.11.0'
   gem 'faker'
   gem 'database_cleaner', '~> 1.2.0'
   gem 'capybara', '2.2.1'
@@ -62,7 +62,7 @@ end
 
 gem 'sass-rails',   '~> 4.0.0'
 gem 'coffee-rails', '~> 4.0.1'
-gem 'uglifier', '~> 2.4.0'
+gem 'uglifier', '~> 2.5.0'
 
 group :production do
   gem 'newrelic_rpm'
