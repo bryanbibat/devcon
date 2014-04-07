@@ -88,7 +88,7 @@
     <% end %>
     <div class="row">
       <% unless @event.schedule.blank? %>
-        <div class="col-md-6">
+        <div class="col-md-12">
           <h2 class="subtitle">Schedule</h2>
           <%= raw @event.schedule %>
         </div>
@@ -96,7 +96,7 @@
     </div>
     <% unless @event.rules.blank? %>
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
           <h2 class="subtitle">Rules</h2>
           <%= raw @event.rules %>
         </div>
