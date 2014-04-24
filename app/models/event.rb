@@ -89,18 +89,18 @@ class Event < ActiveRecord::Base
     event_temp = self
     cal = Calendar.new
 
-    cal.event do
-      dtstart     event_temp.start_at.strftime("%Y%m%dT%H%M00")
-      dtend       event_temp.end_at.strftime("%Y%m%dT%H%M00")
-      summary     event_temp.name
-      description event_temp.summary
-      klass       'PRIVATE'
-      url         event_url
+    cal.event do |e|
+      e.dtstart = event_temp.start_at.strftime("%Y%m%dT%H%M00")
+      e.dtend = event_temp.end_at.strftime("%Y%m%dT%H%M00")
+      e.summary = event_temp.name
+      e.description = event_temp.summary
+      e.ip_class = 'PRIVATE'
+      e.url = event_url
 
-      alarm do
-        action  'DISPLAY'
-        summary 'Event notification'
-        trigger '-P1DT0H0M0S'
+      e.alarm do |a|
+        a.action = 'DISPLAY'
+        a.summary = 'Event notification'
+        a.trigger = '-P1DT0H0M0S'
       end
     end
 

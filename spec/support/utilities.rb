@@ -22,7 +22,7 @@ end
 
 RSpec::Matchers.define :have_error_message do |message|
   match do |page|
-    page.has_selector? 'div.alert.alert-error', :text => message
+    page.has_selector? 'div.alert.alert-danger', :text => message
   end
 end
 

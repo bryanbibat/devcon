@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.0.4'
-gem 'bootstrap-sass', '~> 3.1.1.0'
+gem 'rails', '~> 4.1.0'
+gem 'bootstrap-sass', '~> 3.1.1.1'
 gem 'devise', '~> 3.2.2'
 gem 'simple_form', '~> 3.0.1'
 gem 'will_paginate', '~> 3.0.4'
@@ -39,7 +39,7 @@ group :development do
   gem 'guard-bundler'
   gem 'guard-rspec'
   gem 'guard-spork'
-  gem 'guard-unicorn'
+  gem 'spring'
 end
 
 group :development, :test do

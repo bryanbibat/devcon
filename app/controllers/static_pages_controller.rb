@@ -23,20 +23,20 @@ class StaticPagesController < ApplicationController
 
   def calendar
     cal = Icalendar::Calendar.new
-    cal.custom_property("X-WR-CALNAME", "DevCon Calendar of Events")
-    cal.custom_property("X-WR-TIMEZONE", "Asia/Manila")
+    cal.timezone { |tz| tz.tzid = "Asia/Manila" }
+    cal.x_wr_calname = "DevCon Calendar of Events"
 
     Event.all.each do |event_temp|
       url = event_url(event_temp)
-      cal.event do
-        dtstart     event_temp.start_at.strftime("%Y%m%dT%H%M00")
-        dtend       event_temp.end_at.strftime("%Y%m%dT%H%M00")
-        dtstamp     event_temp.updated_at.strftime("%Y%m%dT%H%M00")
-        uid         "#{event_temp.slug}@devcon.ph"
-        summary     event_temp.name
-        description (event_temp.summary || "") + " " + url
-        klass       'PUBLIC'
-        url         url
+      cal.event do |e|
+        e.dtstart = event_temp.start_at.strftime("%Y%m%dT%H%M00")
+        e.dtend = event_temp.end_at.strftime("%Y%m%dT%H%M00")
+        e.dtstamp = event_temp.updated_at.strftime("%Y%m%dT%H%M00")
+        e.uid = "#{event_temp.slug}@devcon.ph"
+        e.summary = event_temp.name
+        e.description = (event_temp.summary || "") + " " + url
+        e.ip_class = 'PUBLIC'
+        e.url = url
       end
     end
     send_data cal.to_ical, filename: "calendar.ics", type: 'text/calendar', x_sendfile: true
