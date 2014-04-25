@@ -65,22 +65,28 @@
     <div id="fb-root"></div>
     <div class="fb-like-box" data-href="http://www.facebook.com/DevConPH" data-width="400" data-show-faces="true" data-stream="false" data-header="false"></div>
     <p class="social-link">
-      <a href="http://www.facebook.com/groups/devconph/" target="_blank">
+      <a href="http://www.facebook.com/groups/devconph/">
         <%= image_tag "facebook.png", :class => "social-icon" %>
         Join our Facebook Group
       </a>
     </p>
     <p class="social-link">
-      <a href="http://devconph.eventbrite.com/" target="_blank">
+      <a href="http://devconph.eventbrite.com/">
         <%= image_tag "eventbrite.png", :class => "social-icon" %>
         View our Eventbrite profile page
       </a>
     </p>
     <p class="social-link">
-      <a href="http://youtube.com/devconph/" target="_blank">
+      <a href="http://youtube.com/devconph/">
         <%= image_tag "youtube.png", :class => "social-icon" %>
         View our YouTube channel
       </a>
+    </p>
+    <p class="social-link">
+      <%= link_to contact_path + "#mc_embed_signup" do %>
+        <%= image_tag "mailchimp.png", :class => "social-icon" %>
+        Subscribe to our mailing list
+      <% end %>
     </p>
   </div>
 </div>
