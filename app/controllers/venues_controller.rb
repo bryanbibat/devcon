@@ -1,6 +1,6 @@
 class VenuesController < ApplicationController
   load_resource :find_by => :slug
-  load_and_authorize_resource :except => [:show, :edit, :update]
+  load_and_authorize_resource :except => [:show]
 
   def index
     @venues = Venue.order(:name)
