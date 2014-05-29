@@ -17,4 +17,5 @@
 //= require bootstrap
 //= require static_pages
 //= require omniauth_callbacks
+//= require headroom
 
