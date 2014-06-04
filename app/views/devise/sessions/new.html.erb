@@ -3,7 +3,12 @@
 <%= simple_form_for(resource,
     :as => resource_name,
     :url => session_path(resource_name),
-    :html => { :class => 'form-horizontal' }) do |f| %>
+    :wrapper_mappings => {
+      :check_boxes => :vertical_radio_and_checkboxes,
+      :radio_buttons => :vertical_radio_and_checkboxes,
+      :file => :vertical_file_input,
+      :boolean => :vertical_boolean
+  }) do |f| %>
   <%= f.input :email,
               :hint => 'Enter your email address',
               :input_html => { :class => 'input-xlarge' } %>
