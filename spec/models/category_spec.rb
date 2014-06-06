@@ -12,7 +12,7 @@
 
 require 'spec_helper'
 
-describe Category do
+describe Category, :type => :model do
 
   before do
     @category = Fabricate(:category)
@@ -20,11 +20,11 @@ describe Category do
 
   subject { @category }
 
-  it { should respond_to(:name) }
-  it { should respond_to(:description) }
+  it { is_expected.to respond_to(:name) }
+  it { is_expected.to respond_to(:description) }
 
-  it { should be_valid }
+  it { is_expected.to be_valid }
 
-  it { should validate_presence_of(:name) }
-  it { should_not validate_presence_of(:description) }
+  it { is_expected.to validate_presence_of(:name) }
+  it { is_expected.not_to validate_presence_of(:description) }
 end

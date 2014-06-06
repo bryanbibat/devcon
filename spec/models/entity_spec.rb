@@ -19,20 +19,20 @@
 
 require 'spec_helper'
 
-describe Entity do
+describe Entity, :type => :model do
   before { @entity = Fabricate.build(:entity) }
   subject { @entity }
 
-  it { should validate_presence_of(:type) }
-  it { should ensure_inclusion_of(:type).in_array(["school", "company", "community"]) }
-  it { should ensure_inclusion_of(:level).in_array(["cool", "awesome"]) }
+  it { is_expected.to validate_presence_of(:type) }
+  it { is_expected.to ensure_inclusion_of(:type).in_array(["school", "company", "community"]) }
+  it { is_expected.to ensure_inclusion_of(:level).in_array(["cool", "awesome"]) }
 
-  it { should have_many(:event_partners) }
-  it { should have_many(:events).through(:event_partners) }
+  it { is_expected.to have_many(:event_partners) }
+  it { is_expected.to have_many(:events).through(:event_partners) }
 
   describe "#inheritance_column" do
     it "must disable STI to use 'type' as a column name" do
-      Entity.inheritance_column.should eq("disabled")
+      expect(Entity.inheritance_column).to eq("disabled")
     end
   end
 end

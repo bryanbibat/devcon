@@ -12,5 +12,5 @@
 
 require 'spec_helper'
 
-describe Speaker do
+describe Speaker, :type => :model do
 end

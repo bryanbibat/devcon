@@ -13,7 +13,7 @@
 
 require 'spec_helper'
 
-describe Comment do
+describe Comment, :type => :model do
   before do
     @user = Fabricate(:user)
     @comment = Fabricate.build(:comment, :user => @user)
@@ -21,14 +21,14 @@ describe Comment do
 
   subject { @comment }
 
-  it { should respond_to(:content) }
-  it { should respond_to(:user) }
-  it { should respond_to(:commentable) }
+  it { is_expected.to respond_to(:content) }
+  it { is_expected.to respond_to(:user) }
+  it { is_expected.to respond_to(:commentable) }
 
-  it { should be_valid }
+  it { is_expected.to be_valid }
 
-  it { should validate_presence_of(:content) }
-  it { should validate_presence_of(:user) }
+  it { is_expected.to validate_presence_of(:content) }
+  it { is_expected.to validate_presence_of(:user) }
   #it { should_not allow_mass_assignment_of(:user_id) }
   #it { should_not allow_mass_assignment_of(:commentable_id) }
   #it { should_not allow_mass_assignment_of(:commentable_type) }

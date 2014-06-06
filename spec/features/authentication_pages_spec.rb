@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Authentication' do
+describe 'Authentication', :type => :feature do
 
   subject { page }
 
@@ -8,28 +8,28 @@ describe 'Authentication' do
 
     before { visit new_user_session_path }
 
-    it { should have_page_title 'Sign in' }
-    it { should have_page_heading 'Sign in' }
+    it { is_expected.to have_page_title 'Sign in' }
+    it { is_expected.to have_page_heading 'Sign in' }
   end
 
   describe 'signin' do
 
     before { visit new_user_session_path }
 
-    it { should have_page_title 'Sign in' }
-    it { should have_page_heading 'Sign in' }
+    it { is_expected.to have_page_title 'Sign in' }
+    it { is_expected.to have_page_heading 'Sign in' }
 
     describe 'with invalid information' do
 
       before { click_button 'Sign in' }
 
-      it { should have_error_message 'Invalid' }
+      it { is_expected.to have_error_message 'Invalid' }
 
       describe 'after visiting another page' do
 
         before { click_link 'Home' }
 
-        it { should_not have_selector 'div.alert.alert-error' }
+        it { is_expected.not_to have_selector 'div.alert.alert-error' }
       end
     end
 
@@ -40,18 +40,18 @@ describe 'Authentication' do
         capybara_signin(@user)
       end
 
-      it { should have_page_title '' }
+      it { is_expected.to have_page_title '' }
 
-      it { should have_link 'Profile', :href => user_path(@user) }
-      it { should have_link 'Settings', :href => settings_path }
-      it { should have_link 'Sign out', :href => logout_path }
-      it { should_not have_link 'Sign in', :href => login_path }
+      it { is_expected.to have_link 'Profile', :href => user_path(@user) }
+      it { is_expected.to have_link 'Settings', :href => settings_path }
+      it { is_expected.to have_link 'Sign out', :href => logout_path }
+      it { is_expected.not_to have_link 'Sign in', :href => login_path }
 
       describe 'followed by signout' do
 
         before { click_link 'Sign out' }
 
-        it { should have_link 'Sign in' }
+        it { is_expected.to have_link 'Sign in' }
       end
     end
   end
@@ -71,7 +71,7 @@ describe 'Authentication' do
 
         before { visit edit_user_registration_path(@wrong_user) }
 
-        it { should_not have_page_title 'Account settings' }
+        it { is_expected.not_to have_page_title 'Account settings' }
       end
     end
 

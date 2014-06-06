@@ -10,5 +10,5 @@ require 'spec_helper'
 #     end
 #   end
 # end
-describe PartnersHelper do
+describe PartnersHelper, :type => :helper do
 end

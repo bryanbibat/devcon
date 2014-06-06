@@ -14,5 +14,5 @@
 
 require 'spec_helper'
 
-describe Participant do
+describe Participant, :type => :model do
 end

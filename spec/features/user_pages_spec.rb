@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'User' do
+describe 'User', :type => :feature do
 
   subject { page }
 
@@ -13,8 +13,8 @@ describe 'User' do
 
     describe 'when a user has a name' do
 
-      it { should have_page_heading @user.name }
-      it { should_not have_page_heading @user.email }
+      it { is_expected.to have_page_heading @user.name }
+      it { is_expected.not_to have_page_heading @user.email }
     end
 
     describe 'when a user does not have a name' do
@@ -24,7 +24,7 @@ describe 'User' do
         visit user_path(@user)
       end
 
-      it { should have_page_heading @user.email }
+      it { is_expected.to have_page_heading @user.email }
     end
 
     describe 'as an author' do
@@ -35,8 +35,8 @@ describe 'User' do
         visit user_path(@author)
       end
 
-      it { should have_link @article.title }
-      it { should have_content @author.articles.count }
+      it { is_expected.to have_link @article.title }
+      it { is_expected.to have_content @author.articles.count }
     end
   end
 
@@ -52,7 +52,7 @@ describe 'User' do
     before { visit new_user_registration_path }
 
     it 'should redirect to root' do
-      current_path.should == root_path
+      expect(current_path).to eq(root_path)
     end
     #describe 'with invalid information' do
 

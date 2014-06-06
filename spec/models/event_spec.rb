@@ -27,7 +27,7 @@
 
 require 'spec_helper'
 
-describe Event do
+describe Event, :type => :model do
   before(:each) do
     @parent_event = Fabricate(:event)
     @event = Fabricate(:event, parent: @parent_event)
@@ -36,12 +36,12 @@ describe Event do
   describe "#venues" do
     it "should return venues" do
       venues = @event.venues
-      venues.should_not eq([])
+      expect(venues).not_to eq([])
     end
 
     it "should return venue of subevents as well" do
       venues = @parent_event.venues
-      venues.should include(@event.venue)
+      expect(venues).to include(@event.venue)
     end
 
     it "should return only one instance of the venue" do
@@ -49,7 +49,7 @@ describe Event do
       other_event = Fabricate(:event, venue: @venue, parent: @parent_event)
       @event.venue = @venue
       @event.save
-      @parent_event.venues.count.should eq 2
+      expect(@parent_event.venues.count).to eq 2
     end
   end
 end

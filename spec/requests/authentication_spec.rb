@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Authentication' do
+describe 'Authentication', :type => :request do
 
   subject { page }
 
@@ -18,7 +18,7 @@ describe 'Authentication' do
 
           before { post articles_path }
 
-          specify { response.should redirect_to(root_path) }
+          specify { expect(response).to redirect_to(root_path) }
         end
 
         describe 'when submitting to the update action' do
@@ -28,7 +28,7 @@ describe 'Authentication' do
             put article_path(@article)
           end
 
-          specify { response.should redirect_to(root_path) }
+          specify { expect(response).to redirect_to(root_path) }
         end
 
         describe 'when submitting to the destroy action' do
@@ -38,7 +38,7 @@ describe 'Authentication' do
             delete article_path(@article)
           end
 
-          specify { response.should redirect_to(root_path) }
+          specify { expect(response).to redirect_to(root_path) }
         end
       end
 
@@ -48,7 +48,7 @@ describe 'Authentication' do
 
           before { post categories_path }
 
-          specify { response.should redirect_to(root_path) }
+          specify { expect(response).to redirect_to(root_path) }
         end
 
         describe 'when submitting to the update action' do
@@ -58,7 +58,7 @@ describe 'Authentication' do
             put category_path(@category)
           end
 
-          specify { response.should redirect_to(root_path) }
+          specify { expect(response).to redirect_to(root_path) }
         end
 
         describe 'when submitting to the destroy action' do
@@ -68,7 +68,7 @@ describe 'Authentication' do
             delete category_path(@category)
           end
 
-          specify { response.should redirect_to(root_path) }
+          specify { expect(response).to redirect_to(root_path) }
         end
       end
 
@@ -81,7 +81,7 @@ describe 'Authentication' do
             post article_comments_path @article
           end
 
-          specify { response.should redirect_to(new_user_session_path) }
+          specify { expect(response).to redirect_to(new_user_session_path) }
         end
       end
     end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Events pages' do
+describe 'Events pages', :type => :feature do
 
   subject { page }
 
@@ -13,8 +13,8 @@ describe 'Events pages' do
         visit event_path(@event)
       end
 
-      it { should have_page_title @event.name }
-      it { should_not have_link 'Edit' }
+      it { is_expected.to have_page_title @event.name }
+      it { is_expected.not_to have_link 'Edit' }
 
     end
 
@@ -26,7 +26,7 @@ describe 'Events pages' do
         visit map_events_path(@event)
       end
 
-      it { should have_page_title "Events Map" }
+      it { is_expected.to have_page_title "Events Map" }
 
     end
   end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Tags pages" do
+describe "Tags pages", :type => :feature do
 
   subject { page }
 
@@ -8,8 +8,8 @@ describe "Tags pages" do
     describe 'in the index page' do
       before { visit tags_path }
 
-      it { should have_page_title 'Tags' }
-      it { should have_page_heading 'Tags' }
+      it { is_expected.to have_page_title 'Tags' }
+      it { is_expected.to have_page_heading 'Tags' }
     end
   end
 
@@ -24,11 +24,11 @@ describe "Tags pages" do
       describe 'in the index page' do
         before { visit tags_path }
 
-        it { should have_page_title 'Tags' }
-        it { should have_page_heading 'Tags' }
-        it { should_not have_link 'New Tag' }
-        it { should_not have_link 'Edit' }
-        it { should_not have_link 'Destroy' }
+        it { is_expected.to have_page_title 'Tags' }
+        it { is_expected.to have_page_heading 'Tags' }
+        it { is_expected.not_to have_link 'New Tag' }
+        it { is_expected.not_to have_link 'Edit' }
+        it { is_expected.not_to have_link 'Destroy' }
       end
 
       describe 'in the show page' do
@@ -37,18 +37,18 @@ describe "Tags pages" do
           visit tag_path(@tag)
         end
 
-        it { should have_page_title @tag.name }
-        it { should have_page_heading @tag.name }
-        it { should have_link 'Back to tags' }
-        it { should_not have_link 'Edit' }
-        it { should_not have_link 'Destroy' }
+        it { is_expected.to have_page_title @tag.name }
+        it { is_expected.to have_page_heading @tag.name }
+        it { is_expected.to have_link 'Back to tags' }
+        it { is_expected.not_to have_link 'Edit' }
+        it { is_expected.not_to have_link 'Destroy' }
       end
 
       describe 'in the new page' do
         before { visit new_tag_path }
 
-        it { should have_error_message 'Access denied' }
-        it { should have_page_title '' }
+        it { is_expected.to have_error_message 'Access denied' }
+        it { is_expected.to have_page_title '' }
       end
 
       describe 'in the edit page' do
@@ -57,8 +57,8 @@ describe "Tags pages" do
           visit edit_tag_path(@tag)
         end
 
-        it { should have_error_message 'Access denied' }
-        it { should have_page_title '' }
+        it { is_expected.to have_error_message 'Access denied' }
+        it { is_expected.to have_page_title '' }
       end
     end
 
@@ -72,9 +72,9 @@ describe "Tags pages" do
       describe 'in the index page' do
         before { visit tags_path }
 
-        it { should have_page_title 'Tags' }
-        it { should have_page_heading 'Tags' }
-        it { should have_link 'New Tag' }
+        it { is_expected.to have_page_title 'Tags' }
+        it { is_expected.to have_page_heading 'Tags' }
+        it { is_expected.to have_link 'New Tag' }
 
         describe 'with a list of tags' do
           before do
@@ -82,9 +82,9 @@ describe "Tags pages" do
             visit tags_path
           end
 
-          it { should have_link @tag.name }
-          it { should have_link 'Edit' }
-          it { should_not have_link 'Destroy' }
+          it { is_expected.to have_link @tag.name }
+          it { is_expected.to have_link 'Edit' }
+          it { is_expected.not_to have_link 'Destroy' }
         end
       end
 
@@ -94,19 +94,19 @@ describe "Tags pages" do
           visit tag_path(@tag)
         end
 
-        it { should have_page_title @tag.name }
-        it { should have_page_heading @tag.name  }
-        it { should have_link 'Back to tags' }
-        it { should have_link 'Edit' }
-        it { should_not have_link 'Destroy' }
+        it { is_expected.to have_page_title @tag.name }
+        it { is_expected.to have_page_heading @tag.name  }
+        it { is_expected.to have_link 'Back to tags' }
+        it { is_expected.to have_link 'Edit' }
+        it { is_expected.not_to have_link 'Destroy' }
       end
 
       describe 'in the new page' do
         before { visit new_tag_path }
 
-        it { should have_page_title 'New tag' }
-        it { should have_page_heading 'New tag' }
-        it { should have_link 'Back to tags' }
+        it { is_expected.to have_page_title 'New tag' }
+        it { is_expected.to have_page_heading 'New tag' }
+        it { is_expected.to have_link 'Back to tags' }
 
         describe 'with invalid information' do
           it 'should not create a tag' do
@@ -115,7 +115,7 @@ describe "Tags pages" do
 
           describe 'on error messages' do
             before { click_button 'Create' }
-            it { should have_error_message 'error' }
+            it { is_expected.to have_error_message 'error' }
           end
         end
 
@@ -131,7 +131,7 @@ describe "Tags pages" do
 
           describe 'on success messages' do
             before { click_button 'Create' }
-            it { should have_success_message 'created' }
+            it { is_expected.to have_success_message 'created' }
           end
         end
       end
@@ -142,9 +142,9 @@ describe "Tags pages" do
           visit edit_tag_path(@tag)
         end
 
-        it { should have_page_title 'Edit tag' }
-        it { should have_page_heading 'Edit tag' }
-        it { should have_link 'Back to tags' }
+        it { is_expected.to have_page_title 'Edit tag' }
+        it { is_expected.to have_page_heading 'Edit tag' }
+        it { is_expected.to have_link 'Back to tags' }
 
         describe 'with invalid information' do
           before do
@@ -152,7 +152,7 @@ describe "Tags pages" do
             click_button 'Update'
           end
 
-          it { should have_error_message 'error' }
+          it { is_expected.to have_error_message 'error' }
         end
 
         describe 'with valid information' do
@@ -161,7 +161,7 @@ describe "Tags pages" do
             click_button 'Update'
           end
 
-          it { should have_success_message 'updated' }
+          it { is_expected.to have_success_message 'updated' }
         end
       end
     end

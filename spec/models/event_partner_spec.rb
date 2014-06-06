@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe EventPartner do
+describe EventPartner, :type => :model do
 end
 # == Schema Information
 #

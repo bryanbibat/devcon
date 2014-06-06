@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ArticlesController do
+describe ArticlesController, :type => :controller do
 
   let :valid_attributes do
     { :title => "Test title", :content => "Test Content" }
@@ -9,7 +9,7 @@ describe ArticlesController do
   describe "GET 'index'" do
     it "returns http success" do
       get 'index'
-      response.should be_success
+      expect(response).to be_success
     end
   end
 
@@ -21,7 +21,7 @@ describe ArticlesController do
     it "should allow creation of article" do
       post :create,
         :article => valid_attributes
-      response.should redirect_to(Article.last)
+      expect(response).to redirect_to(Article.last)
     end
 
     it "should not allow saving of categories" do
@@ -31,13 +31,13 @@ describe ArticlesController do
 
       post :create,
         :article => valid_attributes.merge({:category_ids => [category1.id, category2.id] })
-      assigns(:article).category_ids.size.should == 2
+      expect(assigns(:article).category_ids.size).to eq(2)
     end
 
     it "should not allow editing of author_id" do
       post :create,
         :article => valid_attributes.merge({:author_id => 42 })
-      assigns(:article).author_id.should_not == 42
+      expect(assigns(:article).author_id).not_to eq(42)
     end
   end
 
@@ -52,7 +52,7 @@ describe ArticlesController do
       put :update,
         :id => @article.slug,
         :article => valid_attributes
-      response.should redirect_to(Article.last)
+      expect(response).to redirect_to(Article.last)
     end
 
     it "should not allow saving of categories" do
@@ -63,14 +63,14 @@ describe ArticlesController do
       put :update,
         :id => @article.slug,
         :article => valid_attributes.merge({:category_ids => [category1.id, category2.id] })
-      assigns(:article).category_ids.size.should == 2
+      expect(assigns(:article).category_ids.size).to eq(2)
     end
 
     it "should not allow editing of author_id" do
       put :update,
         :id => @article.slug,
         :article => valid_attributes.merge({:author_id => 42 })
-      assigns(:article).author_id.should_not == 42
+      expect(assigns(:article).author_id).not_to eq(42)
     end
 
   end

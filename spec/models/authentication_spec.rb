@@ -1,17 +1,17 @@
 require 'spec_helper'
 
-describe Authentication do
+describe Authentication, :type => :model do
   before do
     @provider = Fabricate(:authentication)
   end
 
   subject { @provider }
 
-  it { should be_valid }
-  it { should respond_to(:provider) }
-  it { should respond_to(:uid) }
+  it { is_expected.to be_valid }
+  it { is_expected.to respond_to(:provider) }
+  it { is_expected.to respond_to(:uid) }
 
-  it { should belong_to(:user) }
+  it { is_expected.to belong_to(:user) }
 
   describe "#find_by_provider_and_uid" do
     context "user has already registered with OAuth" do
@@ -23,18 +23,18 @@ describe Authentication do
       end
 
       it "should return a user when provided the proper arguments" do
-        Authentication.find_by_provider_and_uid(@provider, @uid).should eq(@authentication)
+        expect(Authentication.find_by_provider_and_uid(@provider, @uid)).to eq(@authentication)
       end
 
       it "should return an authentication record that belongs to the proper user" do
         authentication = Authentication.find_by_provider_and_uid(@provider, @uid)
-        authentication.user.should eq(@user)
+        expect(authentication.user).to eq(@user)
       end
     end
 
     context "with invalid provider and uid" do
       it "should not return anything" do
-        Authentication.find_by_provider_and_uid("foo", "bar").should eq(nil)
+        expect(Authentication.find_by_provider_and_uid("foo", "bar")).to eq(nil)
       end
     end
   end

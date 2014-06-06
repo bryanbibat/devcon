@@ -17,5 +17,5 @@
 
 require 'spec_helper'
 
-describe Venue do
+describe Venue, :type => :model do
 end

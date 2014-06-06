@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Categories pages" do
+describe "Categories pages", :type => :feature do
 
   subject { page }
 
@@ -10,8 +10,8 @@ describe "Categories pages" do
 
       before { visit categories_path }
 
-      it { should have_page_title 'Categories' }
-      it { should have_page_heading 'Categories' }
+      it { is_expected.to have_page_title 'Categories' }
+      it { is_expected.to have_page_heading 'Categories' }
     end
   end
 
@@ -29,11 +29,11 @@ describe "Categories pages" do
 
         before { visit categories_path }
 
-        it { should have_page_title 'Categories' }
-        it { should have_page_heading 'Categories' }
-        it { should_not have_link 'New Category' }
-        it { should_not have_link 'Edit' }
-        it { should_not have_link 'Destroy' }
+        it { is_expected.to have_page_title 'Categories' }
+        it { is_expected.to have_page_heading 'Categories' }
+        it { is_expected.not_to have_link 'New Category' }
+        it { is_expected.not_to have_link 'Edit' }
+        it { is_expected.not_to have_link 'Destroy' }
       end
 
       describe 'in the show page' do
@@ -43,16 +43,16 @@ describe "Categories pages" do
           visit category_path(@category)
         end
 
-        it { should have_page_title @category.name }
-        it { should have_page_heading @category.name }
-        it { should have_content @category.description }
-        it { should_not have_link 'Edit' }
-        it { should_not have_link 'Destroy' }
+        it { is_expected.to have_page_title @category.name }
+        it { is_expected.to have_page_heading @category.name }
+        it { is_expected.to have_content @category.description }
+        it { is_expected.not_to have_link 'Edit' }
+        it { is_expected.not_to have_link 'Destroy' }
 
-        it { should have_selector('h2', :text => "Articles under #{@category.name}") }
+        it { is_expected.to have_selector('h2', :text => "Articles under #{@category.name}") }
         it "should have links for all articles" do
           @category.articles.each do |article|
-            page.should have_link(article.title, :href => article_path(article))
+            expect(page).to have_link(article.title, :href => article_path(article))
           end
         end
       end
@@ -61,8 +61,8 @@ describe "Categories pages" do
 
         before { visit new_category_path }
 
-        it { should have_error_message 'Access denied' }
-        it { should have_page_title '' }
+        it { is_expected.to have_error_message 'Access denied' }
+        it { is_expected.to have_page_title '' }
       end
 
       describe 'in the edit page' do
@@ -72,8 +72,8 @@ describe "Categories pages" do
           visit edit_category_path(@category)
         end
 
-        it { should have_error_message 'Access denied' }
-        it { should have_page_title '' }
+        it { is_expected.to have_error_message 'Access denied' }
+        it { is_expected.to have_page_title '' }
       end
     end
 
@@ -89,9 +89,9 @@ describe "Categories pages" do
 
         before { visit categories_path }
 
-        it { should have_page_title 'Categories' }
-        it { should have_page_heading 'Categories' }
-        it { should have_link 'New category' }
+        it { is_expected.to have_page_title 'Categories' }
+        it { is_expected.to have_page_heading 'Categories' }
+        it { is_expected.to have_link 'New category' }
 
         describe 'with a list of categories' do
 
@@ -100,9 +100,9 @@ describe "Categories pages" do
             visit categories_path
           end
 
-          it { should have_link @category.name }
-          it { should have_link 'Edit' }
-          it { should_not have_link 'Destroy' }
+          it { is_expected.to have_link @category.name }
+          it { is_expected.to have_link 'Edit' }
+          it { is_expected.not_to have_link 'Destroy' }
         end
       end
 
@@ -113,20 +113,20 @@ describe "Categories pages" do
           visit category_path(@category)
         end
 
-        it { should have_page_title @category.name }
-        it { should have_page_heading @category.name  }
-        it { should have_link 'Back to categories' }
-        it { should have_link 'Edit' }
-        it { should_not have_link 'Destroy' }
+        it { is_expected.to have_page_title @category.name }
+        it { is_expected.to have_page_heading @category.name  }
+        it { is_expected.to have_link 'Back to categories' }
+        it { is_expected.to have_link 'Edit' }
+        it { is_expected.not_to have_link 'Destroy' }
       end
 
       describe 'in the new page' do
 
         before { visit new_category_path }
 
-        it { should have_page_title 'New category' }
-        it { should have_page_heading 'New category' }
-        it { should have_link 'Back to categories' }
+        it { is_expected.to have_page_title 'New category' }
+        it { is_expected.to have_page_heading 'New category' }
+        it { is_expected.to have_link 'Back to categories' }
 
         describe 'with invalid information' do
 
@@ -139,7 +139,7 @@ describe "Categories pages" do
 
             before { click_button 'Create' }
 
-            it { should have_error_message 'error' }
+            it { is_expected.to have_error_message 'error' }
           end
         end
 
@@ -159,7 +159,7 @@ describe "Categories pages" do
 
             before { click_button 'Create' }
 
-            it { should have_success_message 'created' }
+            it { is_expected.to have_success_message 'created' }
           end
         end
       end
@@ -171,9 +171,9 @@ describe "Categories pages" do
           visit edit_category_path(@category)
         end
 
-        it { should have_page_title 'Edit category' }
-        it { should have_page_heading 'Edit category' }
-        it { should have_link 'Back to categories' }
+        it { is_expected.to have_page_title 'Edit category' }
+        it { is_expected.to have_page_heading 'Edit category' }
+        it { is_expected.to have_link 'Back to categories' }
 
         describe 'with invalid information' do
 
@@ -182,7 +182,7 @@ describe "Categories pages" do
             click_button 'Update'
           end
 
-          it { should have_error_message 'error' }
+          it { is_expected.to have_error_message 'error' }
         end
 
         describe 'with valid information' do
@@ -192,7 +192,7 @@ describe "Categories pages" do
             click_button 'Update'
           end
 
-          it { should have_success_message 'updated' }
+          it { is_expected.to have_success_message 'updated' }
         end
       end
     end
@@ -220,7 +220,7 @@ describe "Categories pages" do
 
           it 'should have an error message' do
             click_link "Destroy"
-            page.should have_notice_message 'destroyed'
+            expect(page).to have_notice_message 'destroyed'
           end
         end
       end

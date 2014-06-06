@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Articles pages' do
+describe 'Articles pages', :type => :feature do
 
   subject { page }
 
@@ -10,11 +10,11 @@ describe 'Articles pages' do
 
       before { visit articles_path }
 
-      it { should have_page_title 'Articles' }
-      it { should have_page_heading 'Articles' }
-      it { should_not have_link 'New article' }
-      it { should_not have_link 'Edit' }
-      it { should_not have_link 'Destroy' }
+      it { is_expected.to have_page_title 'Articles' }
+      it { is_expected.to have_page_heading 'Articles' }
+      it { is_expected.not_to have_link 'New article' }
+      it { is_expected.not_to have_link 'Edit' }
+      it { is_expected.not_to have_link 'Destroy' }
     end
 
     describe 'in the show page' do
@@ -26,12 +26,12 @@ describe 'Articles pages' do
         visit article_path(@article)
       end
 
-      it { should have_page_title @article.title }
-      it { should have_page_heading @article.title }
-      it { should have_link @article.categories.first.name }
-      it { should have_link 'Back to articles' }
-      it { should_not have_link 'Edit' }
-      it { should_not have_link 'Destroy' }
+      it { is_expected.to have_page_title @article.title }
+      it { is_expected.to have_page_heading @article.title }
+      it { is_expected.to have_link @article.categories.first.name }
+      it { is_expected.to have_link 'Back to articles' }
+      it { is_expected.not_to have_link 'Edit' }
+      it { is_expected.not_to have_link 'Destroy' }
 
     end
 
@@ -39,9 +39,9 @@ describe 'Articles pages' do
 
       before { visit new_article_path }
 
-      it { should have_error_message 'Access denied' }
-      it { should have_page_title '' }
-      it { should have_url root_url }
+      it { is_expected.to have_error_message 'Access denied' }
+      it { is_expected.to have_page_title '' }
+      it { is_expected.to have_url root_url }
     end
 
     describe 'in the edit page' do
@@ -51,9 +51,9 @@ describe 'Articles pages' do
         visit edit_article_path(@article)
       end
 
-      it { should have_error_message 'Access denied' }
-      it { should have_page_title '' }
-      it { should have_url root_url }
+      it { is_expected.to have_error_message 'Access denied' }
+      it { is_expected.to have_page_title '' }
+      it { is_expected.to have_url root_url }
     end
   end
 
@@ -71,11 +71,11 @@ describe 'Articles pages' do
 
         before { visit articles_path }
 
-        it { should have_page_title 'Articles' }
-        it { should have_page_heading 'Articles' }
-        it { should_not have_link 'New article' }
-        it { should_not have_link 'Edit' }
-        it { should_not have_link 'Destroy' }
+        it { is_expected.to have_page_title 'Articles' }
+        it { is_expected.to have_page_heading 'Articles' }
+        it { is_expected.not_to have_link 'New article' }
+        it { is_expected.not_to have_link 'Edit' }
+        it { is_expected.not_to have_link 'Destroy' }
       end
 
       describe 'in the show page' do
@@ -85,11 +85,11 @@ describe 'Articles pages' do
           visit article_path(@article)
         end
 
-        it { should have_page_title @article.title }
-        it { should have_page_heading @article.title }
-        it { should have_link 'Back to articles' }
-        it { should_not have_link 'Edit' }
-        it { should_not have_link 'Destroy' }
+        it { is_expected.to have_page_title @article.title }
+        it { is_expected.to have_page_heading @article.title }
+        it { is_expected.to have_link 'Back to articles' }
+        it { is_expected.not_to have_link 'Edit' }
+        it { is_expected.not_to have_link 'Destroy' }
 
       end
 
@@ -97,9 +97,9 @@ describe 'Articles pages' do
 
         before { visit new_article_path }
 
-        it { should have_error_message 'Access denied' }
-        it { should have_page_title '' }
-        it { should have_url root_url }
+        it { is_expected.to have_error_message 'Access denied' }
+        it { is_expected.to have_page_title '' }
+        it { is_expected.to have_url root_url }
       end
 
       describe 'in the edit page' do
@@ -109,9 +109,9 @@ describe 'Articles pages' do
           visit edit_article_path(@article)
         end
 
-        it { should have_error_message 'Access denied' }
-        it { should have_page_title '' }
-        it { should have_url root_url }
+        it { is_expected.to have_error_message 'Access denied' }
+        it { is_expected.to have_page_title '' }
+        it { is_expected.to have_url root_url }
       end
     end
 
@@ -127,9 +127,9 @@ describe 'Articles pages' do
 
         before { visit articles_path }
 
-        it { should have_page_title 'Articles' }
-        it { should have_page_heading 'Articles' }
-        it { should have_link 'New article' }
+        it { is_expected.to have_page_title 'Articles' }
+        it { is_expected.to have_page_heading 'Articles' }
+        it { is_expected.to have_link 'New article' }
 
         describe 'when author has an article in the list' do
 
@@ -138,8 +138,8 @@ describe 'Articles pages' do
             visit articles_path
           end
 
-          it { should have_link 'Edit', :href => edit_article_path(@article) }
-          it { should have_delete_link 'Destroy', article_path(@article) }
+          it { is_expected.to have_link 'Edit', :href => edit_article_path(@article) }
+          it { is_expected.to have_delete_link 'Destroy', article_path(@article) }
         end
       end
 
@@ -152,14 +152,14 @@ describe 'Articles pages' do
           # save_and_open_page
         end
 
-        it { should have_page_title @article.title }
-        it { should have_page_heading @article.title }
-        it { should have_link 'Back to articles' }
+        it { is_expected.to have_page_title @article.title }
+        it { is_expected.to have_page_heading @article.title }
+        it { is_expected.to have_link 'Back to articles' }
 
         describe 'when author is the one who made the article' do
 
-          it { should have_link 'Edit', :href => edit_article_path(@article) }
-          it { should have_delete_link 'Destroy', article_path(@article) }
+          it { is_expected.to have_link 'Edit', :href => edit_article_path(@article) }
+          it { is_expected.to have_delete_link 'Destroy', article_path(@article) }
         end
 
         describe 'when author is not the one who made the article' do
@@ -172,8 +172,8 @@ describe 'Articles pages' do
             visit article_path(@article)
           end
 
-          it { should_not have_link 'Edit', :href => edit_article_path(@article) }
-          it { should_not have_delete_link 'Destroy', article_path(@article) }
+          it { is_expected.not_to have_link 'Edit', :href => edit_article_path(@article) }
+          it { is_expected.not_to have_delete_link 'Destroy', article_path(@article) }
         end
       end
 
@@ -184,9 +184,9 @@ describe 'Articles pages' do
           visit new_article_path
         end
 
-        it { should have_page_title 'New article' }
-        it { should have_page_heading 'New article' }
-        it { should have_link 'Back to articles' }
+        it { is_expected.to have_page_title 'New article' }
+        it { is_expected.to have_page_heading 'New article' }
+        it { is_expected.to have_link 'Back to articles' }
 
         describe 'with invalid information' do
 
@@ -199,7 +199,7 @@ describe 'Articles pages' do
 
             before { click_button 'Create' }
 
-            it { should have_error_message 'errors' }
+            it { is_expected.to have_error_message 'errors' }
           end
         end
 
@@ -220,7 +220,7 @@ describe 'Articles pages' do
             
             before { click_button 'Create' }
 
-            it { should have_success_message 'published' }
+            it { is_expected.to have_success_message 'published' }
           end
         end
       end
@@ -232,9 +232,9 @@ describe 'Articles pages' do
           visit edit_article_path(@article)
         end
 
-        it { should have_page_title 'Edit article' }
-        it { should have_page_heading 'Edit article' }
-        it { should have_link 'Back to articles' }
+        it { is_expected.to have_page_title 'Edit article' }
+        it { is_expected.to have_page_heading 'Edit article' }
+        it { is_expected.to have_link 'Back to articles' }
 
         describe 'with invalid information' do
 
@@ -244,7 +244,7 @@ describe 'Articles pages' do
             click_button 'Update'
           end
 
-          it { should have_error_message 'errors' }
+          it { is_expected.to have_error_message 'errors' }
         end
 
         describe 'with valid information' do
@@ -255,7 +255,7 @@ describe 'Articles pages' do
             click_button 'Update'
           end
 
-          it { should have_success_message 'updated' }
+          it { is_expected.to have_success_message 'updated' }
         end
       end
 
@@ -271,7 +271,7 @@ describe 'Articles pages' do
 
         it 'should have a notice message' do
           click_link "Destroy"
-          page.should have_notice_message 'destroyed'
+          expect(page).to have_notice_message 'destroyed'
         end
       end
     end

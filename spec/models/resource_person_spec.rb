@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ResourcePerson do
+describe ResourcePerson, :type => :model do
 end
 # == Schema Information
 #

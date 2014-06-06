@@ -1,16 +1,16 @@
-describe 'ApplicationHelper' do
+describe 'ApplicationHelper', :type => :helper do
 
   describe 'full_title' do
     it 'should include the page name' do
-      full_title('foo').should =~ /^foo/
+      expect(full_title('foo')).to match(/^foo/)
     end
 
     it 'should include the base name' do
-      full_title('foo').should =~ /Developers Connect/
+      expect(full_title('foo')).to match(/Developers Connect/)
     end
 
     it 'should not include a dash for the home page' do
-      full_title('').should_not =~ /\-/
+      expect(full_title('')).not_to match(/\-/)
     end
   end
 end
