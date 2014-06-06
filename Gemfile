@@ -43,12 +43,12 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 2.99'
+  gem 'rspec-rails', '~> 3.0.1'
   gem 'pry'
   gem 'fabrication', '~> 2.11.0'
   gem 'faker'
   gem 'database_cleaner', '~> 1.2.0'
-  gem 'capybara', '2.2.1'
+  gem 'capybara', '~> 2.3.0'
   gem 'launchy'
   gem 'spork'
   gem 'simplecov', :require => false
