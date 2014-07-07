@@ -1,7 +1,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.all
+//= require jquery-ui
 //= require jquery-ui-sliderAccess
 //= require jquery-ui-timepicker-addon
 //= require underscore
