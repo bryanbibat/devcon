@@ -155,6 +155,7 @@ footer {
   margin-left:0 !important;
   ul {
     margin:0px !important;
+    padding-left: 0px;
   }
   ul li {
     display:inline;
@@ -164,9 +165,9 @@ footer {
     li {
       float: left;
       text-align: center;
-      width: 180px;
+      /* width: 180px; */
       height: 150px;
-      display:block;
+      display: block;
     }
     li.diamond {
       width: 300px;
