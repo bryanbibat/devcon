@@ -6,7 +6,6 @@
 //= require jquery-ui-timepicker-addon
 //= require underscore
 //= require gmaps/google
-//= require ckeditor/override
 //= require ckeditor/init
 //= require bootstrap
 //= require forms
