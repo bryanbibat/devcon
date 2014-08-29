@@ -8,13 +8,19 @@
 } %>
 <% cache do %>
 <div class="jumbotron">
-  <h1>
-    <%= link_to root_path do %>
-      <%= image_tag "logo.png", :title => "Developers Connect" %>
-    <% end %> 
-  </h1>
-  <p class="blurb"><strong>Developers Connect Philippines (DevCon)</strong> is a non-proﬁt organization which aims to promote the "IT Pinoy Talent" mainly by providing a unique venue for IT students, educators, professionals and enthusiasts to <em>Sync, Support and Succeed.</em></p>
-
+  <div class="row">
+    <div class="col-lg-6">
+      <h1>
+        <%= link_to root_path do %>
+          <%= image_tag "logo.png", :title => "Developers Connect" %>
+        <% end %> 
+      </h1>
+      <p class="blurb"><strong>Developers Connect Philippines (DevCon)</strong> is a non-proﬁt organization which aims to promote the "IT Pinoy Talent" mainly by providing a unique venue for IT students, educators, professionals and enthusiasts to <em>Sync, Support and Succeed.</em></p>
+    </div>
+    <div class="col-lg-6 avp">
+      <iframe width="560" height="315" src="//www.youtube.com/embed/hMwDI_nv5xU" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
 </div>
 <div class="row">
   <div class="col-sm-offset-1 col-sm-10">
