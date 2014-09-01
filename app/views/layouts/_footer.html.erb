@@ -1,11 +1,58 @@
 <footer class="footer">
-  <small>
-    &copy; 2012 - 2014 <%= link_to "Developers Connect Philippines", root_url %>
-  </small>
-  <nav>
-    <ul>
-      <li><%= link_to 'Fork this on GitHub', "https://github.com/devcon-ph/devcon" %></li>
-      <li><%= link_to 'Contact', contact_path %></li>
-    </ul>
-  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-4">
+        <h4>About DevCon</h4>
+        <ul>
+          <li>Who We Are</li>
+          <li>Officers &amp; Chapters</li>
+          <li><%= link_to 'FAQs', faq_path %></li>
+          <li><%= link_to 'Articles', articles_path %></li>
+          <li><%= link_to 'Contact', contact_path %></li>
+        </ul>
+        <h4><%= link_to 'DevCon Devise', 'http://devise.devcon.ph' %></h4>
+      </div>
+      <div class="col-md-3 col-sm-4">
+        <h4>DevCon Events</h4>
+        <ul>
+          <li>Campus DevCon</li>
+          <li>Code Camps</li>
+          <li>DevCon Summit</li>
+          <li><%= link_to 'Upcoming Events', events_path %></li>
+          <li><%= link_to 'Calendar', calendar_path %></li>
+          <li>Request an Event</li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-4">
+        <h4>Get Involved</h4>
+        <ul>
+          <li>Be a Volunteer</li>
+          <li>Be a Speaker</li>
+          <li>Be a Partner</li>
+          <li>Sponsor an Event</li>
+          <li>Donate</li>
+          <li><%= link_to 'Fork this on GitHub', "https://github.com/devcon-ph/devcon" %></li>
+        </ul>
+      </div>
+      <div class="clearfix visible-sm-block"></div>
+      <div class="col-md-3 col-sm-4">
+        <h4>Keep In Touch</h4>
+        <ul>
+          <li><%= link_to 'Follow us on Twitter', 'https://twitter.com/DevConPH' %></li>
+          <li><%= link_to 'Like our Facebook Page', 'https://facebook.com/DevConPH' %></li>
+          <li><%= link_to 'Join our Facebook Group', 'https://www.facebook.com/groups/devconph/' %></li>
+          <li><%= link_to 'Subscribe to our Mailing List', contact_path + '#mc_embed_signup' %></li>
+          <li><%= link_to 'Visit us on Eventbrite', 'http://devconph.eventbrite.com/' %></li>
+          <li><%= link_to 'View our Youtube Channel', 'http://youtube.com/devconph/' %></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 copyright-info">
+        <small>
+          &copy; 2012 - 2014 <%= link_to "Developers Connect Philippines", root_url %>
+        </small>
+      </div>
+    </div>
+  </div>
 </footer>
