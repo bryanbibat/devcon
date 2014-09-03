@@ -39,6 +39,7 @@ group :development do
   gem 'guard-bundler'
   gem 'guard-rspec'
   gem 'guard-spork'
+  gem 'guard-livereload'
   gem 'spring'
 end
 
@@ -50,7 +51,7 @@ group :development, :test do
   gem 'database_cleaner', '~> 1.3.0'
   gem 'capybara', '~> 2.4.1'
   gem 'launchy'
-  gem 'spork'
+  gem 'spork', '~> 1.0.0rc4'
   gem 'simplecov', :require => false
   gem 'growl', require: false
   gem 'libnotify', require: false
@@ -58,6 +59,7 @@ group :development, :test do
   gem 'rb-fsevent', :require => false
   gem 'shoulda-matchers'
   gem 'quiet_assets'
+  gem 'rack-livereload'
 end
 
 gem 'sass-rails',   '~> 4.0.0'
