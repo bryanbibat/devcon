@@ -77,6 +77,13 @@ p {
   padding: 12px 15px 8px;
 }
 
+.navbar-default .navbar-nav > li > a {
+  font-weight: bold;
+  font-size: 16px;
+  padding-top: 17px;
+  padding-bottom: 13px;
+}
+
 /* footer */
 
 footer, .footer {
@@ -97,7 +104,9 @@ footer, .footer {
 
   h4 {
     margin-bottom: 15px;
+    font-size: 22px;
   }
+
   ul {
     list-style: none;
     padding: 0px 0px 10px;
@@ -110,7 +119,11 @@ footer, .footer {
     margin: 20px 0 10px;
   }
 }
-
+@media (max-width: 768px) {
+  footer, .footer {
+    text-align: center;
+  }
+}
 /* main page */
 
 .jumbotron {
@@ -138,6 +151,36 @@ footer, .footer {
   }
 }
 
+.devise-row {
+  h2 {
+    padding: 50px 0 10px;
+  }
+  p {
+    font-size: 1.2em;
+  }
+  img {
+    width: 100%;
+  }
+}
+@media (max-width: 1000px) and (min-width:769px) {
+  .devise-row {
+    h2 {
+      padding-top: 20px;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .devise-row {
+    text-align: center;
+    h2 {
+      padding-top: 10px;
+    }
+    img {
+      width: 40%;
+    }
+  }
+}
+
 .event-types {
   h3 {
     font-size: 18px;
@@ -150,8 +193,34 @@ footer, .footer {
   }
 }
 
-.frontpage-share {
-  padding: 50px 30px 0px;
+.frontpage-lists {
+  .frontpage-twitter {
+    padding-top: 20px;
+  }
+  .events {
+    .row {
+      padding: 5px 0;
+      img {
+        width: 100%;
+      }
+    }
+    .btn {
+      margin-top: 20px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .frontpage-lists {
+    text-align: center;
+    .events {
+      .row {
+        img {
+          width: 75px;
+        }
+      }
+    }
+  }
 }
 
 .partner-area {
@@ -169,15 +238,9 @@ footer, .footer {
     margin:0 5px;
   }
   .partner-list {
-    li {
-      float: left;
-      text-align: center;
-      /* width: 180px; */
-      height: 150px;
-      display: block;
-    }
-    li.diamond {
-      width: 300px;
+    text-align: center;
+    img {
+      padding: 10px;
     }
   }
 }
@@ -190,6 +253,37 @@ footer, .footer {
   font-size: 1.5em;
   font-weight: bold;
   padding-top: 10px;
+}
+/* various pages */
+
+.sidebar-nav {
+  ul {
+    list-style: none;
+    padding: 30px 0px 10px;
+
+    li {
+      padding-left: 20px;
+      margin: 5px 0;
+      a {
+        color: $gray-light;
+
+        &:hover {
+          color: $gray;
+        }
+      }
+    }
+    li.active {
+      border-left: 2px solid $brand-success;
+      padding-left: 18px;
+      font-weight: bold;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar-nav {
+    display: none;
+  }
 }
 
 /* faq */

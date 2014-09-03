@@ -1,5 +1,15 @@
 class StaticPagesController < ApplicationController
   def home
+    if Event.upcoming.include_subevents.count > 0
+      @events = Event.upcoming.include_subevents.limit(5)
+      @events_type = "Upcoming Events"
+    elsif Event.finished.include_subevents.count > 0
+      @events = Event.finished.include_subevents.limit(5)
+      @events_type = "Previous Events"
+    else
+      @events = []
+      @events_type = "No Events Yet"
+    end
   end
 
   def contact

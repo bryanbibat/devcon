@@ -6,10 +6,9 @@
   :url   => root_url,
   :image => [opengraph_thumb_url, { :width => 200, :height => 200 }]
 } %>
-<% cache do %>
 <div class="jumbotron">
   <div class="row">
-    <div class="col-lg-6">
+    <div class="col-md-12">
       <h1>
         <%= link_to root_path do %>
           <%= image_tag "logo.png", :title => "Developers Connect" %>
@@ -17,95 +16,64 @@
       </h1>
       <p class="blurb"><strong>Developers Connect Philippines (DevCon)</strong> is a non-proﬁt organization which aims to promote the "IT Pinoy Talent" mainly by providing a unique venue for IT students, educators, professionals and enthusiasts to <em>Sync, Support and Succeed.</em></p>
     </div>
-    <div class="col-lg-6 avp">
-      <iframe width="560" height="315" src="//www.youtube.com/embed/hMwDI_nv5xU" frameborder="0" allowfullscreen></iframe>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-sm-offset-1 col-sm-10">
-    <div class="row event-types">
-      <div class="col-sm-4">
-        <h3>Lightning Talks</h3>
-        <p>Lightning talks are very quick presentations delivered with or without auxiliary visual materials. Each speakers has a maximum of 10 minutes to present his idea, including preparation time, self, introduction, Q&amp;A, etc.</p>
-      </div>
-      <div class="col-sm-4">
-        <h3>Birds of a Feather</h3>
-        <p>An informal collaborative discussion among like-minded (and sometimes with opposing views) developers covering topics within similar interests. </p>
-      </div>
-      <div class="col-sm-4">
-        <h3>Hackathon</h3>
-        <p>The hackathon is usually a one-hour competition that requires a team to execute a programming or web activity that results in a work product that can be judged. Participants will be provided with the tool or platform site.</p>
-      </div>
-    </div>
-    <div class="row event-types">
-      <div class="col-sm-4">
-        <h3>Campus DevCon</h3>
-        <p>In partnership with schools/colleges, each campus DevCon converges an average of 200 students taking up Computer Science and other IT-related courses.</p>
-      </div>
-      <div class="col-sm-4">
-        <h3>DevCon Geekup</h3>
-        <p>As prelude to another DevCon event, the geekup was tailored to accommodate inquiries about DevCon itself and the foundation. You tell us how we can help you via small group sessions.</p>
-      </div>
-      <div class="col-sm-4">
-        <h3>DevCon Code Camp</h3>
-        <p>A technical session that seeks to build up the technology capabilities of our IT professionals, this can cover any specific type of development: from web and mobile to game and cloud, from Java and Ruby to .NET and project management. </p>
+    <div class="col-md-12 avp">
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe width="560" height="315" src="//www.youtube.com/embed/hMwDI_nv5xU" frameborder="0" allowfullscreen></iframe>
       </div>
     </div>
   </div>
 </div>
 <hr>
+<div class="row devise-row">
+  <div class="col-sm-3">
+    <%= image_tag 'devise-logo.jpg' %>
+  </div>
+  <div class="col-sm-9">
+    <h2>Join the Cause. Make a difference.</h2>
+    <p>
+      <strong>DevCon Devise</strong> is a national competition that aims to challenge students in solving real world problems with mobile applications. The winning teams will receive more than ₱100,000 worth of cash prizes and freebies from partners.
+    </p>
+    <p>This year’s theme is <em>Public Safety and Disaster Preparedness</em>.</p>
+    <p><a href="http://devise.devcon.ph" class="btn btn-success btn-lg">Learn More &raquo;</a></p>
+  </div>
+</div>
+<hr>
+<div class="row">
+</div>
 <div class="row partner-area">
   <div class="col-sm-12">
     <h2>Platinum Partners</h2>
-    <ul class="partner-list clearfix">
-      <li><a href="http://www.elance.com/"><%= image_tag "elance-odesk.png", :alt => "Elance.com" %></a></li>
-      <li><a href="http://streamenginestudios.com/"><%= image_tag "stream-engine.png", :alt => "Stream Engine Studios" %></a></li>
-      <li><a href="http://www.exist.com/"><%= image_tag "exist.png", :alt => "Exist" %></a></li>
-      <li><a href="http://acale.ph/"><%= image_tag "acaleph.png", :alt => "Acaleph" %></a></li>
-      <li><a href="http://www.foodpanda.ph/"><%= image_tag "foodpanda.png", :alt => "Foodpanda" %></a></li>
-    </ul>
+    <p class="partner-list clearfix">
+      <a href="http://www.elance.com/"><%= image_tag "elance-odesk.png", :alt => "Elance.com" %></a>
+      <a href="http://streamenginestudios.com/"><%= image_tag "stream-engine.png", :alt => "Stream Engine Studios" %></a>
+      <a href="http://www.exist.com/"><%= image_tag "exist.png", :alt => "Exist" %></a>
+      <a href="http://acale.ph/"><%= image_tag "acaleph.png", :alt => "Acaleph" %></a>
+      <a href="http://www.foodpanda.ph/"><%= image_tag "foodpanda.png", :alt => "Foodpanda" %></a>
+    </p>
   </div>
 </div>
-<div class="row frontpage-share">
-  <div class="col-md-6">
+<div class="row frontpage-lists">
+  <div class="col-md-6 frontpage-twitter">
     <a class="twitter-timeline" href="https://twitter.com/DevConPH" data-widget-id="309122045189427200">Tweets by @DevConPH</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
   </div>
-  <div class="col-md-6">
-    <script>(function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-    <div id="fb-root"></div>
-    <div class="fb-like-box" data-href="http://www.facebook.com/DevConPH" data-width="400" data-show-faces="true" data-stream="false" data-header="false"></div>
-    <p class="social-link">
-      <a href="http://www.facebook.com/groups/devconph/">
-        <%= image_tag "facebook.png", :class => "social-icon" %>
-        Join our Facebook Group
-      </a>
-    </p>
-    <p class="social-link">
-      <a href="http://devconph.eventbrite.com/">
-        <%= image_tag "eventbrite.png", :class => "social-icon" %>
-        View our Eventbrite profile page
-      </a>
-    </p>
-    <p class="social-link">
-      <a href="http://youtube.com/devconph/">
-        <%= image_tag "youtube.png", :class => "social-icon" %>
-        View our YouTube channel
-      </a>
-    </p>
-    <p class="social-link">
-      <%= link_to contact_path + "#mc_embed_signup" do %>
-        <%= image_tag "mailchimp.png", :class => "social-icon" %>
-        Subscribe to our mailing list
-      <% end %>
-    </p>
+  <div class="col-md-6 events">
+    <h2><%= @events_type %></h3>
+    <% @events.each do |event| %>
+      <div class="row">
+        <div class="col-sm-2 col-md-3 col-lg-2">
+          <%= image_tag event.logo.small %>
+        </div>
+        <div class="col-sm-10 col-md-9 col-lg-10">
+          <h3><%= link_to event.name, event, :class => 'title' %></h3>
+          <p><small>
+            <%= l(event.start_at, :format => :long) %> 
+            to
+            <%= l(event.end_at, :format => :long) %> 
+          </small></p>
+        </div>
+      </div>
+    <% end %>
+    <p><%= link_to "View full list of Events &raquo".html_safe, events_path, :class => "btn btn-success btn-lg" %></p>
   </div>
 </div>
-<% end %>

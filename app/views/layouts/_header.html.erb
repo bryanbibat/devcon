@@ -13,21 +13,10 @@
     <nav class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li class="<%= (action_name == "home" ? "active" : "") %>"><%= link_to 'Home', root_path  %></li>
+        <li class="<%= (action_name == "faq" ? "active" : "") %>"><%= link_to 'About', faq_path  %></li>
         <li class="<%= (action_name == "faq" ? "active" : "") %>"><%= link_to 'FAQ', faq_path  %></li>
-        <li class="<%= (controller_name == "articles" ? "active" : "") %>"><%= link_to 'Articles', articles_path %></li>
         <li class="<%= (controller_name == "events" ? "active" : "") %>"><%= link_to 'Events', events_path %></li>
-        <% if user_signed_in? %>
-        <li class="<%= (controller_name == "partners" ? "active" : "") %>"><%= link_to 'Partners', partners_path %></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            Resources <b class="caret"></b>
-          </a>
-          <ul class="dropdown-menu">
-            <li class="<%= (controller_name == "speakers" ? "active" : "") %>"><%= link_to 'Resource People', resource_people_path %></li>
-            <li class="<%= (controller_name == "venues" ? "active" : "") %>"><%= link_to 'Venues', venues_path %></li>
-          </ul>
-        </li>
-        <% end %>
+        <li class="<%= (controller_name == "events" ? "active" : "") %>"><%= link_to 'Get Involved', events_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
@@ -38,7 +27,7 @@
               </a>
               <ul class="dropdown-menu">
                 <li><%= link_to 'Article Categories', categories_path %></li>
-                <li><%= link_to 'Entities', entities_path %></li>
+                <li class="<%= (controller_name == "venues" ? "active" : "") %>"><%= link_to 'Venues', venues_path %></li>
               </ul>
             </li>
           <% end %>

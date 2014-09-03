@@ -37,6 +37,8 @@ Devcon::Application.routes.draw do
   resources :tags
 
   get '/contact', :to => 'static_pages#contact'
+  get '/get-involved', :to => 'static_pages#get_involved', :as => 'get_involved'
+  get '/get-involved/volunteer', :to => 'static_pages#volunteer', :as => 'volunteer'
   get '/faq', :to => 'static_pages#faq', :as => 'faq'
   get '/feed' => 'static_pages#feed',
       :as => :feed,

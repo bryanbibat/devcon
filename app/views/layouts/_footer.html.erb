@@ -6,27 +6,25 @@
         <ul>
           <li>Who We Are</li>
           <li>Officers &amp; Chapters</li>
-          <li><%= link_to 'FAQs', faq_path %></li>
+          <li><%= link_to 'FAQs (old)', faq_path %></li>
           <li><%= link_to 'Articles', articles_path %></li>
           <li><%= link_to 'Contact', contact_path %></li>
         </ul>
-        <h4><%= link_to 'DevCon Devise', 'http://devise.devcon.ph' %></h4>
       </div>
       <div class="col-md-3 col-sm-4">
         <h4>DevCon Events</h4>
         <ul>
-          <li>Campus DevCon</li>
-          <li>Code Camps</li>
-          <li>DevCon Summit</li>
+          <li>About DevCon Events</li>
           <li><%= link_to 'Upcoming Events', events_path %></li>
           <li><%= link_to 'Calendar', calendar_path %></li>
           <li>Request an Event</li>
         </ul>
+        <h4><%= link_to 'DevCon Devise', 'http://devise.devcon.ph' %></h4>
       </div>
       <div class="col-md-3 col-sm-4">
-        <h4>Get Involved</h4>
+        <h4><%= link_to 'Get Involved', get_involved_path %></h4>
         <ul>
-          <li>Be a Volunteer</li>
+          <li><%= link_to 'Be a Volunteer', volunteer_path %></li>
           <li>Be a Speaker</li>
           <li>Be a Partner</li>
           <li>Sponsor an Event</li>
