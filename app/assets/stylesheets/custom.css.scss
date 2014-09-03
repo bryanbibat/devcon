@@ -181,6 +181,22 @@ footer, .footer {
   }
 }
 
+.support-options {
+  text-align: center;
+  img {
+    padding-top: 20px;
+    width: 70%;
+  }
+  .btn {
+    margin-top: 10px;
+  }
+}
+@media (max-width: 768px) {
+  .support-options img {
+    width: 250px;
+  }
+}
+
 .event-types {
   h3 {
     font-size: 18px;

@@ -16,7 +16,7 @@
         <h4><%= link_to 'DevCon Events', events_main_path %></h4>
         <ul>
           <li><%= link_to 'List of Upcoming Events', events_path %></li>
-          <li>Request an Event</li>
+          <li><%= link_to 'Request an Event', events_request_path %></li>
         </ul>
         <h4><%= link_to 'DevCon Devise', 'http://devise.devcon.ph' %></h4>
       </div>
@@ -25,15 +25,14 @@
         <ul>
           <li><%= link_to 'Be a Volunteer', volunteer_path %></li>
           <li><%= link_to 'Be a Speaker', speaker_path %></li>
-          <li><%= link_to 'Be a Partner', partner_path %></li>
-          <li><%= link_to 'Sponsor an Event', sponsor_path %></li>
+          <li><%= link_to 'Sponsor Events', sponsor_path %></li>
           <li>Donate</li>
           <li><%= link_to 'Fork this on GitHub', "https://github.com/devcon-ph/devcon" %></li>
         </ul>
       </div>
       <div class="clearfix visible-sm-block"></div>
       <div class="col-md-3 col-sm-4">
-        <h4>Keep In Touch</h4>
+        <h4><%= link_to 'Keep in Touch', notifications_path %></h4>
         <ul>
           <li><%= link_to 'Follow us on Twitter', 'https://twitter.com/DevConPH' %></li>
           <li><%= link_to 'Like our Facebook Page', 'https://facebook.com/DevConPH' %></li>

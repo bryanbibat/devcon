@@ -42,6 +42,7 @@ Devcon::Application.routes.draw do
   get '/about/regional-chapters', :to => 'static_pages#chapters', :as => 'chapters'
   get '/devcon-events', :to => 'static_pages#events', :as => 'events_main'
   get '/devcon-events/request', :to => 'static_pages#request_event', :as => 'events_request'
+  get '/keep-in-touch', :to => 'static_pages#keep_in_touch', :as => 'notifications'
   get '/contact', :to => 'static_pages#contact'
   get '/get-involved', :to => 'static_pages#get_involved', :as => 'get_involved'
   get '/get-involved/volunteer', :to => 'static_pages#volunteer', :as => 'volunteer'
