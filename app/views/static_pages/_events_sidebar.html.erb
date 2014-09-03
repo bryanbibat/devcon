@@ -1,0 +1,7 @@
+<div class="col-sm-3 sidebar-nav hidden-xs">
+  <ul id="sidebar">
+    <li class='<%= "active" if selected == 'top' %>'><%= link_to 'DevCon Events', events_main_path %></li>
+    <li><%= link_to 'List of Upcoming Events', events_path %></li>
+    <li class='<%= "active" if selected == 'request' %>'><%= link_to 'Request an Event', events_request_path %></li>
+  </ul>
+</div>

@@ -13,9 +13,8 @@
     <nav class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li class="<%= (action_name == "home" ? "active" : "") %>"><%= link_to 'Home', root_path  %></li>
-        <li class="<%= (%{about officers}.include?(action_name) ? "active" : "") %>"><%= link_to 'About', about_path  %></li>
-        <li class="<%= (action_name == "faq" ? "active" : "") %>"><%= link_to 'FAQ', faq_path  %></li>
-        <li class="<%= (controller_name == "events" ? "active" : "") %>"><%= link_to 'Events', events_path %></li>
+        <li class="<%= (%{about officers chapters}.include?(action_name) ? "active" : "") %>"><%= link_to 'About', about_path  %></li>
+        <li class="<%= (controller_name == "events" ? "active" : "") %>"><%= link_to 'Upcoming Events', events_path %></li>
         <li class="<%= (%w{get_involved volunteer speaker partner sponsor}.include?(action_name) ? "active" : "") %>"><%= link_to 'Get Involved', get_involved_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">

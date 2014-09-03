@@ -257,6 +257,9 @@ footer, .footer {
 /* various pages */
 
 .sidebar-nav {
+  .affix {
+    top: 30px;
+  }
   ul {
     list-style: none;
     padding: 30px 0px 10px;
@@ -277,12 +280,6 @@ footer, .footer {
       padding-left: 18px;
       font-weight: bold;
     }
-  }
-}
-
-@media (max-width: 768px) {
-  .sidebar-nav {
-    display: none;
   }
 }
 

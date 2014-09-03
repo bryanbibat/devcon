@@ -37,7 +37,11 @@ Devcon::Application.routes.draw do
   resources :tags
 
   get '/about', :to => 'static_pages#about', :as => 'about'
+  get '/about/fact-sheet', :to => 'static_pages#fact_sheet', :as => 'fact_sheet'
   get '/about/officers', :to => 'static_pages#officers', :as => 'officers'
+  get '/about/regional-chapters', :to => 'static_pages#chapters', :as => 'chapters'
+  get '/devcon-events', :to => 'static_pages#events', :as => 'events_main'
+  get '/devcon-events/request', :to => 'static_pages#request_event', :as => 'events_request'
   get '/contact', :to => 'static_pages#contact'
   get '/get-involved', :to => 'static_pages#get_involved', :as => 'get_involved'
   get '/get-involved/volunteer', :to => 'static_pages#volunteer', :as => 'volunteer'

@@ -20,3 +20,11 @@ $ ->
   if window.devicePixelRatio > 1
     $(".retina").each (i) ->
       replaceRetina this
+
+  $('#sidebar').affix({
+    offset:
+      top: 30
+      bottom: ->
+        return (this.bottom = $('.footer').outerHeight(true))
+  })
+

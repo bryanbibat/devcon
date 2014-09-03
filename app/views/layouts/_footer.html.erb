@@ -2,21 +2,20 @@
   <div class="container">
     <div class="row">
       <div class="col-md-3 col-sm-4">
-        <h4>About DevCon</h4>
+        <h4><%= link_to 'About DevCon', about_path %></h4>
         <ul>
-          <li>Who We Are</li>
-          <li>Officers &amp; Chapters</li>
+          <li><%= link_to 'Fact Sheet', fact_sheet_path %></li>
+          <li><%= link_to 'Officers', officers_path %></li>
+          <li><%= link_to 'Regional Chapters', chapters_path %></li>
           <li><%= link_to 'FAQs (old)', faq_path %></li>
           <li><%= link_to 'Articles', articles_path %></li>
           <li><%= link_to 'Contact', contact_path %></li>
         </ul>
       </div>
       <div class="col-md-3 col-sm-4">
-        <h4>DevCon Events</h4>
+        <h4><%= link_to 'DevCon Events', events_main_path %></h4>
         <ul>
-          <li>About DevCon Events</li>
-          <li><%= link_to 'Upcoming Events', events_path %></li>
-          <li><%= link_to 'Calendar', calendar_path %></li>
+          <li><%= link_to 'List of Upcoming Events', events_path %></li>
           <li>Request an Event</li>
         </ul>
         <h4><%= link_to 'DevCon Devise', 'http://devise.devcon.ph' %></h4>
