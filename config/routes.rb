@@ -28,7 +28,7 @@ Devcon::Application.routes.draw do
     resources :event_partners, :except => [:index, :show]
     resources :participants, :except => [:index, :show]
   end
-  resources :partners, :only => [:index, :show]
+  # resources :partners, :only => [:index, :show]
   resources :resource_people
   resources :venues
 
@@ -36,9 +36,14 @@ Devcon::Application.routes.draw do
   resources :categories
   resources :tags
 
+  get '/about', :to => 'static_pages#about', :as => 'about'
+  get '/about/officers', :to => 'static_pages#officers', :as => 'officers'
   get '/contact', :to => 'static_pages#contact'
   get '/get-involved', :to => 'static_pages#get_involved', :as => 'get_involved'
   get '/get-involved/volunteer', :to => 'static_pages#volunteer', :as => 'volunteer'
+  get '/get-involved/speaker', :to => 'static_pages#speaker', :as => 'speaker'
+  get '/get-involved/partner', :to => 'static_pages#partner', :as => 'partner'
+  get '/get-involved/sponsor', :to => 'static_pages#sponsor', :as => 'sponsor'
   get '/faq', :to => 'static_pages#faq', :as => 'faq'
   get '/feed' => 'static_pages#feed',
       :as => :feed,
