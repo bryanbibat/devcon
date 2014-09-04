@@ -151,6 +151,12 @@ footer, .footer {
   }
 }
 
+@media (max-width: 360px) {
+  img.long {
+    width: 100%;
+  }
+
+}
 .devise-row {
   h2 {
     padding: 50px 0 10px;
@@ -176,7 +182,7 @@ footer, .footer {
       padding-top: 10px;
     }
     img {
-      width: 40%;
+      width: 50%;
     }
   }
 }
