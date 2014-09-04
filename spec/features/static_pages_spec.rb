@@ -45,7 +45,7 @@ describe 'Static pages', :type => :feature do
     expect(page).to have_page_title 'Articles'
     click_link 'Upcoming Events'
     expect(page).to have_page_title 'Events'
-    click_link 'FAQ'
-    expect(page).to have_page_title 'Frequently Asked Questions'
+    click_link 'About'
+    expect(page).to have_page_title 'About DevCon'
   end
 end
