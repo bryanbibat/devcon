@@ -24,8 +24,8 @@ describe Entity, :type => :model do
   subject { @entity }
 
   it { is_expected.to validate_presence_of(:type) }
-  it { is_expected.to ensure_inclusion_of(:type).in_array(["school", "company", "community"]) }
-  it { is_expected.to ensure_inclusion_of(:level).in_array(["cool", "awesome"]) }
+  it { is_expected.to validate_inclusion_of(:type).in_array(["school", "company", "community"]) }
+  it { is_expected.to validate_inclusion_of(:level).in_array(["cool", "awesome"]) }
 
   it { is_expected.to have_many(:event_partners) }
   it { is_expected.to have_many(:events).through(:event_partners) }

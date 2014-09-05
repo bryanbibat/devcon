@@ -58,3 +58,5 @@ guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec_env => { 'RAIL
   watch('test/test_helper.rb') { :test_unit }
   watch(%r{features/support/}) { :cucumber }
 end
+
+guard 'unicorn', :daemonize => true, :config_file => 'config/unicorn/development.rb'
