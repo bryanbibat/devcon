@@ -1,14 +1,26 @@
+<% title "Become a Volunteer" %>
 <div class="row faq">
   <div class="col-sm-9">
-    <h1>Be a Volunteer</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <h1>Become a Volunteer</h1>
+
+    <p>We're always looking for people who have spare time to share to our cause.</p>
+
+    <p>Anyone can be a volunteer. Students, professionals, and educators are all welcome to join our group of volunteers. You don't even need to be in the IT field to join - in fact, most of what volunteers do are not directly related to IT:</p>
+
+    <ul>
+      <li><strong>Logistics</strong> - planning and coordination of events, scouting out new venues</li>
+      <li><strong>Marketing</strong> - preparing advertising material and releasing them, engaging with the community</li>
+      <li><strong>Technical</strong> - maintaining this website, conducting the Java Code Challenge, <%= link_to "speaking in events", speaker_path %></li>
+      <li><strong>Membership</strong> - recruiting and training volunteers, organizing the members, keeping in touch with inactive members</li>
+      <li><strong>Office Administration</strong> - processing paperwork, auditing and finances, looking for sponsors</li>
+      <li><strong>General</strong> - setting up and manning booths, ushering attendees, etc.</li>
+    </ul>
+
+    <p>There are still some situations which can prevent one from becoming a volunteer, however. For example, individuals who live far away from <%= link_to "regional chapters", chapters_path %> would be limited to doing remote work.</p>
 
     <h2>DevCon Membership</h2>
 
-    <p>DevCon membership is based on meritocracy. The minimum requirement is for an individual to volunteer at least twice in separate DevCon-organized or DevCon partner events. Please remember that the volunteer work must be notable (eg, logistics support, speaker referral, event organization, photo/video documentation, etc).</p>
+    <p>Volunteers who have done notable work at least twice in separate DevCon-organized or DevCon partner events are eligible to become full-fledged <strong>DevCon Members</strong>.</p>
 
     <div class="row carlo-row">
       <div class="col-sm-3">
@@ -25,7 +37,11 @@
       </div>
     </div>
 
-    <p>In order to apply for membership, one must be nominated by an active DevCon member. This will be reviewed by the general membership of DevCon via online assessment and voting. Nominations are held each May and October of the year. To know more about becoming a member or volunteer, email our VP for Membership via <a href="mailto:carlo@devcon.ph">carlo@devcon.ph</a>.</p>
+    <p>Members receive more taks and far more responsibility than regular volunteers. In exchange, they get more out of DevCon activities (e.g. travel opportunities, priority on freebies) and have a greater say in the direction of the organization. Members are also eligible to become <%= link_to "DevCon Officers", officers_path %> in the future.</p>
+
+    <p>Volunteers are nominated by active DevCon members, which then pass through a review by the general membership of DevCon via online assessment and voting. Nominations are held each May and October of the year.</p>
+    
+    <p>To know more about becoming a member or volunteer, email our VP for Membership via <a href="mailto:carlo@devcon.ph">carlo@devcon.ph</a>.</p>
   </div>
   
   <%= render :partial => 'gi_sidebar', :locals => { :selected => 'volunteer' } %>
