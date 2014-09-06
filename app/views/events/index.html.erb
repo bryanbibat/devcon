@@ -24,13 +24,15 @@
   </div>
   <%= render @current_events %>
 <% end %>
-<% unless @events.empty? %>
-  <div class="row">
-    <div class="col-sm-12">
-      <h2>Upcoming Events</h2>
-    </div>
+<div class="row">
+  <div class="col-sm-12">
+    <h2>Upcoming Events</h2>
   </div>
+</div>
+<% unless @events.empty? %>
   <%= render @events %>
+<% else %>
+  <p>We have no upcoming events. Please check back later</p>
 <% end %>
 <% unless @previous_events.empty? %>
   <div class="row">
