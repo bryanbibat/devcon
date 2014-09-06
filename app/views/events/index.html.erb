@@ -32,7 +32,9 @@
 <% unless @events.empty? %>
   <%= render @events %>
 <% else %>
-  <p>We have no upcoming events. Please check back later</p>
+  <p>
+    We have no upcoming events.<br>
+    <%= link_to "Learn how to receive notifications about upcoming events.", notifications_path %></p>
 <% end %>
 <% unless @previous_events.empty? %>
   <div class="row">
