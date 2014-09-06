@@ -1,4 +1,12 @@
 <% title "Become a Volunteer" %>
+<% description "We're always looking for people who have spare time to share to our cause." %>
+<% set_meta_tags :open_graph => {
+  :title => "Become a Volunteer | #{ENV['title']}",
+  :description => "We're always looking for people who have spare time to share to our cause.",
+  :type  => :article,
+  :url   => volunteer_url,
+  :image => opengraph_thumb_url
+} %>
 <div class="row faq">
   <div class="col-sm-9">
     <h1>Become a Volunteer</h1>
@@ -25,17 +33,17 @@
     <p>Volunteers who have done notable work at least twice in separate DevCon-organized or DevCon partner events are eligible to become full-fledged <strong>DevCon Members</strong>.</p>
 
     <div class="row carlo-row">
-      <div class="col-sm-3">
+      <div class="col-sm-4 col-sm-push-3">
+        <%= image_tag "faq/devathon-carlo.jpg", :alt => "Carlo at Devathon" %>
+      </div>
+      <div class="col-sm-5 col-sm-push-3">
+        <%= image_tag "faq/devathon.jpg", :alt => "Globe Devathon" %>
+      </div>
+      <div class="col-sm-3 col-sm-pull-9">
         <div class="carlo-caption">
           <p>Our VP for Membership Carlo Ledesma as a Participant in Globe Devathon</p>
           <p>(He started out as a co-organizer of a campus DevCon at the Mapúa Institute of Technology.)</p>
         </div>
-      </div>
-      <div class="col-sm-4">
-        <%= image_tag "faq/devathon-carlo.jpg", :alt => "Carlo at Devathon" %>
-      </div>
-      <div class="col-sm-5">
-        <%= image_tag "faq/devathon.jpg", :alt => "Globe Devathon" %>
       </div>
     </div>
 

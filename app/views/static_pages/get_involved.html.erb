@@ -1,10 +1,49 @@
+<% title "Get Involved" %>
+<% description "We're always looking for people to share to our cause." %>
+<% set_meta_tags :open_graph => {
+  :title => "Get Involved | #{ENV['title']}",
+  :description => "We're always looking for people to share to our cause.",
+  :type  => :article,
+  :url   => get_involved_url,
+  :image => opengraph_thumb_url
+} %>
 <div class="row faq">
   <div class="col-sm-9">
     <h1>Get Involved</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="get-involved-options">
+      <div class="row">
+        <div class="col-sm-4">
+          <%= image_tag 'volunteer.jpg', :class => "img-thumbnail" %>
+        </div>
+        <div class="col-sm-8">
+          <h2>Be a Volunteer</h2>
+          <p>Pick up new skills and make new friends. We have many volunteer opportunities for students and professionals.</p>
+          <p><%= link_to "Volunteer &raquo;".html_safe, volunteer_path, :class => "btn btn-default btn-success btn-lg" %></p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-4">
+          <%= image_tag 'teach.jpg', :class => "img-thumbnail" %>
+        </div>
+        <div class="col-sm-8">
+          <h2>Be a Speaker</h2>
+          <p>Share your knowledge and experiences in the IT industry through short lightning talks or day-long workshops.</p>
+          <p><%= link_to "Teach &raquo;".html_safe, speaker_path, :class => "btn btn-default btn-success btn-lg" %></p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-4">
+          <%= image_tag 'sponsor.jpg', :class => "img-thumbnail" %>
+        </div>
+        <div class="col-sm-8">
+          <h2>Sponsor Events</h2>
+          <p>DevCon events are free and are made possible by the generous support from the community.</p>
+          <p><%= link_to "Sponsor &raquo;".html_safe, sponsor_path, :class => "btn btn-default btn-success btn-lg" %></p>
+        </div>
+      </div>
+    </div>
   </div>
   <%= render :partial => 'gi_sidebar', :locals => { :selected => 'top' } %>
 </div>
