@@ -11,23 +11,23 @@ This is a work-in-progress revamp for the website of [Developers Connnect Philip
 
 ## Developer Notes
 
-This is a Ruby 2.1 + Rails 4.0 + PostgreSQL app so running a local copy should look something like:
+This is a Ruby 2.1 + Rails 4.1 + PostgreSQL app so running a local copy should look something like:
 
     git clone git://github.com/devcon-ph/devcon.git
     cd devcon
-    bundle
+    bundle install
     cp config/database.yml.example config/database.yml
     vim config/database.yml
     rake db:create
     rake db:test:prepare
     rake db:migrate
-    guard
+    bundle exec guard
 
 Guard will run both the Unicorn server at port 3000 and the specs.
 
 This app uses [better\_errors](https://github.com/charliesome/better_errors) for debugging. Don't forget to set the `TRUSTED_IP` environment variable if you're not testing on your local machine.
 
-This app also uses [rails\_panel](https://github.com/dejan/rails_panel) so you don't need to look at the development log while developing.
+This app also uses [rails\_panel](https://github.com/dejan/rails_panel) so you don't need to look at the development log while developing, and [rack-livereload](https://github.com/johnbintz/rack-livereload) so you don't need to reload when you make a change to the views or assets.
 
 ## Creating a user
 
