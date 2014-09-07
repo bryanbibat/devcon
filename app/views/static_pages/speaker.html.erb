@@ -1,12 +1,43 @@
+<% title "Become a Speaker" %>
+<% description "Share your knowledge and experiences in the IT industry through short lightning talks or day-long workshops." %>
+<% set_meta_tags :open_graph => {
+  :title => "Become a Speaker | #{ENV['title']}",
+  :description => "Share your knowledge and experiences in the IT industry through short lightning talks or day-long workshops.",
+  :type  => :article,
+  :url   => volunteer_url,
+  :image => opengraph_thumb_url
+} %>
 <div class="row faq">
   <div class="col-sm-9">
-    <h1>Be a Speaker</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <h1>Become a Speaker</h1>
+    <p></p>
     <h2>Lightning Talks</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Lightning talks are 10-15 minute talks presented during <%= link_to "Campus DevCons", events_main_path %>. They can be about anything related to IT: from highly technical CS topics, to project management, to career advice.</p>
+
+    <p>Here are some quick tips for prospective lightning speakers:</p>
+
+    <ul>
+      <li>Keep in mind that most of your audience will be students. Make your talk too technical and they'll zone off, make it too shallow and they won't learn anything.</li>
+      <li>You have a short time to present. It's much better to have 3-4 main points that you can explain in detail rather than have 10+ points but be cut off by the time limit.</li>
+      <li>Slides are optional but are recommended as they can guide both you and your audience on the flow of the talk.</li>
+      <li>If you choose to make use of slides, learn to be creative with them. Nothing shuts off a students attention than slides full of bullet points and text. Switch around with text (ie. the 1-6-6 rule) and pictures to keep your audience on their feet.</li>
+    </ul>
+
+    <p>One quick thing to note about Campus DevCons is that most of them are conducted on <em>weekdays</em>. This means that we're looking for speakers who are willing to take a leave from their work to share a bit of their knowledge to students. (Of course, freelancers and flexi-time employees can just take an hour or so off work to give their talk and go back to work afterwards.)
+
     <h2>Code Camps</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Code Camps are workshops which introduce technologies (e.g. <a href="http://devcon.ph/events/4th-devcon-android-code-camp-professionals">Android</a>, <a href="http://devcon.ph/events/git-code-camp-for-professionals">Git</a>) or processes (e.g. <a href="http://devcon.ph/events/project-management-camp-scrum-methodology">Scrum</a>) to interested students and professionals. Code Camps require more preparation for both DevCon and the speakers so they are not as common as Campus DevCons.</p>
+
+    <p>Individuals interested to be a mentor or instructor in Code Camps only need to sign up as a speaker in the form linked below. We will inform you once such an opportuntity arises.</p>
+
+    <p>Companies or community groups who wish to hold a Code Camp in partnership with DevCon can refer to <%= link_to "Request an Event", events_request_path %> for details.</p>
+
+    <h2>Sign up as a Speeaker</h2>
+
+    <p>As Speakers are practically <%= link_to "Volunteers", volunteer_path %>, the former also uses the same sign-up form as the latter.</p>
+
+    <p><%= link_to "Sign up as a Speaker &raquo;".html_safe, "https://docs.google.com/a/devcon.ph/forms/d/1i-rhXPwGKFBSMgZNkcnzYVs-ZHOQA-Ao9Hu3j8T2wbM/viewform", :class => "btn btn-default btn-success btn-lg" %></p>
+
   </div>
   <%= render :partial => 'gi_sidebar', :locals => { :selected => 'speaker' } %>
 </div>
