@@ -47,7 +47,6 @@ Devcon::Application.routes.draw do
   get '/get-involved', :to => 'static_pages#get_involved', :as => 'get_involved'
   get '/get-involved/volunteer', :to => 'static_pages#volunteer', :as => 'volunteer'
   get '/get-involved/speaker', :to => 'static_pages#speaker', :as => 'speaker'
-  get '/get-involved/partner', :to => 'static_pages#partner', :as => 'partner'
   get '/get-involved/sponsor', :to => 'static_pages#sponsor', :as => 'sponsor'
   get '/faq', :to => 'static_pages#faq', :as => 'faq'
   get '/feed' => 'static_pages#feed',
