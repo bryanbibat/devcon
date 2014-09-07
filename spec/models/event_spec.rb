@@ -46,10 +46,22 @@ describe Event, :type => :model do
 
     it "should return only one instance of the venue" do
       @venue = Fabricate(:venue)
-      other_event = Fabricate(:event, venue: @venue, parent: @parent_event)
+      Fabricate(:event, venue: @venue, parent: @parent_event)
       @event.venue = @venue
       @event.save
       expect(@parent_event.venues.count).to eq 2
+    end
+  end
+
+  describe "#google_calendar_url" do
+    it "should not throw errors" do
+      @event.google_calendar_url
+    end
+  end
+
+  describe "#icalendar" do
+    it "should not throw errors" do
+      @event.icalendar("http://example.com/events/test")
     end
   end
 end
