@@ -37,6 +37,16 @@ textarea {
   }
 }
 
+.btn-success {
+  background-color: #71b406;
+  border-color: #61a400;
+  &:hover {
+    background-color: #599800;
+    border-color: #498800;
+  }
+}
+
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -166,6 +176,9 @@ footer, .footer {
   }
   img {
     width: 100%;
+  }
+  .btn {
+    margin-top: 15px;
   }
 }
 @media (max-width: 1000px) and (min-width:769px) {
