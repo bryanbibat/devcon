@@ -72,18 +72,6 @@ describe 'Authentication', :type => :request do
         end
       end
 
-      describe 'in the Comments controller' do
-
-        describe 'when submitting to the create action' do
-
-          before do
-            @article = Fabricate(:article)
-            post article_comments_path @article
-          end
-
-          specify { expect(response).to redirect_to(new_user_session_path) }
-        end
-      end
     end
   end
 end

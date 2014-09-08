@@ -42,6 +42,7 @@ describe "Tags pages", :type => :feature do
         it { is_expected.to have_link 'Back to tags' }
         it { is_expected.not_to have_link 'Edit' }
         it { is_expected.not_to have_link 'Destroy' }
+
       end
 
       describe 'in the new page' do
@@ -86,6 +87,8 @@ describe "Tags pages", :type => :feature do
           it { is_expected.to have_link 'Edit' }
           it { is_expected.not_to have_link 'Destroy' }
         end
+
+
       end
 
       describe 'in the show page' do
@@ -162,6 +165,35 @@ describe "Tags pages", :type => :feature do
           end
 
           it { is_expected.to have_success_message 'updated' }
+        end
+      end
+    end
+    describe 'as an admin' do
+      before do
+        @user = Fabricate(:admin)
+        visit new_user_session_path
+        capybara_signin(@user)
+      end
+
+      describe 'in the index page' do
+        before do
+          @tag = Fabricate(:tag)
+          visit tags_path
+          click_link 'Destroy' 
+        end
+        describe 'on success delete' do
+          it { is_expected.to have_success_message 'destroyed' }
+        end
+      end
+
+      describe 'in the show page' do
+        before do
+          @tag = Fabricate(:tag)
+          visit tag_path(@tag)
+          click_link 'Destroy'
+        end
+        describe 'on success delete' do
+          it { is_expected.to have_success_message 'destroyed' }
         end
       end
     end

@@ -1,4 +1,3 @@
-# == Schema Information
 #
 # Table name: users
 #
@@ -45,7 +44,6 @@ describe User, :type => :model do
   it { is_expected.to respond_to(:name) }
   it { is_expected.to respond_to(:articles) }
   it { is_expected.to respond_to(:roles) }
-  it { is_expected.to respond_to(:comments) }
 
   it { is_expected.to be_valid }
 

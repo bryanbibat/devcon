@@ -13,7 +13,6 @@ Devcon::Application.routes.draw do
   end
 
   resources :articles do
-    resources :comments, :except => [:new]
   end
 
   resources :events do 
@@ -26,10 +25,8 @@ Devcon::Application.routes.draw do
       get :ics
     end
     resources :event_partners, :except => [:index, :show]
-    resources :participants, :except => [:index, :show]
   end
-  # resources :partners, :only => [:index, :show]
-  resources :resource_people
+  resources :partners, :only => [:index]
   resources :venues
 
   resources :entities

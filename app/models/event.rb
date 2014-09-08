@@ -33,8 +33,6 @@ class Event < ActiveRecord::Base
   belongs_to :parent, :class_name => "Event"
   has_many :event_partners
   has_many :entities, :through => :event_partners
-  has_many :participants
-  has_many :resource_people, :through => :participants
 
   include SluggedResource
   include Icalendar

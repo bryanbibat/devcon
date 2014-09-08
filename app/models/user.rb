@@ -26,7 +26,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   has_many :articles, :foreign_key => 'author_id', :dependent => :destroy
-  has_many :comments, :as => :commentable, :foreign_key => 'user_id', :dependent => :destroy
 
   has_many :authentications, :dependent => :destroy
 

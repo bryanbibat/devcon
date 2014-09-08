@@ -7,8 +7,6 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @comment = @article.comments.build
-    @comments = @article.comments.paginate(:page => params[:page])
   end
 
   def new

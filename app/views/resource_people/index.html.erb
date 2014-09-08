@@ -1,7 +1,0 @@
-<% title 'Resource People' %>
-<h1>Resource People</h1>
-<% if can? :create, ResourcePerson %>
-  <%= link_to 'New resource person', new_resource_person_path, :class => "btn" %>
-<% end %>
-
-<%= render @resource_people %>
