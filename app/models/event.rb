@@ -2,7 +2,7 @@
 #
 # Table name: events
 #
-#  id               :integer         not null, primary key
+#  id               :integer          not null, primary key
 #  name             :string(255)
 #  slug             :string(255)
 #  description      :text
@@ -12,13 +12,13 @@
 #  parent_id        :integer
 #  logo             :string(255)
 #  devcon_role      :string(255)
-#  created_at       :datetime        not null
-#  updated_at       :datetime        not null
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
 #  summary          :text
 #  schedule         :text
 #  rules            :text
 #  registration     :text
-#  published        :boolean         default(FALSE)
+#  published        :boolean          default(FALSE)
 #  event_type       :string(255)
 #  target_attendees :integer
 #  actual_attendees :integer
