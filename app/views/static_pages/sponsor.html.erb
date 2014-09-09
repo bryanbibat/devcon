@@ -9,7 +9,16 @@
 } %>
 <div class="row faq">
   <div class="col-sm-9">
+
     <h1>Sponsor Events</h1>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="thumbnail">
+          <%= image_tag "sponsorships.jpg", :alt => "Sponsorships" %>
+        </div>
+      </div>
+    </div>
 
     <p>DevCon events are free with the support from the community to fund event expenses. Sponsorships fall into two categories:</p>
 
@@ -24,14 +33,6 @@
     </dl>
 
     <p>Sponsorships may be in monetary form or in-kind. Here are a few examples of the latter:</p>
-
-    <div class="row">
-      <div class="col-lg-8 col-sm-10 col-sm-offset-1 col-lg-offset-2">
-        <div class="thumbnail">
-          <%= image_tag "sponsorships.jpg", :alt => "Sponsorships" %>
-        </div>
-      </div>
-    </div>
 
     <ul>
       <li><strong>Venues</strong> - share your meeting or training rooms for <%= link_to 'Code Camps', events_main_path %></li>
