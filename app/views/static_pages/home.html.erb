@@ -91,8 +91,12 @@
           <h3><%= link_to event.name, event, :class => 'title' %></h3>
           <p><small>
             <%= l(event.start_at, :format => :long) %> 
-            to
-            <%= l(event.end_at, :format => :long) %> 
+            <% if event.start_at.future? %>
+              (<%= distance_of_time_in_words_to_now event.start_at %> from now)
+            <% else %>
+              to
+              <%= l(event.end_at, :format => :long) %> 
+            <% end %>
           </small></p>
         </div>
       </div>

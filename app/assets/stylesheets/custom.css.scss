@@ -181,14 +181,14 @@ footer, .footer {
     margin-top: 15px;
   }
 }
-@media (max-width: 1000px) and (min-width:769px) {
+@media (max-width: 1000px) and (min-width:768px) {
   .devise-row {
     h2 {
       padding-top: 20px;
     }
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .devise-row {
     text-align: center;
     h2 {
@@ -245,7 +245,7 @@ footer, .footer {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .frontpage-lists {
     text-align: center;
     .events {
