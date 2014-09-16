@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.1.4'
+gem 'rails', '~> 4.1.6'
 gem 'bootstrap-sass', '~> 3.2.0.0'
 gem 'devise', '~> 3.3.0'
 gem 'simple_form', '~> 3.1.0.rc1'
