@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 4.1.6'
-gem 'bootstrap-sass', '~> 3.2.0.0'
-gem 'devise', '~> 3.3.0'
+gem 'bootstrap-sass', '~> 3.3.1.0'
+gem 'devise', '~> 3.4.0'
 gem 'simple_form', '~> 3.1.0.rc1'
 gem 'will_paginate', '~> 3.0.4'
 gem 'bootstrap-will_paginate', '0.0.10'
@@ -65,7 +65,7 @@ group :development, :test do
 end
 
 gem 'sass-rails',   '~> 4.0.0'
-gem 'coffee-rails', '~> 4.0.1'
+gem 'coffee-rails', '~> 4.1.0'
 gem 'uglifier', '~> 2.5.0'
 
 group :production do
