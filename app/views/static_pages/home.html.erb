@@ -62,12 +62,8 @@
   </div>
 </div>
 <div class="row frontpage-lists">
-  <div class="col-md-6 frontpage-twitter">
-    <a class="twitter-timeline" href="https://twitter.com/DevConPH" data-widget-id="309122045189427200">Tweets by @DevConPH</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-  </div>
   <div class="col-md-6 events">
-    <h2><%= @events_type %></h3>
+    <h2><%= @events_type %></h2>
     <% @events.each do |event| %>
       <div class="row">
         <div class="col-sm-2 col-md-3 col-lg-2">
@@ -88,5 +84,32 @@
       </div>
     <% end %>
     <p><%= link_to "View full list of Events &raquo".html_safe, events_path, :class => "btn btn-success btn-lg" %></p>
+  </div>
+  <div class="col-md-6 articles">
+    <h2>Latest Articles</h2>
+    <% @articles.each do |article| %>
+      <div class="row">
+        <div class="col-sm-2 col-md-3 col-lg-2">
+          <%= image_tag article.thumbnail.small %>
+        </div>
+        <div class="col-sm-10 col-md-9 col-lg-10">
+          <h3><%= link_to article.title, article, :class => 'title' %></h3>
+          <p><small>
+            <%= l(article.updated_at, :format => :long) %> 
+          </small></p>
+        </div>
+      </div>
+    <% end %>
+    <p><%= link_to "View other Articles &raquo".html_safe, articles_path, :class => "btn btn-success btn-lg" %></p>
+  </div>
+</div>
+<hr>
+<div class="row frontpage-lists">
+  <div class="col-md-6 frontpage-twitter">
+    <a class="twitter-timeline" href="https://twitter.com/DevConPH" data-widget-id="309122045189427200">Tweets by @DevConPH</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  </div>
+  <div class="col-md-6 frontpage-twitter">
+    <iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fdevconph&amp;width&amp;height=427&amp;colorscheme=light&amp;show_faces=false&amp;header=true&amp;stream=true&amp;show_border=true&amp;appId=488047311326879" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:400px; width:100%" allowTransparency="true"></iframe>
   </div>
 </div>

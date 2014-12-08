@@ -232,7 +232,10 @@ footer, .footer {
   .frontpage-twitter {
     padding-top: 20px;
   }
-  .events {
+  .events, .articles {
+    h3 {
+      margin-top: 10px;
+    }
     .row {
       padding: 5px 0;
       img {
