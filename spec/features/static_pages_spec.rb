@@ -48,4 +48,31 @@ describe 'Static pages', :type => :feature do
     click_link 'About'
     expect(page).to have_page_title 'About DevCon'
   end
+
+  describe '404 routing' do
+    before { visit '/test' }
+    let(:heading)    { 'Error 404' }
+    let(:page_title) { 'Error 404' }
+
+    it_should_behave_like 'all static pages'
+  end
+
+  describe '404 RecordNotFound' do
+    before { visit '/events/meh' }
+    let(:heading)    { 'Error 404' }
+    let(:page_title) { 'Error 404' }
+
+    it_should_behave_like 'all static pages'
+  end
+
+  describe '500' do
+    before do
+      expect(Event).to receive(:upcoming).and_raise('test exception')
+      visit root_path
+    end
+    let(:heading)    { 'Error 500' }
+    let(:page_title) { 'Error 500' }
+
+    it_should_behave_like 'all static pages'
+  end
 end
