@@ -16,6 +16,7 @@
         <li class="<%= (%{about officers chapters}.include?(action_name) ? "active" : "") %>"><%= link_to 'About', about_path  %></li>
         <li class="<%= (controller_name == "events" ? "active" : "") %>"><%= link_to 'Upcoming Events', events_path %></li>
         <li class="<%= (%w{get_involved volunteer speaker partner sponsor}.include?(action_name) ? "active" : "") %>"><%= link_to 'Get Involved', get_involved_path %></li>
+        <li><%= link_to 'Gallery', 'https://www.facebook.com/DevConPH/photos_stream' %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
@@ -43,7 +44,7 @@
           </li>
         <% else %>
           <% #<li><%= link_to 'Sign up', new_user_registration_path ></li> %>
-          <li><%= link_to 'Sign in', login_path %></li>
+          <%#<li><%= link_to 'Sign in', login_path ></li>%>
         <% end %>
       </ul>
     </nav>

@@ -9,6 +9,9 @@
           <li><%= link_to 'Regional Chapters', chapters_path %></li>
           <li><%= link_to 'Articles', articles_path %></li>
           <li><%= link_to 'Contact', contact_path %></li>
+          <% unless user_signed_in? %>
+            <li><%= link_to 'Sign in', login_path %> (admin only)</li>
+          <% end %>
         </ul>
       </div>
       <div class="col-md-3 col-sm-4">
