@@ -1,4 +1,12 @@
 <% title 'Keep in Touch' %>
+<% description "Stay up to date with latest DevCon news and events." %>
+<% set_meta_tags :open_graph => {
+  :title => "Keep in Touch | #{ENV['title']}",
+  :description => "Stay up to date with latest DevCon news and events.",
+  :type  => :article,
+  :url   => notifications_url,
+  :image => opengraph_thumb_url
+} %>
 <div class="row faq">
   <div class="col-sm-12">
     <h1>Keep in Touch</h1>
