@@ -11,7 +11,7 @@ This is a work-in-progress revamp for the website of [Developers Connnect Philip
 
 ## Developer Notes
 
-This is a Ruby 2.1 + Rails 4.1 + PostgreSQL app so running a local copy should look something like:
+This is a Ruby 2.1 + Rails 4.2 + PostgreSQL app so running a local copy should look something like:
 
     git clone git://github.com/devcon-ph/devcon.git
     cd devcon
@@ -19,7 +19,6 @@ This is a Ruby 2.1 + Rails 4.1 + PostgreSQL app so running a local copy should l
     cp config/database.yml.example config/database.yml
     vim config/database.yml
     rake db:create
-    rake db:test:prepare
     rake db:migrate
     bundle exec guard
 
