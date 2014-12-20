@@ -18,7 +18,7 @@ gem 'htmlentities'
 gem 'icalendar'
 #gem 'omniauth-twitter'
 gem 'omniauth-facebook'
-gem 'coveralls', require: false
+gem 'coveralls', '~> 0.7.2', require: false
 
 gem 'pg', '0.17.1'
 
