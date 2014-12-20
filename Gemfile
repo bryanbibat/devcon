@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.1.6'
+gem 'rails', '~> 4.2.0'
 gem 'bootstrap-sass', '~> 3.3.1.0'
 gem 'devise', '~> 3.4.0'
 gem 'simple_form', '~> 3.1.0.rc1'
@@ -64,9 +64,9 @@ group :development, :test do
   gem 'rack-livereload'
 end
 
-gem 'sass-rails',   '~> 4.0.0'
+gem 'sass-rails',   '~> 5.0.0'
 gem 'coffee-rails', '~> 4.1.0'
-gem 'uglifier', '~> 2.5.0'
+gem 'uglifier', '~> 2.6.0'
 
 group :production do
   gem 'newrelic_rpm'

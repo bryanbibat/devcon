@@ -1,17 +1,8 @@
 require File.expand_path('../boot', __FILE__)
 
-# Pick the frameworks you want:
-require "active_record/railtie"
-require "action_controller/railtie"
-require "action_mailer/railtie"
-require "sprockets/railtie"
-# require "rails/test_unit/railtie"
+require 'rails/all'
 
-if defined?(Bundler)
-  # Require the gems listed in Gemfile, including any gems
-  # you've limited to :test, :development, or :production.
-  Bundler.require(:default, Rails.env)
-end
+Bundler.require(*Rails.groups)
 
 module Devcon
   class Application < Rails::Application
@@ -37,8 +28,8 @@ module Devcon
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    # Configure the default encoding used in templates for Ruby 1.9.
-    config.encoding = "utf-8"
+    # Do not swallow errors in after_commit/after_rollback callbacks.
+    config.active_record.raise_in_transactional_callbacks = true
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
@@ -56,8 +47,6 @@ module Devcon
 
     # Prevents access to DB when precompiling
     config.assets.initialize_on_precompile = false
-
-    config.assets.precompile += ['admin.js']
 
     # disable locale checking since we're only using English
     config.i18n.enforce_available_locales = false
