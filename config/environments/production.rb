@@ -81,6 +81,8 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.perform_deliveries = true
   # Required by Devise
   config.action_mailer.default_url_options = { :host => 'devcon.ph' }
 end
