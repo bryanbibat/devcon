@@ -95,7 +95,7 @@
         <div class="col-sm-10 col-md-9 col-lg-10">
           <h3><%= link_to article.title, article, :class => 'title' %></h3>
           <p><small>
-            <%= l(article.updated_at, :format => :long) %> 
+            <%= l(article.updated_at, :format => "%b %d, %Y") %> 
           </small></p>
         </div>
       </div>
