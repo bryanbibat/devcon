@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    @articles = Article.limit(3)
+    @articles = Article.where(:draft => false).limit(3)
     if Event.upcoming.include_subevents.count > 0
       @events = Event.upcoming.include_subevents.limit(3)
       @events_type = "Upcoming Events"

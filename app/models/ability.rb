@@ -7,7 +7,13 @@ class Ability
     if user.role? :admin
       can :manage, :all
     else
-      can :read, :all
+      can :read, Event
+      can :read, Category
+      can :read, Tag
+
+      can :read, Article do |article|
+        article.draft == false
+      end
 
       # Commented out because we are using
       # Disqus for comments
@@ -21,6 +27,7 @@ class Ability
       # end
 
       if user.role?(:author)
+        can :read, Article
         can :create, Article
         can :update, Article do |article|
           article.try(:author) == user

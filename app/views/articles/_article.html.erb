@@ -14,6 +14,10 @@
       <% end %>
       |
       <%= link_to "", article_url(article) + "#disqus_thread" %>
+      <% if article.draft? %>
+        |
+        <span class="label label-info">draft</span>
+      <% end %>
     </small></p>
     <p class="summary">
       <%= article.summary %>

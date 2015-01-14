@@ -30,6 +30,10 @@
           <%= link_to category.name, category %> 
         <% end %>
       <% end %>
+      <% if @article.draft? %>
+        |
+        <span class="label label-info">draft</span>
+      <% end %>
     </small></p>
     <div class="article-content">
       <%= raw @article.content %>

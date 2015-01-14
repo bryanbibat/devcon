@@ -45,10 +45,16 @@ class ArticlesController < ApplicationController
   private
 
     def paginate_articles
-      @articles = Article.paginate(:page => params[:page])
+      query = if user_signed_in? && (current_user.role?(:admin) ||
+                                     current_user.role?(:author))
+                Article.all
+              else
+                Article.where(:draft => false)
+              end
+      @articles = query.paginate(:page => params[:page])
     end
 
     def article_params
-      params.require(:article).permit(:title, :content, { :category_ids => []}, :slug, :thumbnail, :summary)
+      params.require(:article).permit(:title, :draft, :content, { :category_ids => []}, :slug, :thumbnail, :summary)
     end
 end

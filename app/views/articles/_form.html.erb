@@ -11,6 +11,8 @@
     <%= f.input :slug, :hint => "For permalink" %>
   <% end %>
 
+  <%= f.input :draft, :hint => "Draft articles will not be shown to the public" %>
+
   <%= render :partial => "shared/view_thumbnail", :locals => { :obj => @article } %>
   <%= f.input :thumbnail, :as => :file %>
   <%= f.input :content,

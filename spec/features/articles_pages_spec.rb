@@ -55,6 +55,27 @@ describe 'Articles pages', :type => :feature do
       it { is_expected.to have_page_title '' }
       it { is_expected.to have_url root_url }
     end
+
+    describe 'draft articles' do
+      describe 'in index' do
+        before do
+          @article = Fabricate(:article, :title => 'Draft article', :draft => true)
+          visit articles_path
+        end
+        it { is_expected.not_to have_link 'Draft article' }
+      end
+
+      describe 'in the show page' do
+        before do
+          @article = Fabricate(:article, :draft => true)
+          @article.categories << Fabricate(:category)
+          @article.save
+          visit article_path(@article)
+        end
+        it { is_expected.to have_error_message 'Access denied' }
+        it { is_expected.to have_url root_url }
+      end
+    end
   end
 
   describe 'for signed-in users' do
@@ -272,6 +293,27 @@ describe 'Articles pages', :type => :feature do
         it 'should have a notice message' do
           click_link "Destroy"
           expect(page).to have_notice_message 'destroyed'
+        end
+      end
+
+      describe 'draft articles' do
+        describe 'in index' do
+          before do
+            @article = Fabricate(:article, :title => 'Draft article', :draft => true)
+            visit articles_path
+          end
+          it { is_expected.to have_link 'Draft article' }
+        end
+
+        describe 'in the show page' do
+          before do
+            @article = Fabricate(:article, :draft => true)
+            @article.categories << Fabricate(:category)
+            @article.save
+            visit article_path(@article)
+          end
+          it { is_expected.not_to have_error_message 'Access denied' }
+          it { is_expected.not_to have_url root_url }
         end
       end
     end
