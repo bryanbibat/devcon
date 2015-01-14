@@ -20,7 +20,7 @@ gem 'icalendar'
 gem 'omniauth-facebook'
 gem 'coveralls', '~> 0.7.2', require: false
 
-gem 'pg', '0.18.0'
+gem 'pg', '~> 0.18.0'
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
@@ -48,7 +48,7 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 3.1.0'
   gem 'pry'
-  gem 'fabrication', '~> 2.11.0'
+  gem 'fabrication', '~> 2.12.0'
   gem 'faker'
   gem 'database_cleaner', '~> 1.4.0'
   gem 'capybara', '~> 2.4.1'
@@ -66,7 +66,7 @@ end
 
 gem 'sass-rails',   '~> 5.0.0'
 gem 'coffee-rails', '~> 4.1.0'
-gem 'uglifier', '~> 2.6.0'
+gem 'uglifier', '~> 2.7.0'
 
 group :production do
   gem 'newrelic_rpm'
