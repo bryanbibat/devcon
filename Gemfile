@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 4.2.0'
-gem 'bootstrap-sass', '~> 3.3.1.0'
+gem 'bootstrap-sass', '~> 3.3.3'
 gem 'devise', '~> 3.4.0'
 gem 'simple_form', '~> 3.1.0'
 gem 'will_paginate', '~> 3.0.4'
