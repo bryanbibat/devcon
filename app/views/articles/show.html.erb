@@ -38,13 +38,13 @@
     <div class="article-content">
       <%= raw @article.content %>
       <p>
-        <%= link_to 'Back to articles', articles_path %>
+        <%= link_to 'Back to articles', articles_path, :class => "btn btn-default" %>
   <% end %>
         <% if can? :update, @article %>
-          <%= link_to 'Edit', edit_article_path(@article) %>
+          <%= link_to 'Edit', edit_article_path(@article), :class => "btn btn-default" %>
         <% end %>
         <% if can? :destroy, @article %>
-          <%= link_to 'Destroy', article_path(@article), :data => { :confirm => 'Are you sure?' }, :method => :delete %>
+          <%= link_to 'Destroy', article_path(@article), :data => { :confirm => 'Are you sure?' }, :method => :delete, :class => "btn btn-danger" %>
         <% end %>
   <% cache [@article, "bottom"] do %>
       </p>
