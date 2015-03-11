@@ -182,6 +182,6 @@ ActiveRecord::Schema.define(version: 20150114111022) do
   end
 
   add_index "venues", ["display"], name: "index_venues_on_display", using: :btree
-  add_index "venues", ["slug"], name: "index_venues_on_slug", using: :btree
+  add_index "venues", ["slug"], name: "index_venues_on_slug", unique: true, using: :btree
 
 end
